@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Construction_Site</defName>
+    <label>construction workers outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in providing construction workers for temporary employment to other factions in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <expandingIconTexture>WorldObjects/OutpostConstructionSite</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <RequiredSkills>
+          <Construction>20</Construction>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Construction>30</Construction>
+            </AmountsPerSkills>
+            <AmountPerPawn>50</AmountPerPawn>
+          </li>
+        </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Field_Hospital</defName>
+    <label>field hospital</label>
+    <description>Places a temporary, autonomously-led camp that specializes in producing medical supplies for colony. Alternatively can sell them and provide medical help to wanderers, caravans and natives in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>Outposts.Outpost_ChooseResult</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostFieldHospital</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Medicine>4</Medicine>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <DisplaySkills>
+          <li>Medicine</li>
+          <li>Social</li>
+        </DisplaySkills>
+        <ChooseLabel>Choose strategy for hospital</ChooseLabel>
+        <ChooseDesc>Choose between producing medical supplies for colony or for sale</ChooseDesc>
+        <ResultOptions>
+          <li>
+            <Thing>MedicineHerbal</Thing>
+            <MinSkills>
+              <Medicine>8</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Medicine>3</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>MedicineIndustrial</Thing>
+            <MinSkills>
+              <Medicine>20</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Medicine>1</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Medicine>30</Medicine>
+              <Social>5</Social>
+            </AmountsPerSkills>
+          </li>
+        </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Restaurant</defName>
+    <label>restaurant</label>
+    <description>Places a temporary, autonomously-led camp that specializes in producing meals supplies for colony. Alternatively can sell meals to wanderers, caravans and natives in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>Outposts.Outpost_ChooseResult</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostRestaurant</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Cooking>8</Cooking>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <MinPawns>2</MinPawns>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <DisplaySkills>
+          <li>Cooking</li>
+          <li>Social</li>
+        </DisplaySkills>
+        <ChooseLabel>Choose strategy for restaurant</ChooseLabel>
+        <ChooseDesc>Choose between producing meals for colony or for sale</ChooseDesc>
+        <ResultOptions>
+          <li>
+            <Thing>MealSimple</Thing>
+            <AmountsPerSkills>
+              <Cooking>4</Cooking>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>MealFine</Thing>
+            <MinSkills>
+              <Cooking>16</Cooking>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Cooking>2</Cooking>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>MealSurvivalPack</Thing>
+            <MinSkills>
+              <Cooking>16</Cooking>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Cooking>1</Cooking>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Cooking>30</Cooking>
+              <Social>5</Social>
+            </AmountsPerSkills>
+          </li>
+        </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Circus</defName>
+    <label>wandering circus</label>
+    <description>Places a temporary, autonomously-led camp that specializes in organizing artistic and recreational events for wanderers, caravans and natives in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <expandingIconTexture>WorldObjects/OutpostCircus</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <RequiredSkills>
+          <Artistic>30</Artistic>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <MinPawns>3</MinPawns>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <DisplaySkills>
+          <li>Artistic</li>
+          <li>Social</li>
+        </DisplaySkills>
+        <ResultOptions>
+          <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Artistic>40</Artistic>
+              <Social>10</Social>
+            </AmountsPerSkills>
+            <AmountPerPawn>50</AmountPerPawn>
+          </li>
+        </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
+</Defs>

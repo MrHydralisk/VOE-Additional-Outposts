@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest>
+  <identifier>MrHydralisk.VOEAdditionalOutposts</identifier>
+  <version>1.0.0.0</version>
+  <dependencies>
+	  <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+  </dependencies>
+  <suggests>
+    <li>vanillaexpanded.outposts</li>
+    <li>ClownCat.VOEE.Ranch</li>
+    <li>MrHydralisk.SkilledRefueling</li>
+    <li>MrHydralisk.SkilledSlaughtering</li>
+  </suggests>
+  <showCrossPromotions>true</showCrossPromotions>
+</Manifest>
