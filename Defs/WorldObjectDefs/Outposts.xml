@@ -196,4 +196,31 @@
     </modExtensions>
   </WorldObjectDef>
 
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Embassy</defName>
+    <label>embassy</label>
+    <description>Places a temporary, autonomously-led camp that specializes in organizing artistic and recreational events for wanderers, caravans and natives in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_Embassy</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostEmbassy</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <DisplaySkills>
+          <li>Social</li>
+        </DisplaySkills>
+        <ChooseLabel>Negotiate with {0}</ChooseLabel>
+        <ChooseDesc>Choose with what faction this outpost will negotiate</ChooseDesc>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
 </Defs>

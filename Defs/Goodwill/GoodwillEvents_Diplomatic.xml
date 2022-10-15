@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HistoryEventDef>
+    <defName>EmbassyPeaceTalksSuccess</defName>
+    <label>embassy's peace talks success</label>
+  </HistoryEventDef>
+
+</Defs>

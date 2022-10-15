@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<VOEAdditionalOutposts.Settings.NegotiationDifficulty>Negotiation Difficulty Multiplier</VOEAdditionalOutposts.Settings.NegotiationDifficulty>
+	<VOEAdditionalOutposts.Settings.PerSocial>Social Skill Multiplier</VOEAdditionalOutposts.Settings.PerSocial>
+	<VOEAdditionalOutposts.Settings.PerPawn>Additional % Per Pawn</VOEAdditionalOutposts.Settings.PerPawn>
+    <VOEAdditionalOutposts.WillNegotiate>Your goodwill will improve by {0} with {1} in {2}</VOEAdditionalOutposts.WillNegotiate>
+</LanguageData>
