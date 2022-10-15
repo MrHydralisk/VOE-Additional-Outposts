@@ -199,7 +199,7 @@
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Embassy</defName>
     <label>embassy</label>
-    <description>Places a temporary, autonomously-led camp that specializes in organizing artistic and recreational events for wanderers, caravans and natives in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <description>Places a temporary, autonomously-led camp that specializes in negotiating with other factions. Once the negotiations are successful, goodwill of that faction will increase.</description>
     <worldObjectClass>VOEAdditionalOutposts.Outpost_Embassy</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostEmbassy</expandingIconTexture>
     <modExtensions>
