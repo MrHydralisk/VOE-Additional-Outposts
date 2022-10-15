@@ -204,6 +204,9 @@
     <expandingIconTexture>WorldObjects/OutpostEmbassy</expandingIconTexture>
     <modExtensions>
       <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Social>20</Social>
+        </RequiredSkills>
         <TicksPerProduction>900000</TicksPerProduction>
         <TicksToSetUp>120000</TicksToSetUp>
         <ProvidedFood>MealFine_Veg</ProvidedFood>

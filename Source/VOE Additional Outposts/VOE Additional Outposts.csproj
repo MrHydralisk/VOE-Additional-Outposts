@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HistoryEventDefOfLocal.cs" />
-    <Compile Include="Outpost_Construction_Site.cs" />
+    <Compile Include="Outpost_Embassy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
