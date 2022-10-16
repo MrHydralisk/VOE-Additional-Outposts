@@ -226,4 +226,36 @@
     </modExtensions>
   </WorldObjectDef>
 
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Border_Post</defName>
+    <label>border post</label>
+    <description>Places a temporary, autonomously-led camp that specializes in patroling faction's border, searching for illegal trespassers and smugglers. Once the violator is caught, he is fined or imprisoned. After which a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_Border_Post</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostBorderPost</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Melee>20</Melee>
+          <Social>5</Social>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <DisplaySkills>
+          <li>Melee</li>
+          <li>Social</li>
+        </DisplaySkills>
+        <ChooseLabel>{0} violator</ChooseLabel>
+        <ChooseDesc>Choose what to do with violator</ChooseDesc>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
 </Defs>

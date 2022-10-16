@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <VOEAdditionalOutposts.Settings.Fine>BaseFine</VOEAdditionalOutposts.Settings.Fine>
+	<VOEAdditionalOutposts.Settings.Melee>Melee Skill Multiplier</VOEAdditionalOutposts.Settings.Melee>
+    <VOEAdditionalOutposts.PatrolFine>Fine</VOEAdditionalOutposts.PatrolFine>
+    <VOEAdditionalOutposts.PatrolImprison>Imprison</VOEAdditionalOutposts.PatrolImprison>
+    <VOEAdditionalOutposts.WillPatrol>Curret strategy: {0} violator\nNext border patrol result in {1}</VOEAdditionalOutposts.WillPatrol>
+    <VOEAdditionalOutposts.Letters.PatrolFail.Label>Border Patrol From {0} Nothing To Report</VOEAdditionalOutposts.Letters.PatrolFail.Label>
+    <VOEAdditionalOutposts.Letters.PatrolFail.Text>Border patrol from {0} didn't catch any violators</VOEAdditionalOutposts.Letters.PatrolFail.Text>
+    <VOEAdditionalOutposts.MustBeMade.Road>Must be made on road</VOEAdditionalOutposts.MustBeMade.Road>
+    <VOEAdditionalOutposts.NoNearbySameType>No same type outposts nearby within {0} tiles</VOEAdditionalOutposts.NoNearbySameType>
+</LanguageData>

@@ -56,7 +56,7 @@ namespace VOEAdditionalOutposts
                 {
                     Find.WindowStack.Add(new FloatMenu(GetExtraOptions().Select(delegate (Faction f)
                     {
-                        return new FloatMenuOption("+" + NegotiationGoodwill(f).ToString() + " with " + f.Name, delegate
+                        return new FloatMenuOption("VOEAdditionalOutposts.NegotiateWith".Translate(NegotiationGoodwill(f).ToString(), f.Name).RawText, delegate
                         {
                             choiceFaction = f;
                         }, itemIcon: f.def.FactionIcon, iconColor: f.def.DefaultColor);
