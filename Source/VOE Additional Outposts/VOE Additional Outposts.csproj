@@ -63,10 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmountByCombinedSkills.cs" />
     <Compile Include="HistoryEventDefOfLocal.cs" />
+    <Compile Include="OutpistExtension_Choose_RiskLvl.cs" />
     <Compile Include="Outpost_Border_Post.cs" />
     <Compile Include="Outpost_Embassy.cs" />
+    <Compile Include="Outpost_Mercenary_Camp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultMissionOption.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

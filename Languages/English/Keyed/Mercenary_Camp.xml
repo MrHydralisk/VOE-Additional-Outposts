@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<VOEAdditionalOutposts.Settings.InjuryReduceOnMax>Injure Chance Reduction On Max Combat Lvl</VOEAdditionalOutposts.Settings.InjuryReduceOnMax>
+    <VOEAdditionalOutposts.WillFinishMission>Curret mission risk lvl {0} reward: {1}\nActive squad members: {2}\nMission ends in {3}</VOEAdditionalOutposts.WillFinishMission>
+    <VOEAdditionalOutposts.Letters.MissionResult.Label>Mission report from {0}</VOEAdditionalOutposts.Letters.MissionResult.Label>
+    <VOEAdditionalOutposts.Letters.MissionResultMinorInjury.Text>Squad members with minor injury: {0}</VOEAdditionalOutposts.Letters.MissionResultMinorInjury.Text>
+    <VOEAdditionalOutposts.Letters.MissionResultMajorInjury.Text>Squad members with major injury: {0}</VOEAdditionalOutposts.Letters.MissionResultMajorInjury.Text>
+    <VOEAdditionalOutposts.Letters.MissionResultCasualties.Text>Casualties: {0}</VOEAdditionalOutposts.Letters.MissionResultCasualties.Text>
+    <VOEAdditionalOutposts.Letters.MissionResultNothing.Text>No accidents</VOEAdditionalOutposts.Letters.MissionResultNothing.Text>
+</LanguageData>

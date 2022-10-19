@@ -258,4 +258,87 @@
     </modExtensions>
   </WorldObjectDef>
 
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Mercenary_Camp</defName>
+    <label>mercenary camp</label>
+    <description>Places a temporary, autonomously-led camp that specializes in providing mercenary services in exchange for silver. Once mission is over reward will be delivered at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_Mercenary_Camp</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostMercenaryCamp</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Melee>10</Melee>
+          <Shooting>10</Shooting>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ChooseLabel>Risk lvl {0}</ChooseLabel>
+        <ChooseDesc>Choose risk lvl for next mission</ChooseDesc>
+      </li>
+      <li Class="VOEAdditionalOutposts.OutpistExtension_Choose_Mission">
+        <CombinedSkills>
+          <CombinedSkillName>Combat</CombinedSkillName>
+          <Skills>
+            <li>Shooting</li>
+            <li>Melee</li>
+          </Skills>
+          <SkillsWeight>
+            <li>1</li>
+            <li>0.5</li>
+          </SkillsWeight>
+          <ImportanceBySkillLvl>true</ImportanceBySkillLvl>
+        </CombinedSkills>
+        <ResultMissionOptions>
+          <li>
+            <RiskLvl>0</RiskLvl>
+            <AmountsPerCombinedSkills>15</AmountsPerCombinedSkills>
+            <MinorInjuryChance>0.25</MinorInjuryChance>
+            <MajorInjuryChance>0</MajorInjuryChance>
+            <FatalInjuryChance>0</FatalInjuryChance>
+          </li>
+          <li>
+            <RiskLvl>1</RiskLvl>
+            <MinCombinedSkills>40</MinCombinedSkills>
+            <AmountsPerCombinedSkills>20</AmountsPerCombinedSkills>
+            <MinorInjuryChance>0.75</MinorInjuryChance>
+            <MajorInjuryChance>0.10</MajorInjuryChance>
+            <FatalInjuryChance>0</FatalInjuryChance>
+          </li>
+          <li>
+            <RiskLvl>2</RiskLvl>
+            <MinCombinedSkills>60</MinCombinedSkills>
+            <AmountsPerCombinedSkills>30</AmountsPerCombinedSkills>
+            <MinorInjuryChance>2.50</MinorInjuryChance>
+            <MajorInjuryChance>0.25</MajorInjuryChance>
+            <FatalInjuryChance>0.01</FatalInjuryChance>
+          </li>
+          <li>
+            <RiskLvl>3</RiskLvl>
+            <MinCombinedSkills>80</MinCombinedSkills>
+            <AmountsPerCombinedSkills>40</AmountsPerCombinedSkills>
+            <MinorInjuryChance>3.75</MinorInjuryChance>
+            <MajorInjuryChance>0.40</MajorInjuryChance>
+            <FatalInjuryChance>0.10</FatalInjuryChance>
+          </li>
+          <li>
+            <RiskLvl>4</RiskLvl>
+            <MinCombinedSkills>120</MinCombinedSkills>
+            <AmountsPerCombinedSkills>60</AmountsPerCombinedSkills>
+            <MinorInjuryChance>5</MinorInjuryChance>
+            <MajorInjuryChance>0.60</MajorInjuryChance>
+            <FatalInjuryChance>0.20</FatalInjuryChance>
+          </li>
+        </ResultMissionOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
 </Defs>

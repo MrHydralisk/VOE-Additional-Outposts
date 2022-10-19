@@ -8,5 +8,6 @@
     <VOEAdditionalOutposts.Letters.PatrolFail.Label>Border Patrol From {0} Nothing To Report</VOEAdditionalOutposts.Letters.PatrolFail.Label>
     <VOEAdditionalOutposts.Letters.PatrolFail.Text>Border patrol from {0} didn't catch any violators</VOEAdditionalOutposts.Letters.PatrolFail.Text>
     <VOEAdditionalOutposts.MustBeMade.Road>Must be made on road</VOEAdditionalOutposts.MustBeMade.Road>
+    <VOEAdditionalOutposts.MustBeMade.FarFromSame>Too close to other outpost of same type, must have at least {0} tile between them</VOEAdditionalOutposts.MustBeMade.FarFromSame>
     <VOEAdditionalOutposts.NoNearbySameType>No same type outposts nearby within {0} tiles</VOEAdditionalOutposts.NoNearbySameType>
 </LanguageData>

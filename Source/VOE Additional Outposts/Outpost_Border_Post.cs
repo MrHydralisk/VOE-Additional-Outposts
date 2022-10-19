@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using RimWorld;
 using Outposts;
 using Verse;
 using UnityEngine;
-using RimWorld.Planet;
-using System.Text;
 
 namespace VOEAdditionalOutposts
 {
@@ -67,7 +66,7 @@ namespace VOEAdditionalOutposts
                                 {
                                     int AtkAmount = Rand.Range(1, Mathf.CeilToInt((10f - p.skills.GetSkill(SkillDefOf.Social).Level) / 2) + 1);
                                     for (int i = 0; i < AtkAmount; i++) 
-                                        prisoner.TakeDamage(new DamageInfo(DamageDefOf.Blunt, Rand.Range(5, 10)));
+                                        prisoner.TakeDamage(new DamageInfo(HealthUtility.RandomViolenceDamageType(), Rand.Range(5, 10)));
                                     while (prisoner.health.HasHediffsNeedingTend())
                                         TendUtility.DoTend(p, prisoner, null);
                                 }
@@ -140,12 +139,15 @@ namespace VOEAdditionalOutposts
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
         {
-            return (Find.WorldGrid[tile].Roads.NullOrEmpty()) ? "VOEAdditionalOutposts.MustBeMade.Road".Translate() : ((TaggedString)null);
+            return (Find.WorldGrid[tile].Roads.NullOrEmpty()) ? "VOEAdditionalOutposts.MustBeMade.Road".Translate() : (Find.WorldObjects.AllWorldObjects.OfType<Outpost_Border_Post>().Count((Outpost_Border_Post s) => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 6f) > 0)? "VOEAdditionalOutposts.MustBeMade.FarFromSame".Translate(6) : ((TaggedString)null);
         }
 
         public static string RequirementsString(int tile, List<Pawn> pawns)
         {
-            return "VOEAdditionalOutposts.MustBeMade.Road".Translate().Requirement(Find.WorldGrid[tile].Roads.NullOrEmpty());
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("VOEAdditionalOutposts.MustBeMade.Road".Translate().Requirement(Find.WorldGrid[tile].Roads.NullOrEmpty()));
+            stringBuilder.AppendLine("VOEAdditionalOutposts.MustBeMade.FarFromSame".Translate(6).Requirement(Find.WorldObjects.AllWorldObjects.OfType<Outpost_Border_Post>().Count((Outpost_Border_Post s) => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 6f) > 0));
+            return stringBuilder.ToString();
         }
     }
 }
