@@ -118,7 +118,7 @@ namespace VOEAdditionalOutposts
                 },
                 defaultLabel = ChooseExt.ChooseLabel.Formatted(choiceType),
                 defaultDesc = ChooseExt.ChooseDesc,
-                icon = choiceType == "Fine" ? ThingDefOf.Silver.uiIcon : ContentFinder<Texture2D>.Get("Icons/BorderPostImprison")
+                icon = choiceType == "Fine" ? ThingDefOf.Silver.uiIcon : TexOutposts.ImprisonTex
             });
         }
 

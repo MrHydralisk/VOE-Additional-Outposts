@@ -28,19 +28,20 @@ namespace VOEAdditionalOutposts
             {
                 Deliver(ThingDefOf.Silver.Make(RewardCount));
                 Pawn doc = AllPawns.Where((Pawn p) => !p.Dead && !p.Downed && p.RaceProps.Humanlike && !p.skills.GetSkill(SkillDefOf.Medicine).TotallyDisabled).OrderByDescending((Pawn p) => p.skills.GetSkill(SkillDefOf.Medicine).Level).FirstOrDefault();
-                Log.Message(doc.Name.ToStringSafe());
                 int MinorInjury = 0, MajorInjury = 0, Casualties = 0;
                 float InjuryReducePerLvl = 0;
                 if (InjuryReduceOnMax > 1)
                 {
                     InjuryReducePerLvl = InjuryReduceOnMax / 30;
                 }
+                List<Pawn> DeadPawns = new List<Pawn>();
                 foreach (Pawn pawn in CapablePawns)
                 {
                     float InjuryReduce = ChooseMission.CombinedSkills.TotalSkillValue(pawn) * InjuryReducePerLvl + 1;
                     if (Rand.Chance(choiceMission.FatalInjuryChance / InjuryReduce))
                     {
                         HealthUtility.DamageUntilDead(pawn);
+                        DeadPawns.Add(pawn);
                         Casualties++;
                     }
                     else if (Rand.Chance(choiceMission.MajorInjuryChance / InjuryReduce))
@@ -49,7 +50,10 @@ namespace VOEAdditionalOutposts
                         while (pawn.health.HasHediffsNeedingTend())
                             TendUtility.DoTend(doc, pawn, null);
                         if (pawn.Dead)
+                        {
+                            DeadPawns.Add(pawn);
                             Casualties++;
+                        }
                         else
                             MajorInjury++;
                     }
@@ -69,12 +73,19 @@ namespace VOEAdditionalOutposts
                             TendUtility.DoTend(doc, pawn, null);
                         if (InjuryCount > 0)
                             if (pawn.Dead)
+                            {
+                                DeadPawns.Add(pawn);
                                 Casualties++;
+                            }
                             else if (pawn.Downed)
                                 MajorInjury++;
                             else
                                 MinorInjury++;
                     }
+                }
+                foreach(Pawn pawn in DeadPawns)
+                {
+                    RemovePawn(pawn);
                 }
                 LetterDef ld = LetterDefOf.NeutralEvent;
                 string Text = "";

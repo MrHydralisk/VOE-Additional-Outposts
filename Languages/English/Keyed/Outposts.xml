@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <VOEAdditionalOutposts.Commands.TakePawn.Label>Take Pawn</VOEAdditionalOutposts.Commands.TakePawn.Label>
+    <VOEAdditionalOutposts.Commands.TakePawn.Desc>Transfer a pawn from this outpost to the caravan</VOEAdditionalOutposts.Commands.TakePawn.Desc>
+</LanguageData>
