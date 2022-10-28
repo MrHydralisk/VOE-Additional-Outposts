@@ -36,7 +36,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '1.3|AnyCPU' ">
     <OutputPath>..\..\1.3\Assemblies\</OutputPath>
-    <DefineConstants>TRACE;1_3</DefineConstants>
+    <DefineConstants>TRACE;v1_3</DefineConstants>
     <Optimize>true</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -44,7 +44,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.4|AnyCPU'">
     <OutputPath>..\..\1.4\Assemblies\</OutputPath>
-    <DefineConstants>TRACE;1_4</DefineConstants>
+    <DefineConstants>TRACE;v1_4</DefineConstants>
     <Optimize>true</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -83,6 +83,7 @@
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HistoryEventDefOfLocal.cs" />
     <Compile Include="OutpistExtension_Choose_RiskLvl.cs" />
+    <Compile Include="Outpost_Prison.cs" />
     <Compile Include="Outpost_Border_Post.cs" />
     <Compile Include="Outpost_Embassy.cs" />
     <Compile Include="Outpost_Mercenary_Camp.cs" />

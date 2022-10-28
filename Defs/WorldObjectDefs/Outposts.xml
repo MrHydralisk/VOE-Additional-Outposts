@@ -341,4 +341,33 @@
     </modExtensions>
   </WorldObjectDef>
 
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Prison</defName>
+    <label>prison</label>
+    <description>Places a temporary, autonomously-led camp that specializes in keeping prisoners and their rehabilitation. Get payment with silver for holding prisoners from other factions. Can force to work, recruit or enslave colony prisoners. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_Prison</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostPrison</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Social>20</Social>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <DisplaySkills>
+          <li>Social</li>
+        </DisplaySkills>
+        <ChooseDesc>Choose what to do with prisoners</ChooseDesc>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <!-- <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts> -->
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
 </Defs>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<VOEAdditionalOutposts.Settings.PerPrisonerSkill>Best Prisoner Skill Multiplier</VOEAdditionalOutposts.Settings.PerPrisonerSkill>
+    <VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerWarden>Interaction Interval Reduction Per Warden</VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerWarden>
+	<VOEAdditionalOutposts.Settings.MaxInteractionInterval>Max Interaction Interval</VOEAdditionalOutposts.Settings.MaxInteractionInterval>
+	<VOEAdditionalOutposts.Settings.MinInteractionInterval>Min Interaction Interval</VOEAdditionalOutposts.Settings.MinInteractionInterval>
+    <VOEAdditionalOutposts.Silver>silver {0}</VOEAdditionalOutposts.Silver>
+    <VOEAdditionalOutposts.Hemogen>hemogen packs {0}</VOEAdditionalOutposts.Hemogen>
+    <VOEAdditionalOutposts.PrisonersWork>Force prisoners to work</VOEAdditionalOutposts.PrisonersWork>
+    <VOEAdditionalOutposts.RecruitPrisoners>Recruit prisoners</VOEAdditionalOutposts.RecruitPrisoners>
+    <VOEAdditionalOutposts.EnslavePrisoners>Enslave prisoners</VOEAdditionalOutposts.EnslavePrisoners>
+    <VOEAdditionalOutposts.HemogenPrisoners>Extract hemogen packs from prisoners</VOEAdditionalOutposts.HemogenPrisoners>
+    <VOEAdditionalOutposts.WillWarden>Wardens: {0}\nColony prisoners: {1}\nCurret strategy: {2}\nNext delivery in {3}:\n{4}</VOEAdditionalOutposts.WillWarden>
+    <VOEAdditionalOutposts.Letters.PrisonFail.Label>Prison {0} Nothing To Report</VOEAdditionalOutposts.Letters.PrisonFail.Label>
+    <VOEAdditionalOutposts.Letters.PrisonFail.Text>Prsion didn't recieved any payments. Consider increasing amount of wardens or prisoners</VOEAdditionalOutposts.Letters.PrisonFail.Text>
+</LanguageData>
