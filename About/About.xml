@@ -14,5 +14,13 @@
 			<displayName>Vanilla Expanded Framework</displayName>
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
 		</li>
-</modDependencies>
+  </modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>brrainz.harmony</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>vanillaexpanded.outposts</li>
+	</loadAfter>
 </ModMetaData>
