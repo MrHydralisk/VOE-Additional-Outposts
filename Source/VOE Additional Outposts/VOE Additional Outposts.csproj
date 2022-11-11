@@ -41,6 +41,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.4|AnyCPU'">
     <OutputPath>..\..\1.4\Assemblies\</OutputPath>
@@ -49,6 +50,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -83,6 +85,7 @@
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HistoryEventDefOfLocal.cs" />
     <Compile Include="OutpistExtension_Choose_RiskLvl.cs" />
+    <Compile Include="Outpost_Church.cs" />
     <Compile Include="Outpost_Prison.cs" />
     <Compile Include="Outpost_Border_Post.cs" />
     <Compile Include="Outpost_Embassy.cs" />

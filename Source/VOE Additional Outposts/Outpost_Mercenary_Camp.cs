@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace VOEAdditionalOutposts
 {
-    class Outpost_Mercenary_Camp : Outpost
+    public class Outpost_Mercenary_Camp : Outpost
     {
         [PostToSetings("VOEAdditionalOutposts.Settings.InjuryReduceOnMax", PostToSetingsAttribute.DrawMode.Slider, 3f, 1f, 10f, null, null)]
         public float InjuryReduceOnMax = 3f;

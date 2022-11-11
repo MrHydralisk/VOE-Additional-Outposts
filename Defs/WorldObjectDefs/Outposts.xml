@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
+
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Construction_Site</defName>
     <label>construction workers outpost</label>
@@ -25,10 +25,6 @@
         </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>
@@ -83,10 +79,6 @@
         </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>
@@ -148,10 +140,6 @@
         </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>
@@ -187,10 +175,6 @@
         </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>
@@ -217,10 +201,6 @@
         <ChooseDesc>Choose with what faction this outpost will negotiate</ChooseDesc>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>
@@ -249,10 +229,6 @@
         <ChooseDesc>Choose what to do with violator</ChooseDesc>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>
@@ -332,10 +308,6 @@
         </ResultMissionOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>
@@ -361,10 +333,6 @@
         <ChooseDesc>Choose what to do with prisoners</ChooseDesc>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <!-- <useStructureLayout>True</useStructureLayout>
-        <chooseFromlayouts>
-          <li>Outpost_Struct_Logging</li>
-        </chooseFromlayouts> -->
         <fullClear>true</fullClear>
       </li>
     </modExtensions>

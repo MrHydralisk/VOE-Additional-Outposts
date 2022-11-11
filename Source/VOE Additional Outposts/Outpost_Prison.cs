@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using RimWorld;
 using Outposts;
 using Verse;
@@ -8,7 +7,7 @@ using UnityEngine;
 
 namespace VOEAdditionalOutposts
 {
-    class Outpost_Prison : Outpost
+    public class Outpost_Prison : Outpost
     {
         [PostToSetings("VOEAdditionalOutposts.Settings.PerSocial", PostToSetingsAttribute.DrawMode.IntSlider, 20, 10, 100, null, null)]
         public int PerSocial = 20;
@@ -53,7 +52,7 @@ namespace VOEAdditionalOutposts
             if (items.Count() > 0)
                 Deliver(items);
             else
-                Find.LetterStack.ReceiveLetter("VOEAdditionalOutposts.Letters.PrisonFail.Label".Translate(Name), "VOEAdditionalOutposts.Letters.PrisonFail.Text".Translate(Name), LetterDefOf.NeutralEvent);
+                Find.LetterStack.ReceiveLetter("VOEAdditionalOutposts.Letters.PrisonFail.Label".Translate(Name), "VOEAdditionalOutposts.Letters.PrisonFail.Text".Translate(), LetterDefOf.NeutralEvent);
         }
 
         public int PaymentSilver(bool IsPrisonersWorking = false)

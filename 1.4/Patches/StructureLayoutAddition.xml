@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Construction_Site"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Construction_Site</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Field_Hospital"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Field_Hospital</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Restaurant"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Restaurant</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Circus"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Circus</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Embassy"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Embassy</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Border_Post"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Border_Post</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Mercenary_Camp"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Mercenary_Camp</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Prison"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Prison</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/WorldObjectDef[defName ="Outpost_Church"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+					<order>Prepend</order>
+					<value>
+						<chooseFromlayouts>
+							<li>Outpost_Struct_Church</li>
+						</chooseFromlayouts>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

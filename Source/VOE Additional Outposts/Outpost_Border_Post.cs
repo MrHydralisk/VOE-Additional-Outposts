@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace VOEAdditionalOutposts
 {
-    class Outpost_Border_Post : Outpost
+    public class Outpost_Border_Post : Outpost
     {
 
         [PostToSetings("VOEAdditionalOutposts.Settings.Fine", PostToSetingsAttribute.DrawMode.IntSlider, 1000, 250, 3000, null, null)]

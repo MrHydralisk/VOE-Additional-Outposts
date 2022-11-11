@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <VOEAdditionalOutposts.SpreadIdeology>{0} priest spread {1}</VOEAdditionalOutposts.SpreadIdeology>
+	<VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerPriest>Interaction Interval Reduction Per Priest</VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerPriest>
+    <VOEAdditionalOutposts.WillSpreadIdeology>Priests: {0}\nNew followers: {1}\nCurret ideology: {2}\nNext delivery in {3}:\n{4}</VOEAdditionalOutposts.WillSpreadIdeology>
+    <VOEAdditionalOutposts.Letters.ChurchFail.Label>Church {0} Nothing To Report</VOEAdditionalOutposts.Letters.ChurchFail.Label>
+    <VOEAdditionalOutposts.Letters.ChurchFail.Text>Church didn't recieved any donations. Consider increasing amount of priests</VOEAdditionalOutposts.Letters.ChurchFail.Text>
+</LanguageData>

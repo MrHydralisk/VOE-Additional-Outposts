@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Church</defName>
+    <label>church</label>
+    <description>Places a temporary, autonomously-led camp that specializes in spreading ideology. Get donations with silver from visitors. Can convert people to faction's ideology. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_Church</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostChurch</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Social>20</Social>
+        </RequiredSkills>
+        <TicksPerProduction>900000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <DisplaySkills>
+          <li>Social</li>
+        </DisplaySkills>
+        <ChooseLabel>Spread {0}</ChooseLabel>
+        <ChooseDesc>Choose what ideology your priests will spread</ChooseDesc>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
+</Defs>
