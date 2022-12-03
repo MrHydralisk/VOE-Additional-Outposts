@@ -123,7 +123,7 @@ namespace VOEAdditionalOutposts
                     }, ContentFinder<Texture2D>.Get("Icons/BorderPostImprison"), Color.white));
                     Find.WindowStack.Add(new FloatMenu(FMO));
                 },
-                defaultLabel = ChooseExt.ChooseLabel.Formatted(choiceType),
+                defaultLabel = ChooseExt.ChooseLabel.Formatted(choiceType == "Fine" ? "VOEAdditionalOutposts.PatrolFine".Translate().RawText : "VOEAdditionalOutposts.PatrolImprison".Translate().RawText),
                 defaultDesc = ChooseExt.ChooseDesc,
                 icon = choiceType == "Fine" ? ThingDefOf.Silver.uiIcon : TexOutposts.ImprisonTex
             });

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<VOEAdditionalOutposts.Settings.InjuryReduceOnMax>Снижение шанса травмы при максимальном боевом уровне</VOEAdditionalOutposts.Settings.InjuryReduceOnMax>
+    <VOEAdditionalOutposts.WillFinishMission>Уровень риска текущей миссии {0}. Награда: {1}\nДействующие члены отряда: {2}\nМиссия закончится через {3}</VOEAdditionalOutposts.WillFinishMission>
+    <VOEAdditionalOutposts.Letters.MissionResult.Label>Отчёт о миссии из {0}</VOEAdditionalOutposts.Letters.MissionResult.Label>
+    <VOEAdditionalOutposts.Letters.MissionResultMinorInjury.Text>Члены отряда с легкими травмами: {0}</VOEAdditionalOutposts.Letters.MissionResultMinorInjury.Text>
+    <VOEAdditionalOutposts.Letters.MissionResultMajorInjury.Text>Члены отряда с серьезными травмами: {0}</VOEAdditionalOutposts.Letters.MissionResultMajorInjury.Text>
+    <VOEAdditionalOutposts.Letters.MissionResultCasualties.Text>Потери: {0}</VOEAdditionalOutposts.Letters.MissionResultCasualties.Text>
+    <VOEAdditionalOutposts.Letters.MissionResultNothing.Text>Без происшествий</VOEAdditionalOutposts.Letters.MissionResultNothing.Text>
+</LanguageData>

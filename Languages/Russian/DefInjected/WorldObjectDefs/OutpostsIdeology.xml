@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Outpost_Church.label>церковь</Outpost_Church.label>
+  <Outpost_Church.description>Размещает временный автономный лагерь, специализирующийся на распространении идеологии. Получайте пожертвования серебром от прихожан. Может обращать новых последователей в идеологию фракции. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Church.description>
+  <Outpost_Church.modExtensions.0.ChooseLabel>Распространение {0}</Outpost_Church.modExtensions.0.ChooseLabel>
+  <Outpost_Church.modExtensions.0.ChooseDesc>Выберите какую идеологию выши священники будут распространять</Outpost_Church.modExtensions.0.ChooseDesc>
+
+</LanguageData>

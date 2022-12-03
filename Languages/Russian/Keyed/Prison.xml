@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<VOEAdditionalOutposts.Settings.PerPrisonerSkill>Множитель лучшего навыка заключённого</VOEAdditionalOutposts.Settings.PerPrisonerSkill>
+    <VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerWarden>Уменьшение интервала между взаимодействиями за каждого надзирателя</VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerWarden>
+	<VOEAdditionalOutposts.Settings.MaxInteractionInterval>Максимальный интервала между взаимодействиями</VOEAdditionalOutposts.Settings.MaxInteractionInterval>
+	<VOEAdditionalOutposts.Settings.MinInteractionInterval>Минимальный интервала между взаимодействиями</VOEAdditionalOutposts.Settings.MinInteractionInterval>
+    <VOEAdditionalOutposts.Silver>серебро {0}</VOEAdditionalOutposts.Silver>
+    <VOEAdditionalOutposts.Hemogen>пакеты крови {0}</VOEAdditionalOutposts.Hemogen>
+    <VOEAdditionalOutposts.PrisonersWork>Заставлять заключенных работать</VOEAdditionalOutposts.PrisonersWork>
+    <VOEAdditionalOutposts.RecruitPrisoners>Вербовать заключённого</VOEAdditionalOutposts.RecruitPrisoners>
+    <VOEAdditionalOutposts.EnslavePrisoners>Обратить заключённого в рабство</VOEAdditionalOutposts.EnslavePrisoners>
+    <VOEAdditionalOutposts.HemogenPrisoners>Извлечение пакетов крови из заключённого</VOEAdditionalOutposts.HemogenPrisoners>
+    <VOEAdditionalOutposts.WillWarden>Надзиратели: {0}\nЗаключённые колонии: {1}\nТекущая стратегия: {2}\nСледующая доставка через {3}:\n{4}</VOEAdditionalOutposts.WillWarden>
+    <VOEAdditionalOutposts.Letters.PrisonFail.Label>Тюрьма {0} нечего докладывать</VOEAdditionalOutposts.Letters.PrisonFail.Label>
+    <VOEAdditionalOutposts.Letters.PrisonFail.Text>Тюрьма не получила никаких выплат. Рассмотрите возможность увеличения количества надзирателей или заключенных</VOEAdditionalOutposts.Letters.PrisonFail.Text>
+</LanguageData>

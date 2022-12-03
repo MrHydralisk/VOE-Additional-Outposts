@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <VOEAdditionalOutposts.Settings.Fine>Базовый штраф</VOEAdditionalOutposts.Settings.Fine>
+	<VOEAdditionalOutposts.Settings.Melee>Множитель навыка ближнего боя</VOEAdditionalOutposts.Settings.Melee>
+    <VOEAdditionalOutposts.PatrolFine>Штрафовать</VOEAdditionalOutposts.PatrolFine>
+    <VOEAdditionalOutposts.PatrolImprison>Заключение под стражу</VOEAdditionalOutposts.PatrolImprison>
+    <VOEAdditionalOutposts.WillPatrol>Текущая стратегия: {0} нарушителя\nРезультат следующего пограничного патруля через {1}</VOEAdditionalOutposts.WillPatrol>
+    <VOEAdditionalOutposts.Letters.PatrolFail.Label>Пограничный патруль из {0} нечего докладывать</VOEAdditionalOutposts.Letters.PatrolFail.Label>
+    <VOEAdditionalOutposts.Letters.PatrolFail.Text>Пограничный патруль из {0} не поймал никаких нарушителей</VOEAdditionalOutposts.Letters.PatrolFail.Text>
+    <VOEAdditionalOutposts.MustBeMade.Road>Должен быть расположен на дороге</VOEAdditionalOutposts.MustBeMade.Road>
+    <VOEAdditionalOutposts.MustBeMade.FarFromSame>Слишком близко к аванпосту того же типа, между ними должно быть не менее {0} клеток</VOEAdditionalOutposts.MustBeMade.FarFromSame>
+    <VOEAdditionalOutposts.NoNearbySameType>Не должно быть аванпостов того же типа в радиусе {0} клеток</VOEAdditionalOutposts.NoNearbySameType>
+</LanguageData>

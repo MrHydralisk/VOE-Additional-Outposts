@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <VOEAdditionalOutposts.SpreadIdeology>{0} священников распространяют {1}</VOEAdditionalOutposts.SpreadIdeology>
+	<VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerPriest>Уменьшение интервала между взаимодействиями за каждого священника</VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerPriest>
+    <VOEAdditionalOutposts.WillSpreadIdeology>Священники: {0}\nНовые последователи: {1}\nТекущая идеология: {2}\nСледующая доставка через {3}:\n{4}</VOEAdditionalOutposts.WillSpreadIdeology>
+    <VOEAdditionalOutposts.Letters.ChurchFail.Label>Церковь {0} нечего докладывать</VOEAdditionalOutposts.Letters.ChurchFail.Label>
+    <VOEAdditionalOutposts.Letters.ChurchFail.Text>Церковь не получила никаких пожертвований. Рассмотрите возможность увеличения количества священников</VOEAdditionalOutposts.Letters.ChurchFail.Text>
+</LanguageData>

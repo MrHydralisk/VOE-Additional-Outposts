@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Outpost_Construction_Site.label>аванпост строительных рабочих</Outpost_Construction_Site.label>
+  <Outpost_Construction_Site.description>Размещает временный автономный лагерь, который специализируется на предоставлении строителей для временной работы другим фракциям в обмен на серебро. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Construction_Site.description>
+
+  <Outpost_Field_Hospital.label>полевой госпиталь</Outpost_Field_Hospital.label>
+  <Outpost_Field_Hospital.description>Размещает временный автономный лагерь, который специализируется на производстве медикаментов для колонии. В качестве альтернативы можно продать их и оказывать медицинскую помощь странникам, караванщикам и туземцам в обмен на серебро. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Field_Hospital.description>
+  <Outpost_Field_Hospital.modExtensions.0.ChooseLabel>Выберите стратегию работы полевого госпиталя</Outpost_Field_Hospital.modExtensions.0.ChooseLabel>
+  <Outpost_Field_Hospital.modExtensions.0.ChooseDesc>Выберите между производством медикаментов для колонии или на продажу</Outpost_Field_Hospital.modExtensions.0.ChooseDesc>
+
+  <Outpost_Restaurant.label>ресторан</Outpost_Restaurant.label>
+  <Outpost_Restaurant.description>Размещает временный автономный лагерь, который специализируется на производстве пищи для колонии. В качестве альтернативы можно продавать еду странникам, караванщикам и туземцам в обмен на серебро. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Restaurant.description>
+  <Outpost_Restaurant.modExtensions.0.ChooseLabel>Выберите стратегию работы ресторана</Outpost_Restaurant.modExtensions.0.ChooseLabel>
+  <Outpost_Restaurant.modExtensions.0.ChooseDesc>Выберите между производством пищи для колонии или на продажу</Outpost_Restaurant.modExtensions.0.ChooseDesc>
+
+  <Outpost_Circus.label>бродячий цирк</Outpost_Circus.label>
+  <Outpost_Circus.description>Размещает временный автономный лагерь, который специализируется на организации художественных и развлекательных мероприятий для странников, караванов и туземцев в обмен на серебро. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Circus.description>
+
+  <Outpost_Embassy.label>посольство</Outpost_Embassy.label>
+  <Outpost_Embassy.description>Размещает временный автономный лагерь, специализирующийся на ведении переговоров с другими фракциями. Как только переговоры увенчаются успехом, репутация с этой фракцией возрастет.</Outpost_Embassy.description>
+  <Outpost_Embassy.modExtensions.0.ChooseLabel>Вести переговоры с {0}</Outpost_Embassy.modExtensions.0.ChooseLabel>
+  <Outpost_Embassy.modExtensions.0.ChooseDesc>Выберите, с какой фракцией будет вести переговоры это посольство</Outpost_Embassy.modExtensions.0.ChooseDesc>
+
+  <Outpost_Border_Post.label>пограничный пост охраны</Outpost_Border_Post.label>
+  <Outpost_Border_Post.description>Размещает временный автономный лагерь, который специализируется на патрулировании границ фракции, поиске незаконных нарушителей и контрабандистов. Как только нарушителя поймают, его оштрафуют или заключат под стражу. После чего будет произведена доставка на окраину основной колонии фракции.</Outpost_Border_Post.description>
+  <Outpost_Border_Post.modExtensions.0.ChooseLabel>{0} нарушителя</Outpost_Border_Post.modExtensions.0.ChooseLabel>
+  <Outpost_Border_Post.modExtensions.0.ChooseDesc>Выберите что делать с нарушителем</Outpost_Border_Post.modExtensions.0.ChooseDesc>
+
+  <Outpost_Mercenary_Camp.label>лагерь наёмников</Outpost_Mercenary_Camp.label>
+  <Outpost_Mercenary_Camp.description>Размещает временный автономный лагерь, который специализируется на предоставлении услуг наемников в обмен на серебро. После завершения миссии награда будет доставлена на окраину основной колонии фракции.</Outpost_Mercenary_Camp.description>
+  <Outpost_Mercenary_Camp.modExtensions.0.ChooseLabel>Уровень риска {0}</Outpost_Mercenary_Camp.modExtensions.0.ChooseLabel>
+  <Outpost_Mercenary_Camp.modExtensions.0.ChooseDesc>Выберите уровень риска для следующей миссии</Outpost_Mercenary_Camp.modExtensions.0.ChooseDesc>
+  <Outpost_Mercenary_Camp.modExtensions.1.CombinedSkills.CombinedSkillName>Бой</Outpost_Mercenary_Camp.modExtensions.1.CombinedSkills.CombinedSkillName>
+
+  <Outpost_Prison.label>тюрьма</Outpost_Prison.label>
+  <Outpost_Prison.description>Размещает временный автономный лагерь, который специализируется на содержании заключенных и их реабилитации. Получает выплаты серебром за содержание заключенных из других фракций. Может заставить работать, вербовать или обратить в рабство заключенных колонии. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Prison.description>
+  <Outpost_Prison.modExtensions.0.ChooseDesc>Выберите что делать с заключёнными</Outpost_Prison.modExtensions.0.ChooseDesc>
+
+</LanguageData>

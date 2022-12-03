@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<VOEAdditionalOutposts.Settings.NegotiationDifficulty>Множитель сложности переговоров</VOEAdditionalOutposts.Settings.NegotiationDifficulty>
+	<VOEAdditionalOutposts.Settings.PerSocial>Множитель навыка общения</VOEAdditionalOutposts.Settings.PerSocial>
+	<VOEAdditionalOutposts.Settings.PerPawn>Дополнительный % за каждого колниста</VOEAdditionalOutposts.Settings.PerPawn>
+    <VOEAdditionalOutposts.NegotiateWith>+{0} с {1}</VOEAdditionalOutposts.NegotiateWith>
+    <VOEAdditionalOutposts.WillNegotiate>Ваша репутация увеличится на {0} с {1} через {2}</VOEAdditionalOutposts.WillNegotiate>
+</LanguageData>
