@@ -47,7 +47,7 @@ namespace VOEAdditionalOutposts
                 case("Imprison"):
                     {
                         List<Pawn> Prisoners = new List<Pawn>();
-                        List<Faction> hostileFactions = Find.FactionManager.AllFactionsVisibleInViewOrder.Where((Faction f) => !f.temporary && !f.IsPlayer && f.PlayerRelationKind == FactionRelationKind.Hostile && f.leader.RaceProps.Humanlike).ToList();
+                        List<Faction> hostileFactions = Find.FactionManager.AllFactionsVisibleInViewOrder.Where((Faction f) => !f.temporary && !f.IsPlayer && f.PlayerRelationKind == FactionRelationKind.Hostile && f.def.humanlikeFaction).ToList();
                         if (hostileFactions.EnumerableNullOrEmpty())
                         {
                             Log.Message("Hostile factions not found");
