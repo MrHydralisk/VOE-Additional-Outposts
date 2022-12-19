@@ -47,41 +47,35 @@ namespace VOEAdditionalOutposts
                 case("Imprison"):
                     {
                         List<Pawn> Prisoners = new List<Pawn>();
-                        List<Faction> hostileFactions = Find.FactionManager.AllFactionsVisibleInViewOrder.Where((Faction f) => !f.temporary && !f.IsPlayer && f.PlayerRelationKind == FactionRelationKind.Hostile && f.def.humanlikeFaction).ToList();
-                        if (hostileFactions.EnumerableNullOrEmpty())
+                        foreach (Pawn p in CapablePawns.ToList())
                         {
-                            Log.Message("Hostile factions not found");
-                        }
-                        else
-                        {
-                            foreach (Pawn p in CapablePawns.ToList())
+                            Faction hostileFaction = Find.FactionManager.RandomEnemyFaction(allowNonHumanlike: false);
+                            if (TryCatch(p) && hostileFaction != null)
                             {
-                                if (TryCatch(p))
+                                Pawn prisoner = PawnGenerator.GeneratePawn(hostileFaction.RandomPawnKind() ?? PawnKindDefOf.Villager, hostileFaction);
+                                prisoner.equipment.DestroyAllEquipment();
+                                prisoner.inventory.DestroyAll();
+                                prisoner.apparel.WornApparel.RemoveAll((Apparel a) => a.MarketValue > 100f);
+                                if (p.skills.GetSkill(SkillDefOf.Social).Level < 4)
                                 {
-                                    Pawn prisoner = PawnGenerator.GeneratePawn(PawnKindDefOf.Villager, hostileFactions.ElementAt(Rand.Range(0, hostileFactions.Count())));
-                                    prisoner.equipment.DestroyAllEquipment();
-                                    prisoner.inventory.DestroyAll();
-                                    prisoner.apparel.WornApparel.RemoveAll((Apparel a) => a.MarketValue > 100f);
-                                    if (p.skills.GetSkill(SkillDefOf.Social).Level < 4)
-                                    {
-                                        HealthUtility.DamageLegsUntilIncapableOfMoving(prisoner);
-                                        while (prisoner.health.HasHediffsNeedingTend())
-                                            TendUtility.DoTend(p, prisoner, null);
-                                    }
-                                    else if (p.skills.GetSkill(SkillDefOf.Social).Level < 10)
-                                    {
-                                        int AtkAmount = Rand.Range(1, Mathf.CeilToInt((10f - p.skills.GetSkill(SkillDefOf.Social).Level) / 2) + 1);
-                                        for (int i = 0; i < AtkAmount; i++)
-                                            prisoner.TakeDamage(new DamageInfo(HealthUtility.RandomViolenceDamageType(), Rand.Range(5, 10)));
-                                        while (prisoner.health.HasHediffsNeedingTend())
-                                            TendUtility.DoTend(p, prisoner, null);
-                                    }
-                                    prisoner.Faction.Notify_MemberCaptured(prisoner, Faction.OfPlayer);
-                                    prisoner.guest.CapturedBy(Faction.OfPlayer, p);
-                                    Prisoners.Add(prisoner);
+                                    HealthUtility.DamageLegsUntilIncapableOfMoving(prisoner);
+                                    while (prisoner.health.HasHediffsNeedingTend())
+                                        TendUtility.DoTend(p, prisoner, null);
                                 }
+                                else if (p.skills.GetSkill(SkillDefOf.Social).Level < 10)
+                                {
+                                    int AtkAmount = Rand.Range(1, Mathf.CeilToInt((10f - p.skills.GetSkill(SkillDefOf.Social).Level) / 2) + 1);
+                                    for (int i = 0; i < AtkAmount; i++)
+                                        prisoner.TakeDamage(new DamageInfo(HealthUtility.RandomViolenceDamageType(), Rand.Range(5, 10)));
+                                    while (prisoner.health.HasHediffsNeedingTend())
+                                        TendUtility.DoTend(p, prisoner, null);
+                                }
+                                prisoner.Faction.Notify_MemberCaptured(prisoner, Faction.OfPlayer);
+                                prisoner.guest.CapturedBy(Faction.OfPlayer, p);
+                                Prisoners.Add(prisoner);
                             }
                         }
+                        
                         if (Prisoners.Count() > 0)
                             Deliver(Prisoners);
                         else

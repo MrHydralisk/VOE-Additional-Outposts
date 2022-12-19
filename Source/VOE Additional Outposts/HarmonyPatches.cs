@@ -37,7 +37,9 @@ namespace VOEAdditionalOutposts
                 },
                 defaultLabel = "VOEAdditionalOutposts.Commands.TakePawn.Label".Translate(),
                 defaultDesc = "VOEAdditionalOutposts.Commands.TakePawn.Desc".Translate(),
-                icon = Outposts.TexOutposts.RemoveTex
+                icon = Outposts.TexOutposts.RemoveTex,
+                disabled = (__instance.AllPawns.Count() == 1),
+                disabledReason = "Outposts.Command.Remove.Only1".Translate()
             });
             __result = NGizmos;
         }
