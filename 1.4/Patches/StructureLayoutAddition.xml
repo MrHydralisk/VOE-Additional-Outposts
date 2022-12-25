@@ -74,6 +74,15 @@
 					</chooseFromlayouts>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Ranch"]/modExtensions/li[@Class="KCSG.CustomGenOption"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<chooseFromlayouts>
+						<li>Outpost_Struct_Ranch</li>
+					</chooseFromlayouts>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 

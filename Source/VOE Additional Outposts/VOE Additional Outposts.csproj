@@ -85,6 +85,7 @@
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HistoryEventDefOfLocal.cs" />
     <Compile Include="OutpistExtension_Choose_RiskLvl.cs" />
+    <Compile Include="Outpost_Ranch.cs" />
     <Compile Include="Outpost_Church.cs" />
     <Compile Include="Outpost_Prison.cs" />
     <Compile Include="Outpost_Border_Post.cs" />

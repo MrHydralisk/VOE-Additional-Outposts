@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+    <VOEAdditionalOutposts.Settings.BodySize>Animal Body Size Multiplier</VOEAdditionalOutposts.Settings.BodySize>
+    <VOEAdditionalOutposts.Settings.FemaleAnimalPercent>Female Animal Percent</VOEAdditionalOutposts.Settings.FemaleAnimalPercent>
+    <VOEAdditionalOutposts.Settings.BaseHerdSize>Base Herd Size</VOEAdditionalOutposts.Settings.BaseHerdSize>
+    <VOEAdditionalOutposts.WillHandleAnimals>{0}: {1} / {2}\nBirth in {3}\n</VOEAdditionalOutposts.WillHandleAnimals>
+    <VOEAdditionalOutposts.ChooseDisabledReason>Must have at least one {0}</VOEAdditionalOutposts.ChooseDisabledReason>
+    <VOEAdditionalOutposts.MustBeMade.PairAnimal>Must have pair of animals</VOEAdditionalOutposts.MustBeMade.PairAnimal>
+
+</LanguageData>
