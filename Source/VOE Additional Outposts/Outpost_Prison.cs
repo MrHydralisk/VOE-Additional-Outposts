@@ -28,9 +28,9 @@ namespace VOEAdditionalOutposts
 #endif
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
 
-        private List<Pawn> prisoners => base.AllPawns.Where((Pawn p) => p.IsPrisoner).OrderBy((Pawn p) => p.guest.resistance).ToList();
+        private List<Pawn> prisoners => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && p.IsPrisoner).OrderBy((Pawn p) => p.guest.resistance).ToList();
 
-        private List<Pawn> wardens => base.AllPawns.Where((Pawn p) => !p.IsPrisoner && !StatDefOf.NegotiationAbility.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.NegotiationAbility)).ToList();
+        private List<Pawn> wardens => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner && !StatDefOf.NegotiationAbility.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.NegotiationAbility)).ToList();
 
         private string choiceType = "Recruit";
 

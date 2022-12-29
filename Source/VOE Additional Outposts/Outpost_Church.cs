@@ -21,15 +21,15 @@ namespace VOEAdditionalOutposts
         [PostToSetings("VOEAdditionalOutposts.Settings.MinInteractionInterval", PostToSetingsAttribute.DrawMode.IntSlider, 10000, 5000, 60000, null, null)]
         public int MinInteractionInterval = 10000;
 
-        private List<Ideo> ideologies => base.AllPawns.Where((Pawn p) => !p.IsPrisoner).Select((Pawn p) => p.Ideo).Distinct().ToList();
+        private List<Ideo> ideologies => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner).Select((Pawn p) => p.Ideo).Distinct().ToList();
 
         private Ideo ChooseIdeologyCached;
 
         protected Ideo ChooseIdeology => ChooseIdeologyCached ?? ideologies.First();
 
-        private List<Pawn> priests => base.AllPawns.Where((Pawn p) =>! p.IsPrisoner && p.Ideo == ChooseIdeology && !StatDefOf.ConversionPower.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.ConversionPower)).ToList();
+        private List<Pawn> priests => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner && p.Ideo == ChooseIdeology && !StatDefOf.ConversionPower.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.ConversionPower)).ToList();
 
-        private List<Pawn> followers => base.AllPawns.Where((Pawn p) => p.Ideo != ChooseIdeology).OrderBy((Pawn p) => p.ideo.Certainty).Select((Pawn p) => (p, p.IsPrisoner ? 0 : p.IsSlave ? 1 : 2)).OrderByDescending(x => x.Item2).Select(x => x.p).ToList();
+        private List<Pawn> followers => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && p.Ideo != ChooseIdeology).OrderBy((Pawn p) => p.ideo.Certainty).Select((Pawn p) => (p, p.IsPrisoner ? 0 : p.IsSlave ? 1 : 2)).OrderByDescending(x => x.Item2).Select(x => x.p).ToList();
         
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
         
@@ -46,7 +46,7 @@ namespace VOEAdditionalOutposts
 
         public int PaymentSilver(Ideo ideo)
         {
-            return (int)((PerSocial * base.AllPawns.Where((Pawn p) => !p.IsPrisoner && p.Ideo == ideo && !StatDefOf.ConversionPower.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.ConversionPower)).Skip(base.AllPawns.Where((Pawn p) => p.Ideo != ideo).Count()).Sum((Pawn p) => p.skills.GetSkill(SkillDefOf.Social).Level)) * OutpostsMod.Settings.ProductionMultiplier);
+            return (int)((PerSocial * base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner && p.Ideo == ideo && !StatDefOf.ConversionPower.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.ConversionPower)).Skip(base.AllPawns.Where((Pawn p) => p.Ideo != ideo).Count()).Sum((Pawn p) => p.skills.GetSkill(SkillDefOf.Social).Level)) * OutpostsMod.Settings.ProductionMultiplier);
         }
 
         public int PaymentSilver()
@@ -126,7 +126,7 @@ namespace VOEAdditionalOutposts
                 {
                     Find.WindowStack.Add(new FloatMenu(ideologies.Select(delegate (Ideo ideo)
                     {
-                        return new FloatMenuOption("VOEAdditionalOutposts.SpreadIdeology".Translate(base.AllPawns.Where((Pawn p) => !p.IsPrisoner && p.Ideo == ideo).Count(), ideo.name).RawText + " + " + "VOEAdditionalOutposts.Silver".Translate(PaymentSilver(ideo)).RawText, delegate
+                        return new FloatMenuOption("VOEAdditionalOutposts.SpreadIdeology".Translate(base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner && p.Ideo == ideo).Count(), ideo.name).RawText + " + " + "VOEAdditionalOutposts.Silver".Translate(PaymentSilver(ideo)).RawText, delegate
                         {
                             ChooseIdeologyCached = ideo;
                         }, itemIcon: ideo.iconDef.Icon, iconColor: ideo.colorDef.color);
