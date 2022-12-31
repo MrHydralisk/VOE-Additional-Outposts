@@ -4,6 +4,11 @@
     <VOEAdditionalOutposts.Settings.BodySize>Множитель размера тела животного</VOEAdditionalOutposts.Settings.BodySize>
     <VOEAdditionalOutposts.Settings.FemaleAnimalPercent>Процент самок</VOEAdditionalOutposts.Settings.FemaleAnimalPercent>
     <VOEAdditionalOutposts.Settings.BaseHerdSize>Базовый размер стада</VOEAdditionalOutposts.Settings.BaseHerdSize>
+    <VOEAdditionalOutposts.Settings.MeatMultiplier>Множитель мяса</VOEAdditionalOutposts.Settings.MeatMultiplier>
+    <VOEAdditionalOutposts.Settings.LeatherMultiplier>Множитель кожи</VOEAdditionalOutposts.Settings.LeatherMultiplier>
+    <VOEAdditionalOutposts.Settings.EggMultiplier>Множитель яиц</VOEAdditionalOutposts.Settings.EggMultiplier>
+    <VOEAdditionalOutposts.Settings.MilkMultiplier>Множитель молока</VOEAdditionalOutposts.Settings.MilkMultiplier>
+    <VOEAdditionalOutposts.Settings.WoolMultiplier>Множитель шерсти</VOEAdditionalOutposts.Settings.WoolMultiplier>
     <VOEAdditionalOutposts.WillHandleAnimals>{0}: {1} / {2}\nРождение через {3}\n</VOEAdditionalOutposts.WillHandleAnimals>
     <VOEAdditionalOutposts.ChooseDisabledReason>Хотя бы один {0} должен присутствовать</VOEAdditionalOutposts.ChooseDisabledReason>
     <VOEAdditionalOutposts.MustBeMade.PairAnimal>Требуется пара животных</VOEAdditionalOutposts.MustBeMade.PairAnimal>

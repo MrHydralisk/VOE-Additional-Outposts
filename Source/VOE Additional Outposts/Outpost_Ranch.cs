@@ -13,6 +13,21 @@ namespace VOEAdditionalOutposts
         [PostToSetings("VOEAdditionalOutposts.Settings.BodySize", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.1f, 5f, null, null)]
         public float BodyScale = 1f;
 
+        [PostToSetings("VOEAdditionalOutposts.Settings.MeatMultiplier", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f, null, null)]
+        public float MeatMultiplier = 1f;
+
+        [PostToSetings("VOEAdditionalOutposts.Settings.LeatherMultiplier", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f, null, null)]
+        public float LeatherMultiplier = 1f;
+
+        [PostToSetings("VOEAdditionalOutposts.Settings.EggMultiplier", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f, null, null)]
+        public float EggMultiplier = 1f;
+
+        [PostToSetings("VOEAdditionalOutposts.Settings.MilkMultiplier", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f, null, null)]
+        public float MilkMultiplier = 1f;
+
+        [PostToSetings("VOEAdditionalOutposts.Settings.WoolMultiplier", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f, null, null)]
+        public float WoolMultiplier = 1f;
+
         [PostToSetings("VOEAdditionalOutposts.Settings.FemaleAnimalPercent", PostToSetingsAttribute.DrawMode.Percentage, 0.5f, 0.1f, 1f, null, null)]
         public float FemaleAnimalPercent = 0.5f;
 
@@ -67,14 +82,14 @@ namespace VOEAdditionalOutposts
                     {
                         ResultOption ro = new ResultOption();
                         ro.Thing = animalThingDef.race.meatDef;
-                        ro.BaseAmount = (int)(animalThingDef.GetStatValueAbstract(StatDefOf.MeatAmount) * animalSlaughtered * ButcherScale * OutpostsMod.Settings.ProductionMultiplier);
+                        ro.BaseAmount = (int)(animalThingDef.GetStatValueAbstract(StatDefOf.MeatAmount) * animalSlaughtered * ButcherScale * MeatMultiplier * OutpostsMod.Settings.ProductionMultiplier);
                         resultOptions.Add(ro);
                     }
                     if (animalThingDef.race.leatherDef != null)
                     {
                         ResultOption ro = new ResultOption();
                         ro.Thing = animalThingDef.race.leatherDef;
-                        ro.BaseAmount = (int)(animalThingDef.GetStatValueAbstract(StatDefOf.LeatherAmount) * animalSlaughtered * ButcherScale * OutpostsMod.Settings.ProductionMultiplier);
+                        ro.BaseAmount = (int)(animalThingDef.GetStatValueAbstract(StatDefOf.LeatherAmount) * animalSlaughtered * ButcherScale * LeatherMultiplier * OutpostsMod.Settings.ProductionMultiplier);
                         resultOptions.Add(ro);
                     }
                 }
@@ -83,7 +98,7 @@ namespace VOEAdditionalOutposts
                     CompProperties_EggLayer CP_EggLayer = animalThingDef.GetCompProperties<CompProperties_EggLayer>();
                     ResultOption ro = new ResultOption();
                     ro.Thing = CP_EggLayer.eggUnfertilizedDef;
-                    ro.BaseAmount = (int)((TicksPerProduction / (CP_EggLayer.eggLayIntervalDays * 60000f)) * animalCount * CP_EggLayer.eggCountRange.RandomInRange * (CP_EggLayer.eggLayFemaleOnly ? FemaleAnimalPercent : 1f) * OutpostsMod.Settings.ProductionMultiplier);
+                    ro.BaseAmount = (int)((TicksPerProduction / (CP_EggLayer.eggLayIntervalDays * 60000f)) * animalCount * CP_EggLayer.eggCountRange.RandomInRange * (CP_EggLayer.eggLayFemaleOnly ? FemaleAnimalPercent : 1f) * EggMultiplier * OutpostsMod.Settings.ProductionMultiplier);
                     resultOptions.Add(ro);
                 }
                 if (animalThingDef.HasComp(typeof(CompMilkable)))
@@ -91,7 +106,7 @@ namespace VOEAdditionalOutposts
                     CompProperties_Milkable CP_Milkable = animalThingDef.GetCompProperties<CompProperties_Milkable>();
                     ResultOption ro = new ResultOption();
                     ro.Thing = CP_Milkable.milkDef;
-                    ro.BaseAmount = (int)((TicksPerProduction / (CP_Milkable.milkIntervalDays * 60000f)) * animalCount * CP_Milkable.milkAmount * (CP_Milkable.milkFemaleOnly ? FemaleAnimalPercent : 1f) * OutpostsMod.Settings.ProductionMultiplier);
+                    ro.BaseAmount = (int)((TicksPerProduction / (CP_Milkable.milkIntervalDays * 60000f)) * animalCount * CP_Milkable.milkAmount * (CP_Milkable.milkFemaleOnly ? FemaleAnimalPercent : 1f) * MilkMultiplier * OutpostsMod.Settings.ProductionMultiplier);
                     resultOptions.Add(ro);
                 }
                 if (animalThingDef.HasComp(typeof(CompShearable)))
@@ -99,7 +114,7 @@ namespace VOEAdditionalOutposts
                     CompProperties_Shearable CP_Shearable = animalThingDef.GetCompProperties<CompProperties_Shearable>();
                     ResultOption ro = new ResultOption();
                     ro.Thing = CP_Shearable.woolDef;
-                    ro.BaseAmount = (int)((TicksPerProduction / (CP_Shearable.shearIntervalDays * 60000f)) * animalCount * CP_Shearable.woolAmount  * OutpostsMod.Settings.ProductionMultiplier);
+                    ro.BaseAmount = (int)((TicksPerProduction / (CP_Shearable.shearIntervalDays * 60000f)) * animalCount * CP_Shearable.woolAmount * WoolMultiplier * OutpostsMod.Settings.ProductionMultiplier);
                     resultOptions.Add(ro);
                 }
                 return resultOptions;

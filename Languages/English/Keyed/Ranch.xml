@@ -4,6 +4,11 @@
     <VOEAdditionalOutposts.Settings.BodySize>Animal Body Size Multiplier</VOEAdditionalOutposts.Settings.BodySize>
     <VOEAdditionalOutposts.Settings.FemaleAnimalPercent>Female Animal Percent</VOEAdditionalOutposts.Settings.FemaleAnimalPercent>
     <VOEAdditionalOutposts.Settings.BaseHerdSize>Base Herd Size</VOEAdditionalOutposts.Settings.BaseHerdSize>
+    <VOEAdditionalOutposts.Settings.MeatMultiplier>Meat Multiplier</VOEAdditionalOutposts.Settings.MeatMultiplier>
+    <VOEAdditionalOutposts.Settings.LeatherMultiplier>Leather Multiplier</VOEAdditionalOutposts.Settings.LeatherMultiplier>
+    <VOEAdditionalOutposts.Settings.EggMultiplier>Egg Multiplier</VOEAdditionalOutposts.Settings.EggMultiplier>
+    <VOEAdditionalOutposts.Settings.MilkMultiplier>Milk Multiplier</VOEAdditionalOutposts.Settings.MilkMultiplier>
+    <VOEAdditionalOutposts.Settings.WoolMultiplier>Wool Multiplier</VOEAdditionalOutposts.Settings.WoolMultiplier>
     <VOEAdditionalOutposts.WillHandleAnimals>{0}: {1} / {2}\nBirth in {3}\n</VOEAdditionalOutposts.WillHandleAnimals>
     <VOEAdditionalOutposts.ChooseDisabledReason>Must have at least one {0}</VOEAdditionalOutposts.ChooseDisabledReason>
     <VOEAdditionalOutposts.MustBeMade.PairAnimal>Must have pair of animals</VOEAdditionalOutposts.MustBeMade.PairAnimal>
