@@ -9,6 +9,8 @@
     <VOEAdditionalOutposts.Settings.EggMultiplier>Множитель яиц</VOEAdditionalOutposts.Settings.EggMultiplier>
     <VOEAdditionalOutposts.Settings.MilkMultiplier>Множитель молока</VOEAdditionalOutposts.Settings.MilkMultiplier>
     <VOEAdditionalOutposts.Settings.WoolMultiplier>Множитель шерсти</VOEAdditionalOutposts.Settings.WoolMultiplier>
+    <VOEAdditionalOutposts.Settings.DropOnDeathMultiplier>Множитель дополнительной добычи при смерти</VOEAdditionalOutposts.Settings.DropOnDeathMultiplier>
+    <VOEAdditionalOutposts.Settings.AnimalProductMultiplier>Множитель дополнительной продукции</VOEAdditionalOutposts.Settings.AnimalProductMultiplier>
     <VOEAdditionalOutposts.WillHandleAnimals>{0}: {1} / {2}\nРождение через {3}\n</VOEAdditionalOutposts.WillHandleAnimals>
     <VOEAdditionalOutposts.ChooseDisabledReason>Хотя бы один {0} должен присутствовать</VOEAdditionalOutposts.ChooseDisabledReason>
     <VOEAdditionalOutposts.MustBeMade.PairAnimal>Требуется пара животных</VOEAdditionalOutposts.MustBeMade.PairAnimal>

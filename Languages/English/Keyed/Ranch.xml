@@ -9,6 +9,8 @@
     <VOEAdditionalOutposts.Settings.EggMultiplier>Egg Multiplier</VOEAdditionalOutposts.Settings.EggMultiplier>
     <VOEAdditionalOutposts.Settings.MilkMultiplier>Milk Multiplier</VOEAdditionalOutposts.Settings.MilkMultiplier>
     <VOEAdditionalOutposts.Settings.WoolMultiplier>Wool Multiplier</VOEAdditionalOutposts.Settings.WoolMultiplier>
+    <VOEAdditionalOutposts.Settings.DropOnDeathMultiplier>Custom Drop On Death Multiplier</VOEAdditionalOutposts.Settings.DropOnDeathMultiplier>
+    <VOEAdditionalOutposts.Settings.AnimalProductMultiplier>Custom Animal Product Multiplier</VOEAdditionalOutposts.Settings.AnimalProductMultiplier>
     <VOEAdditionalOutposts.WillHandleAnimals>{0}: {1} / {2}\nBirth in {3}\n</VOEAdditionalOutposts.WillHandleAnimals>
     <VOEAdditionalOutposts.ChooseDisabledReason>Must have at least one {0}</VOEAdditionalOutposts.ChooseDisabledReason>
     <VOEAdditionalOutposts.MustBeMade.PairAnimal>Must have pair of animals</VOEAdditionalOutposts.MustBeMade.PairAnimal>
