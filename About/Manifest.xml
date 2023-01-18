@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
   <identifier>MrHydralisk.VOEAdditionalOutposts</identifier>
-  <version>1.6.3.0</version>
+  <version>1.7.0.0</version>
   <dependencies>
 	  <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
   </dependencies>
@@ -10,6 +10,7 @@
     <li>MrHydralisk.SkilledRefueling</li>
     <li>MrHydralisk.SkilledSlaughtering</li>
     <li>MrHydralisk.PawnSuppressionImplants</li>
+    <li>MrHydralisk.VOEPowerGrid</li>
   </suggests>
   <showCrossPromotions>true</showCrossPromotions>
 </Manifest>

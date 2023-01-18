@@ -18,7 +18,7 @@
           <li>
             <Thing>Silver</Thing>
             <AmountsPerSkills>
-              <Construction>30</Construction>
+              <Construction>40</Construction>
             </AmountsPerSkills>
             <AmountPerPawn>50</AmountPerPawn>
           </li>
@@ -34,7 +34,7 @@
     <defName>Outpost_Field_Hospital</defName>
     <label>field hospital</label>
     <description>Places a temporary, autonomously-led camp that specializes in producing medical supplies for colony. Alternatively can sell them and provide medical help to wanderers, caravans and natives in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
-    <worldObjectClass>Outposts.Outpost_ChooseResult</worldObjectClass>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_ChooseResultFloat</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostFieldHospital</expandingIconTexture>
     <modExtensions>
       <li Class="Outposts.OutpostExtension_Choose">
@@ -46,10 +46,14 @@
         <ProvidedFood>MealFine_Veg</ProvidedFood>
         <DisplaySkills>
           <li>Medicine</li>
-          <li>Social</li>
         </DisplaySkills>
         <ChooseLabel>Choose strategy for hospital</ChooseLabel>
         <ChooseDesc>Choose between producing medical supplies for colony or for sale</ChooseDesc>
+      </li>
+      <li Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat">
+        <AdditionalDisplaySkills>
+          <li>Social</li>
+        </AdditionalDisplaySkills>
         <ResultOptions>
           <li>
             <Thing>MedicineHerbal</Thing>
@@ -57,7 +61,7 @@
               <Medicine>8</Medicine>
             </MinSkills>
             <AmountsPerSkills>
-              <Medicine>3</Medicine>
+              <Medicine>6</Medicine>
             </AmountsPerSkills>
           </li>
           <li>
@@ -66,13 +70,67 @@
               <Medicine>20</Medicine>
             </MinSkills>
             <AmountsPerSkills>
+              <Medicine>3</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>GoJuice</Thing>
+            <MinSkills>
+              <Medicine>16</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
               <Medicine>1</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>Penoxycyline</Thing>
+            <MinSkills>
+              <Medicine>16</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Medicine>3</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>Flake</Thing>
+            <MinSkills>
+              <Medicine>16</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Medicine>7</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>Yayo</Thing>
+            <MinSkills>
+              <Medicine>16</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Medicine>3.5</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>SmokeleafJoint</Thing>
+            <MinSkills>
+              <Medicine>16</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Medicine>9</Medicine>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>WakeUp</Thing>
+            <MinSkills>
+              <Medicine>16</Medicine>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Medicine>1.5</Medicine>
             </AmountsPerSkills>
           </li>
           <li>
             <Thing>Silver</Thing>
             <AmountsPerSkills>
-              <Medicine>30</Medicine>
+              <Medicine>45</Medicine>
               <Social>5</Social>
             </AmountsPerSkills>
           </li>
@@ -88,7 +146,7 @@
     <defName>Outpost_Restaurant</defName>
     <label>restaurant</label>
     <description>Places a temporary, autonomously-led camp that specializes in producing meals supplies for colony. Alternatively can sell meals to wanderers, caravans and natives in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
-    <worldObjectClass>Outposts.Outpost_ChooseResult</worldObjectClass>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_ChooseResultFloat</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostRestaurant</expandingIconTexture>
     <modExtensions>
       <li Class="Outposts.OutpostExtension_Choose">
@@ -101,15 +159,19 @@
         <ProvidedFood>MealFine_Veg</ProvidedFood>
         <DisplaySkills>
           <li>Cooking</li>
-          <li>Social</li>
         </DisplaySkills>
         <ChooseLabel>Choose strategy for restaurant</ChooseLabel>
         <ChooseDesc>Choose between producing meals for colony or for sale</ChooseDesc>
+      </li>
+      <li Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat">
+        <AdditionalDisplaySkills>
+          <li>Social</li>
+        </AdditionalDisplaySkills>
         <ResultOptions>
           <li>
             <Thing>MealSimple</Thing>
             <AmountsPerSkills>
-              <Cooking>4</Cooking>
+              <Cooking>8</Cooking>
             </AmountsPerSkills>
           </li>
           <li>
@@ -118,7 +180,16 @@
               <Cooking>16</Cooking>
             </MinSkills>
             <AmountsPerSkills>
-              <Cooking>2</Cooking>
+              <Cooking>7</Cooking>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>MealLavish</Thing>
+            <MinSkills>
+              <Cooking>32</Cooking>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Cooking>3.5</Cooking>
             </AmountsPerSkills>
           </li>
           <li>
@@ -127,13 +198,22 @@
               <Cooking>16</Cooking>
             </MinSkills>
             <AmountsPerSkills>
-              <Cooking>1</Cooking>
+              <Cooking>6</Cooking>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>PsychiteTea</Thing>
+            <MinSkills>
+              <Cooking>16</Cooking>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Cooking>10</Cooking>
             </AmountsPerSkills>
           </li>
           <li>
             <Thing>Silver</Thing>
             <AmountsPerSkills>
-              <Cooking>30</Cooking>
+              <Cooking>45</Cooking>
               <Social>5</Social>
             </AmountsPerSkills>
           </li>
@@ -167,8 +247,8 @@
           <li>
             <Thing>Silver</Thing>
             <AmountsPerSkills>
-              <Artistic>40</Artistic>
-              <Social>10</Social>
+              <Artistic>55</Artistic>
+              <Social>15</Social>
             </AmountsPerSkills>
             <AmountPerPawn>50</AmountPerPawn>
           </li>
@@ -223,10 +303,14 @@
         <ProvidedFood>MealFine_Veg</ProvidedFood>
         <DisplaySkills>
           <li>Melee</li>
-          <li>Social</li>
         </DisplaySkills>
         <ChooseLabel>{0} violator</ChooseLabel>
         <ChooseDesc>Choose what to do with violator</ChooseDesc>
+      </li>
+      <li Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat">
+        <AdditionalDisplaySkills>
+          <li>Social</li>
+        </AdditionalDisplaySkills>
       </li>
       <li Class="KCSG.CustomGenOption">
         <fullClear>true</fullClear>

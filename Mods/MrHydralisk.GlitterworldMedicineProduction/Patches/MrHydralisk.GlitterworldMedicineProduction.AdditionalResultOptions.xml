@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Field_Hospital"]/modExtensions/li[@Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat"]/ResultOptions/li[2]</xpath>
+				<order>Append</order>
+				<value>
+					<li>
+					  <Thing>MedicineUltratech</Thing>
+					  <MinSkills>
+						<Medicine>40</Medicine>
+					  </MinSkills>
+					  <AmountsPerSkills>
+						<Medicine>0.5</Medicine>
+					  </AmountsPerSkills>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -22,6 +22,9 @@ namespace VOEAdditionalOutposts
 
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
 
+        private OutpostExtension_ChooseFloat extensionCached;
+        protected OutpostExtension_ChooseFloat ChooseExtFloat => extensionCached ?? (extensionCached = def.GetModExtension<OutpostExtension_ChooseFloat>());
+
         private string choiceType = "Fine";
 
         public override void Produce()
