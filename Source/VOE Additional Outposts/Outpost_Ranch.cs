@@ -92,7 +92,7 @@ namespace VOEAdditionalOutposts
                         ResultOption ro = new ResultOption();
                         ro.Thing = animalThingDef.race.meatDef;
                         ro.BaseAmount = (int)(animalThingDef.GetStatValueAbstract(StatDefOf.MeatAmount) * animalSlaughtered * ButcherScale * MeatMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                        if (ro.BaseAmount > 0)
+                        if (ro.Thing != null && ro.BaseAmount > 0)
                             resultOptions.Add(ro);
                     }
                     if (animalThingDef.race.leatherDef != null)
@@ -100,7 +100,7 @@ namespace VOEAdditionalOutposts
                         ResultOption ro = new ResultOption();
                         ro.Thing = animalThingDef.race.leatherDef;
                         ro.BaseAmount = (int)(animalThingDef.GetStatValueAbstract(StatDefOf.LeatherAmount) * animalSlaughtered * ButcherScale * LeatherMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                        if (ro.BaseAmount > 0)
+                        if (ro.Thing != null && ro.BaseAmount > 0)
                             resultOptions.Add(ro);
                     }
                     if (animalThingDef.HasComp(typeof(CompDropOnDeath)))
@@ -116,7 +116,7 @@ namespace VOEAdditionalOutposts
                             ro.Thing = ThingDef.Named(CP_DropOnDeath.resourceDef);
                         }
                         ro.BaseAmount = (int)(CP_DropOnDeath.resourceAmount * animalSlaughtered * Mathf.Min(Mathf.Max(CP_DropOnDeath.dropChance, 0f), 1f) * ButcherScale * DropOnDeathMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                        if (ro.BaseAmount > 0)
+                        if (ro.Thing != null && ro.BaseAmount > 0)
                             resultOptions.Add(ro);
                     }
                     if (animalThingDef.butcherProducts?.Count > 0)
@@ -126,7 +126,7 @@ namespace VOEAdditionalOutposts
                             ResultOption ro = new ResultOption();
                             ro.Thing = tdcc.thingDef;
                             ro.BaseAmount = (int)(tdcc.count * animalSlaughtered * ButcherScale * DropOnDeathMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                            if (ro.BaseAmount > 0)
+                            if (ro.Thing != null && ro.BaseAmount > 0)
                                 resultOptions.Add(ro);
                         }
                     }
@@ -138,7 +138,7 @@ namespace VOEAdditionalOutposts
                         {
                             ro.Thing = lifeStage.butcherBodyPart.thing;
                             ro.BaseAmount = (int)(animalThingDef.race.body.AllParts.Count((BodyPartRecord bpr) => bpr.groups.Any((BodyPartGroupDef bpgd) => bpgd == lifeStage.butcherBodyPart.bodyPartGroup)) * ((lifeStage.butcherBodyPart.allowFemale ? FemaleAnimalPercent : 0) + (lifeStage.butcherBodyPart.allowMale ? (1 - FemaleAnimalPercent) : 0)) * animalSlaughtered * ButcherScale * DropOnDeathMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                            if (ro.BaseAmount > 0)
+                            if (ro.Thing != null && ro.BaseAmount > 0)
                                 resultOptions.Add(ro);
                         }
                         else
@@ -148,7 +148,7 @@ namespace VOEAdditionalOutposts
                             {
                                 ro.Thing = t.Def.spawnThingOnRemoved;
                                 ro.BaseAmount = (int)(t.Total * ((lifeStage.butcherBodyPart.allowFemale ? FemaleAnimalPercent : 0) + (lifeStage.butcherBodyPart.allowMale ? (1 - FemaleAnimalPercent) : 0)) * animalSlaughtered * ButcherScale * DropOnDeathMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                                if (ro.BaseAmount > 0)
+                                if (ro.Thing != null && ro.BaseAmount > 0)
                                     resultOptions.Add(ro);
                             }
                         }
@@ -161,7 +161,7 @@ namespace VOEAdditionalOutposts
                     ResultOption ro = new ResultOption();
                     ro.Thing = CP_EggLayer.eggUnfertilizedDef;
                     ro.BaseAmount = (int)((TicksPerProduction / (CP_EggLayer.eggLayIntervalDays * 60000f)) * animalCount * CP_EggLayer.eggCountRange.RandomInRange * (CP_EggLayer.eggLayFemaleOnly ? FemaleAnimalPercent : 1f) * EggMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                    if (ro.BaseAmount > 0)
+                    if (ro.Thing != null && ro.BaseAmount > 0)
                         resultOptions.Add(ro);
                 }
                 if (animalThingDef.HasComp(typeof(CompMilkable)))
@@ -170,7 +170,7 @@ namespace VOEAdditionalOutposts
                     ResultOption ro = new ResultOption();
                     ro.Thing = CP_Milkable.milkDef;
                     ro.BaseAmount = (int)((TicksPerProduction / (CP_Milkable.milkIntervalDays * 60000f)) * animalCount * CP_Milkable.milkAmount * (CP_Milkable.milkFemaleOnly ? FemaleAnimalPercent : 1f) * MilkMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                    if (ro.BaseAmount > 0)
+                    if (ro.Thing != null && ro.BaseAmount > 0)
                         resultOptions.Add(ro);
                 }
                 if (animalThingDef.HasComp(typeof(CompShearable)))
@@ -179,7 +179,7 @@ namespace VOEAdditionalOutposts
                     ResultOption ro = new ResultOption();
                     ro.Thing = CP_Shearable.woolDef;
                     ro.BaseAmount = (int)((TicksPerProduction / (CP_Shearable.shearIntervalDays * 60000f)) * animalCount * CP_Shearable.woolAmount * WoolMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                    if (ro.BaseAmount > 0)
+                    if (ro.Thing != null && ro.BaseAmount > 0)
                         resultOptions.Add(ro);
                 }
                 if (animalThingDef.HasComp(typeof(CompAnimalProduct)))
@@ -199,7 +199,7 @@ namespace VOEAdditionalOutposts
                         ro.Thing = CP_AnimalProduct.resourceDef;
                     }
                     ro.BaseAmount = (int)((TicksPerProduction / (CP_AnimalProduct.gatheringIntervalDays * 60000f)) * animalCount * CP_AnimalProduct.resourceAmount * AnimalProductMultiplier * OutpostsMod.Settings.ProductionMultiplier);
-                    if (ro.BaseAmount > 0)
+                    if (ro.Thing != null && ro.BaseAmount > 0)
                         resultOptions.Add(ro);
                 }
                 for (int i = 0; i < resultOptions.Count(); i++)
