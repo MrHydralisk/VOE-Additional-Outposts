@@ -92,6 +92,7 @@
     <Compile Include="OutpostExtension_ChooseFloat.cs" />
     <Compile Include="OutpistExtension_Choose_Mission.cs" />
     <Compile Include="Outpost_ChooseResultFloat.cs" />
+    <Compile Include="Outpost_Educational_Center.cs" />
     <Compile Include="Outpost_Ranch.cs" />
     <Compile Include="Outpost_Church.cs" />
     <Compile Include="Outpost_Prison.cs" />

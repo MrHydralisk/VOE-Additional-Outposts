@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Educational_Center</defName>
+    <label>educational center</label>
+    <description>Places a temporary, autonomously-led camp that specializes in student education. Requires teachers of different specialties.</description>
+    <worldObjectClass>VOEAdditionalOutposts.Outpost_Educational_Center</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostEducationalCenter</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <TicksPerProduction>60000</TicksPerProduction>
+        <TicksToSetUp>120000</TicksToSetUp>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+
+</Defs>
