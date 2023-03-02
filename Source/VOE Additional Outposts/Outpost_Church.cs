@@ -36,6 +36,7 @@ namespace VOEAdditionalOutposts
         public override void Produce()
         {
             List<Thing> items = new List<Thing>();
+            ChooseIdeology.development.TryAddDevelopmentPoints(IdeoDevelopmentPoints());
             int FineSum = PaymentSilver();
             items.AddRange(ThingDefOf.Silver.Make(FineSum));
             if (items.Count() > 0)
@@ -52,6 +53,11 @@ namespace VOEAdditionalOutposts
         public int PaymentSilver()
         {
             return (int)((PerSocial * priests.Skip(followers.Count()).Sum((Pawn p) => p.skills.GetSkill(SkillDefOf.Social).Level)) * OutpostsMod.Settings.ProductionMultiplier);
+        }
+
+        public int IdeoDevelopmentPoints()
+        {
+            return (int)((priests.Skip(followers.Count()).Sum((Pawn p) => p.skills.GetSkill(SkillDefOf.Social).Level) / 20f) * OutpostsMod.Settings.ProductionMultiplier);
         }
 
         public override void Tick()
