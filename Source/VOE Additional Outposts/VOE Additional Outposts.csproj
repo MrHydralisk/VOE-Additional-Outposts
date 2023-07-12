@@ -87,7 +87,6 @@
   <ItemGroup>
     <Compile Include="AmountBySkillFloat.cs" />
     <Compile Include="AmountByCombinedSkills.cs" />
-    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HistoryEventDefOfLocal.cs" />
     <Compile Include="OutpostExtension_ChooseFloat.cs" />
     <Compile Include="OutpistExtension_Choose_Mission.cs" />
