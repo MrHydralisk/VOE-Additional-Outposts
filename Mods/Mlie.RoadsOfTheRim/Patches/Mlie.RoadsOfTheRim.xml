@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Construction_Site"]</xpath>
+				<order>Append</order>
+				<value>
+					<comps>
+					  <li Class="VOEAdditionalOutposts_RoadsOfTheRim.CompProperties_Outpost_ConstructionSite" />
+					</comps>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>
