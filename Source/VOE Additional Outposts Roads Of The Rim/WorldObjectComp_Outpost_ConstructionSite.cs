@@ -20,9 +20,18 @@ namespace VOEAdditionalOutposts_RoadsOfTheRim
             {
                 if (siteCashed == null || !siteCashed.Spawned || siteCashed.Destroyed || siteCashed.GetNextLeg() == null)
                 {
-                    siteCashed = Find.WorldObjects.AllWorldObjects.OfType<RoadConstructionSite>().MinBy(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, parent.Tile));
-                    Log.Message(string.Concat(Find.WorldObjects.AllWorldObjects.OfType<RoadConstructionSite>().Select(x => x.Label + " " + x.Tile)));
-                    compCashed = siteCashed.GetComponent<WorldObjectComp_ConstructionSite>();
+                    List<RoadConstructionSite> roadConstructionSites = Find.WorldObjects.AllWorldObjects.OfType<RoadConstructionSite>().Where(rcs => rcs.Spawned).ToList();
+                    if (roadConstructionSites.NullOrEmpty())
+                    {
+                        currentlyWorkingOnSite = false;
+                        siteCashed = null;
+                        compCashed = null;
+                    }
+                    else
+                    {
+                        siteCashed = roadConstructionSites.MinBy(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, parent.Tile));
+                        compCashed = siteCashed.GetComponent<WorldObjectComp_ConstructionSite>();
+                    }
                 }
                 return siteCashed;
             }
@@ -45,7 +54,7 @@ namespace VOEAdditionalOutposts_RoadsOfTheRim
 
         public override void CompTick()
         {
-            if (currentlyWorkingOnSite && Find.TickManager.TicksGame % 100 == 0)
+            if (currentlyWorkingOnSite && Find.TickManager.TicksGame % 100 == 0 && site != null)
             {
                 DoSomeWork();
             }
@@ -191,6 +200,12 @@ namespace VOEAdditionalOutposts_RoadsOfTheRim
                 Find.WindowStack.Add(constructionMenu);
             }
             return true;
+        }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Values.Look(ref currentlyWorkingOnSite, "currentlyWorkingOnSite");
         }
     }
 }
