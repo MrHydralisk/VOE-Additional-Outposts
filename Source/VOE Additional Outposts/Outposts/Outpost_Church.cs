@@ -149,7 +149,7 @@ namespace VOEAdditionalOutposts
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref ChooseIdeologyCached, "ChooseIdeologyCached");
+            Scribe_References.Look(ref ChooseIdeologyCached, "ChooseIdeologyCached");
         }
         
         public override string ProductionString()
