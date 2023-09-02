@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Restaurant"]/modExtensions/li[@Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat"]/ResultOptions</xpath>
+				<value>
+					<li>
+						<Thing>VCE_Chirashizushi</Thing>
+						<AmountsPerSkills>
+							<Cooking>10.2</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VCE_Norimaki</Thing>
+						<AmountsPerSkills>
+							<Cooking>10.2</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VCE_Uramaki</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>7</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VCE_Nigiri</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>7</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VCE_Temaki</Thing>
+						<MinSkills>
+							<Cooking>32</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>3.2</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VCE_Futomaki</Thing>
+						<MinSkills>
+							<Cooking>32</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>3.2</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VCE_Gunkanmaki</Thing>
+						<MinSkills>
+							<Cooking>64</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>1.6</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VCE_Oshizushi</Thing>
+						<MinSkills>
+							<Cooking>64</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>1.6</Cooking>
+						</AmountsPerSkills>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	
+</Patch>

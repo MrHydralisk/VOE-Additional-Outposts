@@ -169,9 +169,16 @@
         </AdditionalDisplaySkills>
         <ResultOptions>
           <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Cooking>45</Cooking>
+              <Social>5</Social>
+            </AmountsPerSkills>
+          </li>
+          <li>
             <Thing>MealSimple</Thing>
             <AmountsPerSkills>
-              <Cooking>8</Cooking>
+              <Cooking>10.2</Cooking>
             </AmountsPerSkills>
           </li>
           <li>
@@ -189,7 +196,13 @@
               <Cooking>32</Cooking>
             </MinSkills>
             <AmountsPerSkills>
-              <Cooking>3.5</Cooking>
+              <Cooking>3.2</Cooking>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>Pemmican</Thing>
+            <AmountsPerSkills>
+              <Cooking>100</Cooking>
             </AmountsPerSkills>
           </li>
           <li>
@@ -207,14 +220,7 @@
               <Cooking>16</Cooking>
             </MinSkills>
             <AmountsPerSkills>
-              <Cooking>10</Cooking>
-            </AmountsPerSkills>
-          </li>
-          <li>
-            <Thing>Silver</Thing>
-            <AmountsPerSkills>
-              <Cooking>45</Cooking>
-              <Social>5</Social>
+              <Cooking>11.2</Cooking>
             </AmountsPerSkills>
           </li>
         </ResultOptions>

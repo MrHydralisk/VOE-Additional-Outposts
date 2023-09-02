@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Restaurant"]/modExtensions/li[@Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat"]/ResultOptions</xpath>
+				<value>
+					<li>
+						<Thing>VBE_HotCoffee</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>14</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VBE_Tea</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>14</Cooking>
+						</AmountsPerSkills>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	
+</Patch>
