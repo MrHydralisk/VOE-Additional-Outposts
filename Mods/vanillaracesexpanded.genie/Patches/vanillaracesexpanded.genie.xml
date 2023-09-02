@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Field_Hospital"]/modExtensions/li[@Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat"]/ResultOptions</xpath>
+				<value>
+					<li>
+						<Thing>VRE_Antibiotics</Thing>
+						<MinSkills>
+							<Medicine>16</Medicine>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Medicine>3</Medicine>
+						</AmountsPerSkills>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	
+</Patch>

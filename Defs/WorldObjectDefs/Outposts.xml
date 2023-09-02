@@ -56,6 +56,13 @@
         </AdditionalDisplaySkills>
         <ResultOptions>
           <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Medicine>45</Medicine>
+              <Social>5</Social>
+            </AmountsPerSkills>
+          </li>
+          <li>
             <Thing>MedicineHerbal</Thing>
             <MinSkills>
               <Medicine>8</Medicine>
@@ -125,13 +132,6 @@
             </MinSkills>
             <AmountsPerSkills>
               <Medicine>1.5</Medicine>
-            </AmountsPerSkills>
-          </li>
-          <li>
-            <Thing>Silver</Thing>
-            <AmountsPerSkills>
-              <Medicine>45</Medicine>
-              <Social>5</Social>
             </AmountsPerSkills>
           </li>
         </ResultOptions>

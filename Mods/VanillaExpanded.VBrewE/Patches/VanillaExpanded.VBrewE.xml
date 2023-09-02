@@ -26,6 +26,26 @@
 					</li>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Field_Hospital"]/modExtensions/li[@Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat"]/ResultOptions</xpath>
+				<value>
+					<li>
+						<Thing>VBE_Cigarettes</Thing>
+						<AmountsPerSkills>
+							<Medicine>5.5</Medicine>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VBE_Cigars</Thing>
+						<MinSkills>
+							<Medicine>16</Medicine>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Medicine>0.7</Medicine>
+						</AmountsPerSkills>
+					</li>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 	
