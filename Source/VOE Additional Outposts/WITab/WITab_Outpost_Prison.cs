@@ -34,8 +34,8 @@ namespace VOEAdditionalOutposts
 
         private void DoRows(ref float curY, Rect scrollViewRect, Rect scrollOutRect)
         {
-            List<Pawn> wardrens = SelPrison.Wardens;
-            if (wardrens.Count() > 0)
+            List<Pawn> wardens = SelPrison.Wardens;
+            if (wardens.Count() > 0)
             {
                 Rect rect = new Rect(0f, curY, scrollViewRect.width, 36f);
                 GUI.color = Color.white;
@@ -54,7 +54,7 @@ namespace VOEAdditionalOutposts
                 GUI.color = Widgets.SeparatorLineColor;
                 Widgets.DrawLineHorizontal(0f, curY, scrollViewRect.width);
                 curY += 2f;
-                foreach (Pawn pawn in wardrens)
+                foreach (Pawn pawn in wardens)
                 {
                     DoWardenRow(pawn, scrollViewRect.width, ref curY);
                 }
