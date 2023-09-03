@@ -4,6 +4,7 @@ using RimWorld;
 using Outposts;
 using Verse;
 using UnityEngine;
+using RimWorld.Planet;
 
 namespace VOEAdditionalOutposts
 {
@@ -41,6 +42,9 @@ namespace VOEAdditionalOutposts
             choiceType == "Hemogen" ? "VOEAdditionalOutposts.HemogenPrisoners".Translate().RawText : 
 #endif
             "VOEAdditionalOutposts.EnslavePrisoners".Translate().RawText;
+
+        MapParent RecruitMP;
+        MapParent EnslaveMP;
 
         public override void Produce()
         {
@@ -124,6 +128,7 @@ namespace VOEAdditionalOutposts
                                 {
                                     letterDef = LetterDefOf.PositiveEvent;
                                 }
+                                lookTargets = new LookTargets(this);
                                 extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
                                 PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
                                 Find.PlayLog.Add(playLogEntry_Interaction);
@@ -135,6 +140,20 @@ namespace VOEAdditionalOutposts
                                         text = text + "\n\n" + letterText;
                                     }
                                     Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
+                                }
+                                if (RecruitMP != null)
+                                {
+                                    if (RecruitMP is Outpost outpost)
+                                    {
+                                        outpost.AddPawn(RemovePawn(prisoner));
+                                    }
+                                    else
+                                    {
+                                        Map temp = deliveryMap;
+                                        deliveryMap = RecruitMP.Map;
+                                        Deliver(new List<Thing>() { RemovePawn(prisoner) });
+                                        deliveryMap = temp;
+                                    }
                                 }
                             }
                             wi++;
@@ -192,7 +211,7 @@ namespace VOEAdditionalOutposts
                                 letterLabel = "LetterLabelEnslavementSuccess".Translate() + ": " + prisoner.LabelCap;
                                 letterText = "LetterEnslavementSuccess".Translate(warden, prisoner);
                                 letterDef = LetterDefOf.PositiveEvent;
-                                lookTargets = new LookTargets(prisoner, warden);
+                                lookTargets = new LookTargets(this);
                                 extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
                                 PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
                                 Find.PlayLog.Add(playLogEntry_Interaction);
@@ -204,6 +223,20 @@ namespace VOEAdditionalOutposts
                                         text = text + "\n\n" + letterText;
                                     }
                                     Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
+                                }
+                                if (EnslaveMP != null)
+                                {
+                                    if (EnslaveMP is Outpost outpost)
+                                    {
+                                        outpost.AddPawn(RemovePawn(prisoner));
+                                    }
+                                    else
+                                    {
+                                        Map temp = deliveryMap;
+                                        deliveryMap = EnslaveMP.Map;
+                                        Deliver(new List<Thing>() { RemovePawn(prisoner) });
+                                        deliveryMap = temp;
+                                    }
                                 }
                             }
                             wi++;
@@ -225,7 +258,11 @@ namespace VOEAdditionalOutposts
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            return base.GetGizmos().Append(new Command_Action
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
+            yield return new Command_Action
             {
                 action = delegate
                 {
@@ -260,17 +297,106 @@ namespace VOEAdditionalOutposts
                 defaultDesc = ChooseExt.ChooseDesc,
                 icon = choiceType == "Work" ? ThingDefOf.Silver.uiIcon :
 #if v1_4
-                choiceType == "Hemogen" ? ThingDefOf.HemogenPack.uiIcon : 
+                choiceType == "Hemogen" ? ThingDefOf.HemogenPack.uiIcon :
 #endif
                 TexOutposts.ImprisonTex,
                 defaultIconColor = choiceType == "Enslave" ? ColorLibrary.Orange : Color.white
-            });
+            };
+            yield return new Command_Action
+            {
+                action = delegate
+                {
+                    List<FloatMenuOption> list = new List<FloatMenuOption>();
+                    list.Add(new FloatMenuOption(this.LabelCap, delegate
+                    {
+                        RecruitMP = null;
+                    },
+                    itemIcon: this.ExpandingIcon,
+                    iconColor: this.ExpandingIconColor));
+                    foreach (Map map in from m in Find.Maps
+                                        where m.IsPlayerHome
+                                        orderby Find.WorldGrid.ApproxDistanceInTiles(m.Parent.Tile, this.Tile)
+                                        select m)
+                    {
+                        list.Add(new FloatMenuOption(map.Parent.LabelCap, delegate
+                        {
+                            RecruitMP = map.Parent;
+                        },
+                        itemIcon: map.Parent.ExpandingIcon,
+                        iconColor: map.Parent.ExpandingIconColor));
+                    }
+                    foreach (MapParent mapParent in from m in Find.WorldObjects.AllWorldObjects.OfType<Outpost>()
+                                                    where m.Tile != this.Tile
+                                                    orderby Find.WorldGrid.ApproxDistanceInTiles(m.Tile, this.Tile)
+                                                    select m)
+                    {
+                        list.Add(new FloatMenuOption(mapParent.LabelCap, delegate
+                        {
+                            RecruitMP = mapParent;
+                        },
+                        itemIcon: mapParent.ExpandingIcon,
+                        iconColor: mapParent.ExpandingIconColor));
+                    }
+                    Find.WindowStack.Add(new FloatMenu(list));
+                },
+                defaultLabel = "VOEAdditionalOutposts.Commands.RecruitDelivery.Label".Translate(),
+                defaultDesc = "VOEAdditionalOutposts.Commands.RecruitDelivery.Desc".Translate(RecruitMP != null ? RecruitMP.LabelCap : this.LabelCap),
+                icon = RecruitMP != null ? RecruitMP.ExpandingIcon : this.ExpandingIcon,
+                defaultIconColor = Color.white
+            };
+            if (ModsConfig.IdeologyActive)
+            {
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        List<FloatMenuOption> list = new List<FloatMenuOption>();
+                        list.Add(new FloatMenuOption(this.LabelCap, delegate
+                        {
+                            EnslaveMP = null;
+                        },
+                        itemIcon: this.ExpandingIcon,
+                        iconColor: this.ExpandingIconColor));
+                        foreach (Map map in from m in Find.Maps
+                                            where m.IsPlayerHome
+                                            orderby Find.WorldGrid.ApproxDistanceInTiles(m.Parent.Tile, this.Tile)
+                                            select m)
+                        {
+                            list.Add(new FloatMenuOption(map.Parent.LabelCap, delegate
+                            {
+                                EnslaveMP = map.Parent;
+                            },
+                            itemIcon: map.Parent.ExpandingIcon,
+                            iconColor: map.Parent.ExpandingIconColor));
+                        }
+                        foreach (MapParent mapParent in from m in Find.WorldObjects.AllWorldObjects.OfType<Outpost>()
+                                                        where m.Tile != this.Tile
+                                                        orderby Find.WorldGrid.ApproxDistanceInTiles(m.Tile, this.Tile)
+                                                        select m)
+                        {
+                            list.Add(new FloatMenuOption(mapParent.LabelCap, delegate
+                            {
+                                EnslaveMP = mapParent;
+                            },
+                            itemIcon: mapParent.ExpandingIcon,
+                            iconColor: mapParent.ExpandingIconColor));
+                        }
+                        Find.WindowStack.Add(new FloatMenu(list));
+                    },
+                    defaultLabel = "VOEAdditionalOutposts.Commands.EnslaveDelivery.Label".Translate(),
+                    defaultDesc = "VOEAdditionalOutposts.Commands.EnslaveDelivery.Desc".Translate(EnslaveMP != null ? EnslaveMP.LabelCap : this.LabelCap),
+                    icon = EnslaveMP != null ? EnslaveMP.ExpandingIcon : this.ExpandingIcon,
+                    defaultIconColor = ColorLibrary.Orange
+                };
+            }            
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref choiceType, "choiceType");
+            Scribe_References.Look(ref RecruitMP, "RecruitMP");
+            Scribe_References.Look(ref EnslaveMP, "EnslaveMP");
         }
         
         public override string ProductionString()

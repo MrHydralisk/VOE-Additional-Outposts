@@ -14,6 +14,10 @@
     <VOEAdditionalOutposts.Wardens>Wardens</VOEAdditionalOutposts.Wardens>
     <VOEAdditionalOutposts.InteractionInterval>Interaction Interval</VOEAdditionalOutposts.InteractionInterval>
     <VOEAdditionalOutposts.PrisonTab>Prison</VOEAdditionalOutposts.PrisonTab>
+	<VOEAdditionalOutposts.Commands.RecruitDelivery.Label>Recruit Delivery Destination</VOEAdditionalOutposts.Commands.RecruitDelivery.Label>
+    <VOEAdditionalOutposts.Commands.RecruitDelivery.Desc>Select which colony/outpost will recieve recruited prisoner. Currently: {0}</VOEAdditionalOutposts.Commands.RecruitDelivery.Desc>
+	<VOEAdditionalOutposts.Commands.EnslaveDelivery.Label>Enslave Delivery Destination</VOEAdditionalOutposts.Commands.EnslaveDelivery.Label>
+    <VOEAdditionalOutposts.Commands.EnslaveDelivery.Desc>Select which colony/outpost will recieve enslaved prisoner. Currently: {0}</VOEAdditionalOutposts.Commands.EnslaveDelivery.Desc>
     <VOEAdditionalOutposts.WillWarden>Wardens: {0}\nColony prisoners: {1}\nCurret strategy: {2}\nNext delivery in {3}:\n{4}</VOEAdditionalOutposts.WillWarden>
     <VOEAdditionalOutposts.Letters.PrisonFail.Label>Prison {0} Nothing To Report</VOEAdditionalOutposts.Letters.PrisonFail.Label>
     <VOEAdditionalOutposts.Letters.PrisonFail.Text>Prsion didn't recieved any payments. Consider increasing amount of wardens or prisoners</VOEAdditionalOutposts.Letters.PrisonFail.Text>
