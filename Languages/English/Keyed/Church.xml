@@ -3,6 +3,11 @@
     <VOEAdditionalOutposts.SpreadIdeology>{0} priest spread {1}</VOEAdditionalOutposts.SpreadIdeology>
 	<VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerPriest>Interaction Interval Reduction Per Priest</VOEAdditionalOutposts.Settings.InteractionIntervalReductionPerPriest>
     <VOEAdditionalOutposts.WillSpreadIdeology>Priests: {0}\nNew followers: {1}\nCurret ideology: {2}\nNext delivery in {3}:\n{4}</VOEAdditionalOutposts.WillSpreadIdeology>
+    <VOEAdditionalOutposts.Priests>Priests</VOEAdditionalOutposts.Priests>
+    <VOEAdditionalOutposts.Followers>Followers</VOEAdditionalOutposts.Followers>
+    <VOEAdditionalOutposts.ChurchTab>Church</VOEAdditionalOutposts.ChurchTab>
+	<VOEAdditionalOutposts.Commands.ConversionDelivery.Label>Followers Delivery Destination</VOEAdditionalOutposts.Commands.ConversionDelivery.Label>
+    <VOEAdditionalOutposts.Commands.ConversionDelivery.Desc>Select which colony/outpost will recieve followers. Currently: {0}</VOEAdditionalOutposts.Commands.ConversionDelivery.Desc>
     <VOEAdditionalOutposts.Letters.ChurchFail.Label>Church {0} Nothing To Report</VOEAdditionalOutposts.Letters.ChurchFail.Label>
     <VOEAdditionalOutposts.Letters.ChurchFail.Text>Church didn't recieved any donations. Consider increasing amount of priests</VOEAdditionalOutposts.Letters.ChurchFail.Text>
 </LanguageData>

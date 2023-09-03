@@ -4,6 +4,7 @@ using RimWorld;
 using Outposts;
 using Verse;
 using UnityEngine;
+using RimWorld.Planet;
 
 namespace VOEAdditionalOutposts
 {
@@ -28,11 +29,14 @@ namespace VOEAdditionalOutposts
         protected Ideo ChooseIdeology => ChooseIdeologyCached ?? ideologies.First();
 
         private List<Pawn> priests => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner && p.Ideo == ChooseIdeology && !StatDefOf.ConversionPower.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.ConversionPower)).ToList();
+        public List<Pawn> Priests => priests;
 
         private List<Pawn> followers => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && p.Ideo != ChooseIdeology).OrderBy((Pawn p) => p.ideo.Certainty).Select((Pawn p) => (p, p.IsPrisoner ? 0 : p.IsSlave ? 1 : 2)).OrderByDescending(x => x.Item2).Select(x => x.p).ToList();
-        
+        public List<Pawn> Followers => followers;
+
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
-        
+        MapParent ConversionMP;
+
         public override void Produce()
         {
             List<Thing> items = new List<Thing>();
@@ -69,53 +73,79 @@ namespace VOEAdditionalOutposts
             while (pi < priestsCurrent.Count() && fi < followersCurrent.Count())
             {
                 Pawn follower = followersCurrent[fi];
+                int interactFollower = follower.mindState.lastAssignedInteractTime;
                 Pawn priest = priestsCurrent[pi];
-                if (follower.mindState.lastAssignedInteractTime <= Find.TickManager.TicksGame)
+                int interactPriest = priest.mindState.lastAssignedInteractTime;
+                if (interactPriest <= Find.TickManager.TicksGame)
                 {
-                    if (follower.mindState.lastAssignedInteractTime < 0)
-                        follower.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
-                    follower.mindState.lastAssignedInteractTime += interactionInterval;
-                    string letterText = null;
-                    string letterLabel = null;
-                    LetterDef letterDef = null;
-                    LookTargets lookTargets = null;
-                    List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
-                    Ideo ideo = follower.Ideo;
-                    Precept_Role role = ideo.GetRole(follower);
-                    float certainty = follower.ideo.Certainty;
-                    if (follower.ideo.IdeoConversionAttempt(InteractionWorker_ConvertIdeoAttempt.CertaintyReduction(priest, follower), priest.Ideo))
+                    if (interactFollower <= Find.TickManager.TicksGame)
                     {
-                        if (PawnUtility.ShouldSendNotificationAbout(priest) || PawnUtility.ShouldSendNotificationAbout(follower))
+                        if (interactPriest < 0)
+                            priest.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                        priest.mindState.lastAssignedInteractTime += interactionInterval;
+                        if (interactFollower < 0)
+                            follower.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                        follower.mindState.lastAssignedInteractTime += interactionInterval;
+                        string letterText = null;
+                        string letterLabel = null;
+                        LetterDef letterDef = null;
+                        LookTargets lookTargets = null;
+                        List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
+                        Ideo ideo = follower.Ideo;
+                        Precept_Role role = ideo.GetRole(follower);
+                        float certainty = follower.ideo.Certainty;
+                        if (follower.ideo.IdeoConversionAttempt(InteractionWorker_ConvertIdeoAttempt.CertaintyReduction(priest, follower), priest.Ideo))
                         {
-                            letterLabel = "LetterLabelConvertIdeoAttempt_Success".Translate();
-                            letterText = "LetterConvertIdeoAttempt_Success".Translate(priest.Named("INITIATOR"), follower.Named("RECIPIENT"), priest.Ideo.Named("IDEO"), ideo.Named("OLDIDEO")).Resolve();
-                            letterDef = LetterDefOf.PositiveEvent;
-                            lookTargets = new LookTargets(priest, follower);
-                            if (role != null)
+                            if (PawnUtility.ShouldSendNotificationAbout(priest) || PawnUtility.ShouldSendNotificationAbout(follower))
                             {
-                                letterText = letterText + "\n\n" + "LetterRoleLostLetterIdeoChangedPostfix".Translate(follower.Named("PAWN"), role.Named("ROLE"), ideo.Named("OLDIDEO")).Resolve();
+                                letterLabel = "LetterLabelConvertIdeoAttempt_Success".Translate();
+                                letterText = "LetterConvertIdeoAttempt_Success".Translate(priest.Named("INITIATOR"), follower.Named("RECIPIENT"), priest.Ideo.Named("IDEO"), ideo.Named("OLDIDEO")).Resolve();
+                                letterDef = LetterDefOf.PositiveEvent;
+                                lookTargets = new LookTargets(this);
+                                if (role != null)
+                                {
+                                    letterText = letterText + "\n\n" + "LetterRoleLostLetterIdeoChangedPostfix".Translate(follower.Named("PAWN"), role.Named("ROLE"), ideo.Named("OLDIDEO")).Resolve();
+                                }
+                            }
+                            extraSentencePacks.Add(RulePackDefOf.Sentence_ConvertIdeoAttemptSuccess);
+                            if (ConversionMP != null)
+                            {
+                                if (ConversionMP is Outpost outpost)
+                                {
+                                    outpost.AddPawn(RemovePawn(follower));
+                                }
+                                else
+                                {
+                                    Map temp = deliveryMap;
+                                    deliveryMap = ConversionMP.Map;
+                                    Deliver(new List<Thing>() { RemovePawn(follower) });
+                                    deliveryMap = temp;
+                                }
                             }
                         }
-                        extraSentencePacks.Add(RulePackDefOf.Sentence_ConvertIdeoAttemptSuccess);
-                    }
-                    if (!letterLabel.NullOrEmpty())
-                    {
-                        letterDef = LetterDefOf.PositiveEvent;
-                    }
-                    PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.ConvertIdeoAttempt, priest, follower, extraSentencePacks);
-                    Find.PlayLog.Add(playLogEntry_Interaction);
-                    if (letterDef != null)
-                    {
-                        string text = playLogEntry_Interaction.ToGameStringFromPOV(priest);
-                        if (!letterText.NullOrEmpty())
+                        if (!letterLabel.NullOrEmpty())
                         {
-                            text = text + "\n\n" + letterText;
+                            letterDef = LetterDefOf.PositiveEvent;
                         }
-                        Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
+                        PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.ConvertIdeoAttempt, priest, follower, extraSentencePacks);
+                        Find.PlayLog.Add(playLogEntry_Interaction);
+                        if (letterDef != null)
+                        {
+                            string text = playLogEntry_Interaction.ToGameStringFromPOV(priest);
+                            if (!letterText.NullOrEmpty())
+                            {
+                                text = text + "\n\n" + letterText;
+                            }
+                            Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
+                        }
+                        pi++;
                     }
+                    fi++;
+                }
+                else
+                {
                     pi++;
                 }
-                fi++;
             }
         }
 
@@ -126,7 +156,11 @@ namespace VOEAdditionalOutposts
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            return base.GetGizmos().Append(new Command_Action
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
+            yield return new Command_Action
             {
                 action = delegate
                 {
@@ -143,13 +177,56 @@ namespace VOEAdditionalOutposts
                 defaultDesc = ChooseExt.ChooseDesc,
                 icon = ChooseIdeology.iconDef.Icon,
                 defaultIconColor = ChooseIdeology.colorDef.color
-            });
+            };
+            yield return new Command_Action
+            {
+                action = delegate
+                {
+                    List<FloatMenuOption> list = new List<FloatMenuOption>();
+                    list.Add(new FloatMenuOption(this.LabelCap, delegate
+                    {
+                        ConversionMP = null;
+                    },
+                    itemIcon: this.ExpandingIcon,
+                    iconColor: this.ExpandingIconColor));
+                    foreach (Map map in from m in Find.Maps
+                                        where m.IsPlayerHome
+                                        orderby Find.WorldGrid.ApproxDistanceInTiles(m.Parent.Tile, this.Tile)
+                                        select m)
+                    {
+                        list.Add(new FloatMenuOption(map.Parent.LabelCap, delegate
+                        {
+                            ConversionMP = map.Parent;
+                        },
+                        itemIcon: map.Parent.ExpandingIcon,
+                        iconColor: map.Parent.ExpandingIconColor));
+                    }
+                    foreach (MapParent mapParent in from m in Find.WorldObjects.AllWorldObjects.OfType<Outpost>()
+                                                    where m.Tile != this.Tile
+                                                    orderby Find.WorldGrid.ApproxDistanceInTiles(m.Tile, this.Tile)
+                                                    select m)
+                    {
+                        list.Add(new FloatMenuOption(mapParent.LabelCap, delegate
+                        {
+                            ConversionMP = mapParent;
+                        },
+                        itemIcon: mapParent.ExpandingIcon,
+                        iconColor: mapParent.ExpandingIconColor));
+                    }
+                    Find.WindowStack.Add(new FloatMenu(list));
+                },
+                defaultLabel = "VOEAdditionalOutposts.Commands.ConversionDelivery.Label".Translate(),
+                defaultDesc = "VOEAdditionalOutposts.Commands.ConversionDelivery.Desc".Translate(ConversionMP != null ? ConversionMP.LabelCap : this.LabelCap),
+                icon = ConversionMP != null ? ConversionMP.ExpandingIcon : this.ExpandingIcon,
+                defaultIconColor = Color.white
+            };
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_References.Look(ref ChooseIdeologyCached, "ChooseIdeologyCached");
+            Scribe_References.Look(ref ConversionMP, "ConversionMP");
         }
         
         public override string ProductionString()

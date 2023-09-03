@@ -14,5 +14,24 @@
 			</li>
 		</operations>
 	</Operation>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/WorldObjectDef[defName ="Outpost_Church"]</xpath>
+					<order>Append</order>
+					<value>
+						<inspectorTabs>
+							<li>VOEAdditionalOutposts.WITab_Outpost_Church</li>
+						</inspectorTabs>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
 
 </Patch>

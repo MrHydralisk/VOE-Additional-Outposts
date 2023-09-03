@@ -110,6 +110,7 @@
     <Compile Include="ResultOptionFloat.cs" />
     <Compile Include="ResultMissionOption.cs" />
     <Compile Include="TexOutposts.cs" />
+    <Compile Include="WITab\WITab_Outpost_Church.cs" />
     <Compile Include="WITab\WITab_Outpost_Prison.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
