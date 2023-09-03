@@ -10,6 +10,10 @@
     <VOEAdditionalOutposts.RecruitPrisoners>Recruit prisoners</VOEAdditionalOutposts.RecruitPrisoners>
     <VOEAdditionalOutposts.EnslavePrisoners>Enslave prisoners</VOEAdditionalOutposts.EnslavePrisoners>
     <VOEAdditionalOutposts.HemogenPrisoners>Extract hemogen packs from prisoners</VOEAdditionalOutposts.HemogenPrisoners>
+    <VOEAdditionalOutposts.Prisoners>Prisoners</VOEAdditionalOutposts.Prisoners>
+    <VOEAdditionalOutposts.Wardens>Wardens</VOEAdditionalOutposts.Wardens>
+    <VOEAdditionalOutposts.InteractionInterval>Interaction Interval</VOEAdditionalOutposts.InteractionInterval>
+    <VOEAdditionalOutposts.PrisonTab>Prison</VOEAdditionalOutposts.PrisonTab>
     <VOEAdditionalOutposts.WillWarden>Wardens: {0}\nColony prisoners: {1}\nCurret strategy: {2}\nNext delivery in {3}:\n{4}</VOEAdditionalOutposts.WillWarden>
     <VOEAdditionalOutposts.Letters.PrisonFail.Label>Prison {0} Nothing To Report</VOEAdditionalOutposts.Letters.PrisonFail.Label>
     <VOEAdditionalOutposts.Letters.PrisonFail.Text>Prsion didn't recieved any payments. Consider increasing amount of wardens or prisoners</VOEAdditionalOutposts.Letters.PrisonFail.Text>

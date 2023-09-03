@@ -10,6 +10,10 @@
     <VOEAdditionalOutposts.RecruitPrisoners>Вербовать заключённого</VOEAdditionalOutposts.RecruitPrisoners>
     <VOEAdditionalOutposts.EnslavePrisoners>Обратить заключённого в рабство</VOEAdditionalOutposts.EnslavePrisoners>
     <VOEAdditionalOutposts.HemogenPrisoners>Извлечение пакетов крови из заключённого</VOEAdditionalOutposts.HemogenPrisoners>
+    <VOEAdditionalOutposts.Prisoners>Заключённые</VOEAdditionalOutposts.Prisoners>
+    <VOEAdditionalOutposts.Wardens>Надзиратели</VOEAdditionalOutposts.Wardens>
+    <VOEAdditionalOutposts.InteractionInterval>Интервал взаимодействия</VOEAdditionalOutposts.InteractionInterval>
+    <VOEAdditionalOutposts.PrisonTab>Тюрьма</VOEAdditionalOutposts.PrisonTab>
     <VOEAdditionalOutposts.WillWarden>Надзиратели: {0}\nЗаключённые колонии: {1}\nТекущая стратегия: {2}\nСледующая доставка через {3}:\n{4}</VOEAdditionalOutposts.WillWarden>
     <VOEAdditionalOutposts.Letters.PrisonFail.Label>Тюрьма {0} нечего докладывать</VOEAdditionalOutposts.Letters.PrisonFail.Label>
     <VOEAdditionalOutposts.Letters.PrisonFail.Text>Тюрьма не получила никаких выплат. Рассмотрите возможность увеличения количества надзирателей или заключенных</VOEAdditionalOutposts.Letters.PrisonFail.Text>

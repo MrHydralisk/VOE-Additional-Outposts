@@ -409,6 +409,9 @@
     <description>Places a temporary, autonomously-led camp that specializes in keeping prisoners and their rehabilitation. Get payment with silver for holding prisoners from other factions. Can force to work, recruit or enslave colony prisoners. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
     <worldObjectClass>VOEAdditionalOutposts.Outpost_Prison</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostPrison</expandingIconTexture>
+    <inspectorTabs>
+        <li>VOEAdditionalOutposts.WITab_Outpost_Prison</li>
+    </inspectorTabs>
     <modExtensions>
       <li Class="Outposts.OutpostExtension_Choose">
         <RequiredSkills>

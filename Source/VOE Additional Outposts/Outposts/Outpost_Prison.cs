@@ -29,8 +29,10 @@ namespace VOEAdditionalOutposts
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
 
         private List<Pawn> prisoners => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && p.IsPrisoner).OrderBy((Pawn p) => p.guest.resistance).ToList();
+        public List<Pawn> Prisoners => prisoners;
 
         private List<Pawn> wardens => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner && !StatDefOf.NegotiationAbility.Worker.IsDisabledFor(p)).OrderByDescending((Pawn p) => p.GetStatValue(StatDefOf.NegotiationAbility)).ToList();
+        public List<Pawn> Wardens => wardens;
 
         private string choiceType = "Recruit";
 
@@ -81,56 +83,68 @@ namespace VOEAdditionalOutposts
                 while (wi < wardensCurrent.Count() && pi < prisonersCurrent.Count())
                 {
                     Pawn prisoner = prisonersCurrent[pi];
+                    int interactPrisoner = prisoner.mindState.lastAssignedInteractTime;
                     Pawn warden = wardensCurrent[wi];
-                    if (
-#if v1_4
-                        prisoner.guest.Recruitable && 
-#endif
-                        prisoner.mindState.lastAssignedInteractTime <= Find.TickManager.TicksGame)
+                    int interactWarden = warden.mindState.lastAssignedInteractTime;
+                    if (interactWarden <= Find.TickManager.TicksGame)
                     {
-                        if (prisoner.mindState.lastAssignedInteractTime < 0)
-                            prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
-                        prisoner.mindState.lastAssignedInteractTime += interactionInterval;
-                        string letterText = null;
-                        string letterLabel = null;
-                        LetterDef letterDef = null;
-                        LookTargets lookTargets = null;
-                        List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
-                        if (prisoner.guest.resistance > 0f)
+                        if (
+#if v1_4
+                        prisoner.guest.Recruitable &&
+#endif
+                        interactPrisoner <= Find.TickManager.TicksGame)
                         {
-                            float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
-                            float num1 = 1f;
-                            num1 *= statValue;
-                            float resistance = prisoner.guest.resistance;
-                            num1 = Mathf.Min(num1, resistance);
-                            prisoner.guest.resistance = Mathf.Max(0f, resistance - num1);
-                        }
-                        else
-                        {
+                            if (interactWarden < 0)
+                                warden.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                            warden.mindState.lastAssignedInteractTime += interactionInterval;
+                            if (interactPrisoner < 0)
+                                prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                            prisoner.mindState.lastAssignedInteractTime += interactionInterval;
+                            string letterText = null;
+                            string letterLabel = null;
+                            LetterDef letterDef = null;
+                            LookTargets lookTargets = null;
+                            List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
+                            if (prisoner.guest.resistance > 0f)
+                            {
+                                float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
+                                float num1 = 1f;
+                                num1 *= statValue;
+                                float resistance = prisoner.guest.resistance;
+                                num1 = Mathf.Min(num1, resistance);
+                                prisoner.guest.resistance = Mathf.Max(0f, resistance - num1);
+                            }
+                            else
+                            {
 #if v1_3
                             prisoner.guest.ClearLastRecruiterData();
 #endif
-                            InteractionWorker_RecruitAttempt.DoRecruit(warden, prisoner, out letterLabel, out letterText, useAudiovisualEffects: true, sendLetter: false);
-                            if (!letterLabel.NullOrEmpty())
-                            {
-                                letterDef = LetterDefOf.PositiveEvent;
-                            }
-                            extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
-                            PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
-                            Find.PlayLog.Add(playLogEntry_Interaction);
-                            if (letterDef != null)
-                            {
-                                string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
-                                if (!letterText.NullOrEmpty())
+                                InteractionWorker_RecruitAttempt.DoRecruit(warden, prisoner, out letterLabel, out letterText, useAudiovisualEffects: true, sendLetter: false);
+                                if (!letterLabel.NullOrEmpty())
                                 {
-                                    text = text + "\n\n" + letterText;
+                                    letterDef = LetterDefOf.PositiveEvent;
                                 }
-                                Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
+                                extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
+                                PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
+                                Find.PlayLog.Add(playLogEntry_Interaction);
+                                if (letterDef != null)
+                                {
+                                    string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
+                                    if (!letterText.NullOrEmpty())
+                                    {
+                                        text = text + "\n\n" + letterText;
+                                    }
+                                    Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
+                                }
                             }
+                            wi++;
                         }
+                        pi++;
+                    }
+                    else
+                    {
                         wi++;
                     }
-                    pi++;
                 }
             }
             else if (choiceType == "Enslave")
@@ -141,53 +155,65 @@ namespace VOEAdditionalOutposts
                 while (wi < wardensCurrent.Count() && pi < prisonersCurrent.Count())
                 {
                     Pawn prisoner = prisonersCurrent[pi];
+                    int interactPrisoner = prisoner.mindState.lastAssignedInteractTime;
                     Pawn warden = wardensCurrent[wi];
-                    if (prisoner.mindState.lastAssignedInteractTime <= Find.TickManager.TicksGame)
+                    int interactWarden = warden.mindState.lastAssignedInteractTime;
+                    if (interactWarden <= Find.TickManager.TicksGame)
                     {
-                        if (prisoner.mindState.lastAssignedInteractTime < 0)
-                            prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
-                        prisoner.mindState.lastAssignedInteractTime += interactionInterval;
-                        string letterText = null;
-                        string letterLabel = null;
-                        LetterDef letterDef = null;
-                        LookTargets lookTargets = null;
-                        List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
-                        if (prisoner.guest.will > 0f)
+                        if (interactPrisoner <= Find.TickManager.TicksGame)
                         {
-                            float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
-                            float num1 = 1f;
-                            num1 *= statValue;
-                            float will = prisoner.guest.will;
-                            num1 = Mathf.Min(num1, will);
-                            prisoner.guest.will = Mathf.Max(0f, will - num1);
-                        }
-                        else
-                        {
+                            if (interactWarden < 0)
+                                warden.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                            warden.mindState.lastAssignedInteractTime += interactionInterval;
+                            if (interactPrisoner < 0)
+                                prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                            prisoner.mindState.lastAssignedInteractTime += interactionInterval;
+                            string letterText = null;
+                            string letterLabel = null;
+                            LetterDef letterDef = null;
+                            LookTargets lookTargets = null;
+                            List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
+                            if (prisoner.guest.will > 0f)
+                            {
+                                float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
+                                float num1 = 1f;
+                                num1 *= statValue;
+                                float will = prisoner.guest.will;
+                                num1 = Mathf.Min(num1, will);
+                                prisoner.guest.will = Mathf.Max(0f, will - num1);
+                            }
+                            else
+                            {
 #if v1_3
                             prisoner.guest.ClearLastRecruiterData();
 #endif
-                            QuestUtility.SendQuestTargetSignals(prisoner.questTags, "Enslaved", prisoner.Named("SUBJECT"));
-                            GenGuest.EnslavePrisoner(warden, prisoner);
-                            letterLabel = "LetterLabelEnslavementSuccess".Translate() + ": " + prisoner.LabelCap;
-                            letterText = "LetterEnslavementSuccess".Translate(warden, prisoner);
-                            letterDef = LetterDefOf.PositiveEvent;
-                            lookTargets = new LookTargets(prisoner, warden);
-                            extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
-                            PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
-                            Find.PlayLog.Add(playLogEntry_Interaction);
-                            if (letterDef != null)
-                            {
-                                string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
-                                if (!letterText.NullOrEmpty())
+                                QuestUtility.SendQuestTargetSignals(prisoner.questTags, "Enslaved", prisoner.Named("SUBJECT"));
+                                GenGuest.EnslavePrisoner(warden, prisoner);
+                                letterLabel = "LetterLabelEnslavementSuccess".Translate() + ": " + prisoner.LabelCap;
+                                letterText = "LetterEnslavementSuccess".Translate(warden, prisoner);
+                                letterDef = LetterDefOf.PositiveEvent;
+                                lookTargets = new LookTargets(prisoner, warden);
+                                extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
+                                PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
+                                Find.PlayLog.Add(playLogEntry_Interaction);
+                                if (letterDef != null)
                                 {
-                                    text = text + "\n\n" + letterText;
+                                    string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
+                                    if (!letterText.NullOrEmpty())
+                                    {
+                                        text = text + "\n\n" + letterText;
+                                    }
+                                    Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
                                 }
-                                Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
                             }
+                            wi++;
                         }
+                        pi++;
+                    }
+                    else
+                    {
                         wi++;
                     }
-                    pi++;
                 }
             }
         }
