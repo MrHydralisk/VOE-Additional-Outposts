@@ -4,6 +4,10 @@
     <VOEAdditionalOutposts.Settings.TeacherSkillMultiplier>Множитель навыка учителя</VOEAdditionalOutposts.Settings.TeacherSkillMultiplier>
     <VOEAdditionalOutposts.Settings.StudentGrowthMultiplier>Множитель роста ученика</VOEAdditionalOutposts.Settings.StudentGrowthMultiplier>
     <VOEAdditionalOutposts.Settings.StudentLearningMultiplier>Множитель обучения ученика</VOEAdditionalOutposts.Settings.StudentLearningMultiplier>
+    <VOEAdditionalOutposts.Teachers>Учителя</VOEAdditionalOutposts.Teachers>
+    <VOEAdditionalOutposts.Students>Ученики</VOEAdditionalOutposts.Students>
+    <VOEAdditionalOutposts.Efficiency>Эффективность</VOEAdditionalOutposts.Efficiency>
+    <VOEAdditionalOutposts.EducationTab>Обучение</VOEAdditionalOutposts.EducationTab>
     <VOEAdditionalOutposts.WillTeach>Ученики: {0}\nУчителя: {1}\nЭффективность: {2} ({3}/180)\nСледующее занятие через {4}</VOEAdditionalOutposts.WillTeach>
 
 </LanguageData>

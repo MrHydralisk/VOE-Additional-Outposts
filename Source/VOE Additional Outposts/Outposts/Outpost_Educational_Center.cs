@@ -19,7 +19,9 @@ namespace VOEAdditionalOutposts
         public float StudentLearningMultiplier = 1f;
 
         private List<Pawn> students => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && Pawn_AgeTracker.MinGrowthBirthday <= p.ageTracker.AgeBiologicalYearsFloat && p.ageTracker.AgeBiologicalYearsFloat <= Pawn_AgeTracker.MaxGrowthBirthday).ToList();
+        public List<Pawn> Students => students;
         private List<Pawn> teachers => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && p.ageTracker.Adult).OrderByDescending((Pawn p) => p.skills.skills.Max((SkillRecord sr) => sr.Level)).ToList();
+        public List<Pawn> Teachers => teachers;
 
         public override void Produce()
         {
