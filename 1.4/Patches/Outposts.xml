@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+					<WorldObjectDef ParentName="OutpostBase">
+						<defName>Outpost_Bank</defName>
+						<label>bank</label>
+						<description>Places a temporary, autonomously-led camp that specializes in providing customers with a convenient and safe environment for their financial transactions. Require initial deposit of silver or gold. Get payment in silver or gold for providing loans to other factions, transactions tax and safekeeping of their valuables. Once an ample amount of interest is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+						<worldObjectClass>VOEAdditionalOutposts.Outpost_Bank</worldObjectClass>
+						<expandingIconTexture>WorldObjects/OutpostBank</expandingIconTexture>
+						<inspectorTabs>
+						  <li>VOEAdditionalOutposts.WITab_Outpost_Bank</li>
+						</inspectorTabs>
+						<modExtensions>
+						  <li Class="Outposts.OutpostExtension_Choose">
+							<RequiredSkills>
+							  <Social>20</Social>
+							</RequiredSkills>
+							<TicksPerProduction>-1</TicksPerProduction>
+							<TicksToSetUp>120000</TicksToSetUp>
+							<ProvidedFood>MealFine_Veg</ProvidedFood>
+							<DisplaySkills>
+							  <li>Social</li>
+							</DisplaySkills>
+						  </li>      
+						  <li Class="VOEAdditionalOutposts.OutpistExtension_Choose_Deposit">
+							<ResultSilverDepositOptions>
+							  <li>
+								<DurationInSeasons>1</DurationInSeasons>
+								<MinSkills>20</MinSkills>
+								<InterestPerSeason>0.05</InterestPerSeason>
+							  </li>
+							  <li>
+								<DurationInSeasons>2</DurationInSeasons>
+								<MinSkills>50</MinSkills>
+								<InterestPerSeason>0.1</InterestPerSeason>
+							  </li>
+							  <li>
+								<DurationInSeasons>4</DurationInSeasons>
+								<MinSkills>90</MinSkills>
+								<InterestPerSeason>0.15</InterestPerSeason>
+							  </li>
+							  <li>
+								<DurationInSeasons>8</DurationInSeasons>
+								<MinSkills>140</MinSkills>
+								<InterestPerSeason>0.2</InterestPerSeason>
+							  </li>
+							</ResultSilverDepositOptions>
+							<ResultGoldDepositOptions>
+							  <li>
+								<DurationInSeasons>1</DurationInSeasons>
+								<MinSkills>40</MinSkills>
+								<InterestPerSeason>0.05</InterestPerSeason>
+							  </li>
+							  <li>
+								<DurationInSeasons>2</DurationInSeasons>
+								<MinSkills>90</MinSkills>
+								<InterestPerSeason>0.15</InterestPerSeason>
+							  </li>
+							  <li>
+								<DurationInSeasons>4</DurationInSeasons>
+								<MinSkills>150</MinSkills>
+								<InterestPerSeason>0.25</InterestPerSeason>
+							  </li>
+							  <li>
+								<DurationInSeasons>8</DurationInSeasons>
+								<MinSkills>220</MinSkills>
+								<InterestPerSeason>0.35</InterestPerSeason>
+							  </li>
+							</ResultGoldDepositOptions>
+						  </li>
+						  <li Class="KCSG.CustomGenOption">
+							<fullClear>true</fullClear>
+							<chooseFromlayouts>
+							  <li>Outpost_Struct_Bank</li>
+							</chooseFromlayouts>
+						  </li>
+						</modExtensions>
+					  </WorldObjectDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

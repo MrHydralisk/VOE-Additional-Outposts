@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <VOEAdditionalOutposts.DepositTab>Вклады</VOEAdditionalOutposts.DepositTab>
+    <VOEAdditionalOutposts.BankInterestMsg>{0} банк {1} вклад произвёл {2}</VOEAdditionalOutposts.BankInterestMsg>
+    <VOEAdditionalOutposts.DepositCurrent>Вклад +{0} на {1} сезона</VOEAdditionalOutposts.DepositCurrent>
+    <VOEAdditionalOutposts.DepositSeasonsLeft>Сезонов осталось: {0}</VOEAdditionalOutposts.DepositSeasonsLeft>
+    <VOEAdditionalOutposts.DepositTimeLeft>Длительность до конца вклада: {0}</VOEAdditionalOutposts.DepositTimeLeft>
+    <VOEAdditionalOutposts.DepositIncome>Доход за текущий сезон: {0}</VOEAdditionalOutposts.DepositIncome>
+    <VOEAdditionalOutposts.DepositDeliver>Доход будет доставлен в {0}</VOEAdditionalOutposts.DepositDeliver>
+    <VOEAdditionalOutposts.DepositKeep>Доход будет добавлен во вклад</VOEAdditionalOutposts.DepositKeep>
+    <VOEAdditionalOutposts.DepositAddedNextSeason>Пополнит вклад в следующем сезоне:</VOEAdditionalOutposts.DepositAddedNextSeason>
+    <VOEAdditionalOutposts.DepositSelectDeposit>Выберите тип нового вклада:</VOEAdditionalOutposts.DepositSelectDeposit>
+    <VOEAdditionalOutposts.DepositAutoRepeat>Автоматическое продлевание вклада</VOEAdditionalOutposts.DepositAutoRepeat>
+    <VOEAdditionalOutposts.DepositStart>Открыть новый вклад</VOEAdditionalOutposts.DepositStart>
+    <VOEAdditionalOutposts.DepositStop>Досрочный возврат вклада</VOEAdditionalOutposts.DepositStop>
+    <VOEAdditionalOutposts.DepositMaxWealth>Максимальный размер вклада: {0}</VOEAdditionalOutposts.DepositMaxWealth>
+	<VOEAdditionalOutposts.Settings.DepositWealthPerSocial>Максимальный размер вклада за каждый навык общения</VOEAdditionalOutposts.Settings.DepositWealthPerSocial>
+	<VOEAdditionalOutposts.Settings.SilverInterestMultiplier>Множитель процента вклада серебра</VOEAdditionalOutposts.Settings.SilverInterestMultiplier>
+	<VOEAdditionalOutposts.Settings.GoldInterestMultiplier>Множитель процента вклада золота</VOEAdditionalOutposts.Settings.GoldInterestMultiplier>
+</LanguageData>

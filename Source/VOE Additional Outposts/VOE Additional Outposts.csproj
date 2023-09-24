@@ -95,10 +95,13 @@
   <ItemGroup>
     <Compile Include="AmountBySkillFloat.cs" />
     <Compile Include="AmountByCombinedSkills.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HistoryEventDefOfLocal.cs" />
-    <Compile Include="OutpostExtension_ChooseFloat.cs" />
-    <Compile Include="OutpistExtension_Choose_Mission.cs" />
-    <Compile Include="Outpost_ChooseResultFloat.cs" />
+    <Compile Include="Outpost_Extension\OutpistExtension_Choose_Deposit.cs" />
+    <Compile Include="Outpost_Extension\OutpostExtension_ChooseFloat.cs" />
+    <Compile Include="Outpost_Extension\OutpistExtension_Choose_Mission.cs" />
+    <Compile Include="Outposts\Outpost_Bank.cs" />
+    <Compile Include="Outposts\Outpost_ChooseResultFloat.cs" />
     <Compile Include="Outposts\Outpost_Educational_Center.cs" />
     <Compile Include="Outposts\Outpost_Ranch.cs" />
     <Compile Include="Outposts\Outpost_Church.cs" />
@@ -107,9 +110,11 @@
     <Compile Include="Outposts\Outpost_Embassy.cs" />
     <Compile Include="Outposts\Outpost_Mercenary_Camp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultDepositOption.cs" />
     <Compile Include="ResultOptionFloat.cs" />
     <Compile Include="ResultMissionOption.cs" />
     <Compile Include="TexOutposts.cs" />
+    <Compile Include="WITab\WITab_Outpost_Bank.cs" />
     <Compile Include="WITab\WITab_Outpost_Educational_Center.cs" />
     <Compile Include="WITab\WITab_Outpost_Church.cs" />
     <Compile Include="WITab\WITab_Outpost_Prison.cs" />

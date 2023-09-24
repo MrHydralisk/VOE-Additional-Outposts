@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <VOEAdditionalOutposts.DepositTab>Deposits</VOEAdditionalOutposts.DepositTab>
+    <VOEAdditionalOutposts.BankInterestMsg>{0} bank {1} deposit produced {2}</VOEAdditionalOutposts.BankInterestMsg>
+    <VOEAdditionalOutposts.DepositCurrent>Deposit +{0} in {1} Seasons</VOEAdditionalOutposts.DepositCurrent>
+    <VOEAdditionalOutposts.DepositSeasonsLeft>Seasons left: {0}</VOEAdditionalOutposts.DepositSeasonsLeft>
+    <VOEAdditionalOutposts.DepositTimeLeft>Deposit time left: {0}</VOEAdditionalOutposts.DepositTimeLeft>
+    <VOEAdditionalOutposts.DepositIncome>Current season interest: {0}</VOEAdditionalOutposts.DepositIncome>
+    <VOEAdditionalOutposts.DepositDeliver>Interest delivered to {0}</VOEAdditionalOutposts.DepositDeliver>
+    <VOEAdditionalOutposts.DepositKeep>Interest added to deposit</VOEAdditionalOutposts.DepositKeep>
+    <VOEAdditionalOutposts.DepositAddedNextSeason>Added to deposit next season:</VOEAdditionalOutposts.DepositAddedNextSeason>
+    <VOEAdditionalOutposts.DepositSelectDeposit>Select next deposit:</VOEAdditionalOutposts.DepositSelectDeposit>
+    <VOEAdditionalOutposts.DepositAutoRepeat>Auto repeat deopsit</VOEAdditionalOutposts.DepositAutoRepeat>
+    <VOEAdditionalOutposts.DepositStart>Open new deposit</VOEAdditionalOutposts.DepositStart>
+    <VOEAdditionalOutposts.DepositStop>Premature deposit withdrawal</VOEAdditionalOutposts.DepositStop>
+    <VOEAdditionalOutposts.DepositMaxWealth>Deposit max wealth: {0}</VOEAdditionalOutposts.DepositMaxWealth>
+	<VOEAdditionalOutposts.Settings.DepositWealthPerSocial>Max Deposit Wealth per Social Skill</VOEAdditionalOutposts.Settings.DepositWealthPerSocial>
+	<VOEAdditionalOutposts.Settings.SilverInterestMultiplier>Silver Interest Multiplier</VOEAdditionalOutposts.Settings.SilverInterestMultiplier>
+	<VOEAdditionalOutposts.Settings.GoldInterestMultiplier>Gold Interest Multiplier</VOEAdditionalOutposts.Settings.GoldInterestMultiplier>
+</LanguageData>

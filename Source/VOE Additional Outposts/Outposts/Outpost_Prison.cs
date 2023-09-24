@@ -79,173 +79,176 @@ namespace VOEAdditionalOutposts
         public override void Tick()
         {
             base.Tick();
-            if (choiceType == "Recruit")
+            if (Find.TickManager.TicksGame % 2000 == 0)
             {
-                int interactionInterval = InteractionInterval();
-                int wi = 0, pi = 0;
-                List<Pawn> wardensCurrent = wardens.ToList(), prisonersCurrent = prisoners.ToList();
-                while (wi < wardensCurrent.Count() && pi < prisonersCurrent.Count())
+                if (choiceType == "Recruit")
                 {
-                    Pawn prisoner = prisonersCurrent[pi];
-                    int interactPrisoner = prisoner.mindState.lastAssignedInteractTime;
-                    Pawn warden = wardensCurrent[wi];
-                    int interactWarden = warden.mindState.lastAssignedInteractTime;
-                    if (interactWarden <= Find.TickManager.TicksGame)
+                    int interactionInterval = InteractionInterval();
+                    int wi = 0, pi = 0;
+                    List<Pawn> wardensCurrent = wardens.ToList(), prisonersCurrent = prisoners.ToList();
+                    while (wi < wardensCurrent.Count() && pi < prisonersCurrent.Count())
                     {
-                        if (
+                        Pawn prisoner = prisonersCurrent[pi];
+                        int interactPrisoner = prisoner.mindState.lastAssignedInteractTime;
+                        Pawn warden = wardensCurrent[wi];
+                        int interactWarden = warden.mindState.lastAssignedInteractTime;
+                        if (interactWarden <= Find.TickManager.TicksGame)
+                        {
+                            if (
 #if v1_4
                         prisoner.guest.Recruitable &&
 #endif
                         interactPrisoner <= Find.TickManager.TicksGame)
-                        {
-                            if (interactWarden < 0)
-                                warden.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
-                            warden.mindState.lastAssignedInteractTime += interactionInterval;
-                            if (interactPrisoner < 0)
-                                prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
-                            prisoner.mindState.lastAssignedInteractTime += interactionInterval;
-                            string letterText = null;
-                            string letterLabel = null;
-                            LetterDef letterDef = null;
-                            LookTargets lookTargets = null;
-                            List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
-                            if (prisoner.guest.resistance > 0f)
                             {
-                                float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
-                                float num1 = 1f;
-                                num1 *= statValue;
-                                float resistance = prisoner.guest.resistance;
-                                num1 = Mathf.Min(num1, resistance);
-                                prisoner.guest.resistance = Mathf.Max(0f, resistance - num1);
-                            }
-                            else
-                            {
+                                if (interactWarden < 0)
+                                    warden.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                                warden.mindState.lastAssignedInteractTime += interactionInterval;
+                                if (interactPrisoner < 0)
+                                    prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                                prisoner.mindState.lastAssignedInteractTime += interactionInterval;
+                                string letterText = null;
+                                string letterLabel = null;
+                                LetterDef letterDef = null;
+                                LookTargets lookTargets = null;
+                                List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
+                                if (prisoner.guest.resistance > 0f)
+                                {
+                                    float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
+                                    float num1 = 1f;
+                                    num1 *= statValue;
+                                    float resistance = prisoner.guest.resistance;
+                                    num1 = Mathf.Min(num1, resistance);
+                                    prisoner.guest.resistance = Mathf.Max(0f, resistance - num1);
+                                }
+                                else
+                                {
 #if v1_3
                             prisoner.guest.ClearLastRecruiterData();
 #endif
-                                InteractionWorker_RecruitAttempt.DoRecruit(warden, prisoner, out letterLabel, out letterText, useAudiovisualEffects: true, sendLetter: false);
-                                if (!letterLabel.NullOrEmpty())
-                                {
-                                    letterDef = LetterDefOf.PositiveEvent;
-                                }
-                                lookTargets = new LookTargets(this);
-                                extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
-                                PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
-                                Find.PlayLog.Add(playLogEntry_Interaction);
-                                if (letterDef != null)
-                                {
-                                    string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
-                                    if (!letterText.NullOrEmpty())
+                                    InteractionWorker_RecruitAttempt.DoRecruit(warden, prisoner, out letterLabel, out letterText, useAudiovisualEffects: true, sendLetter: false);
+                                    if (!letterLabel.NullOrEmpty())
                                     {
-                                        text = text + "\n\n" + letterText;
+                                        letterDef = LetterDefOf.PositiveEvent;
                                     }
-                                    Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
-                                }
-                                if (RecruitMP != null)
-                                {
-                                    if (RecruitMP is Outpost outpost)
+                                    lookTargets = new LookTargets(this);
+                                    extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
+                                    PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
+                                    Find.PlayLog.Add(playLogEntry_Interaction);
+                                    if (letterDef != null)
                                     {
-                                        outpost.AddPawn(RemovePawn(prisoner));
+                                        string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
+                                        if (!letterText.NullOrEmpty())
+                                        {
+                                            text = text + "\n\n" + letterText;
+                                        }
+                                        Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
                                     }
-                                    else
+                                    if (RecruitMP != null)
                                     {
-                                        Map temp = deliveryMap;
-                                        deliveryMap = RecruitMP.Map;
-                                        Deliver(new List<Thing>() { RemovePawn(prisoner) });
-                                        deliveryMap = temp;
+                                        if (RecruitMP is Outpost outpost)
+                                        {
+                                            outpost.AddPawn(RemovePawn(prisoner));
+                                        }
+                                        else
+                                        {
+                                            Map temp = deliveryMap;
+                                            deliveryMap = RecruitMP.Map;
+                                            Deliver(new List<Thing>() { RemovePawn(prisoner) });
+                                            deliveryMap = temp;
+                                        }
                                     }
                                 }
+                                wi++;
                             }
+                            pi++;
+                        }
+                        else
+                        {
                             wi++;
                         }
-                        pi++;
-                    }
-                    else
-                    {
-                        wi++;
                     }
                 }
-            }
-            else if (choiceType == "Enslave")
-            {
-                int interactionInterval = InteractionInterval();
-                int wi = 0, pi = 0;
-                List<Pawn> wardensCurrent = wardens.ToList(), prisonersCurrent = prisoners.ToList();
-                while (wi < wardensCurrent.Count() && pi < prisonersCurrent.Count())
+                else if (choiceType == "Enslave")
                 {
-                    Pawn prisoner = prisonersCurrent[pi];
-                    int interactPrisoner = prisoner.mindState.lastAssignedInteractTime;
-                    Pawn warden = wardensCurrent[wi];
-                    int interactWarden = warden.mindState.lastAssignedInteractTime;
-                    if (interactWarden <= Find.TickManager.TicksGame)
+                    int interactionInterval = InteractionInterval();
+                    int wi = 0, pi = 0;
+                    List<Pawn> wardensCurrent = wardens.ToList(), prisonersCurrent = prisoners.ToList();
+                    while (wi < wardensCurrent.Count() && pi < prisonersCurrent.Count())
                     {
-                        if (interactPrisoner <= Find.TickManager.TicksGame)
+                        Pawn prisoner = prisonersCurrent[pi];
+                        int interactPrisoner = prisoner.mindState.lastAssignedInteractTime;
+                        Pawn warden = wardensCurrent[wi];
+                        int interactWarden = warden.mindState.lastAssignedInteractTime;
+                        if (interactWarden <= Find.TickManager.TicksGame)
                         {
-                            if (interactWarden < 0)
-                                warden.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
-                            warden.mindState.lastAssignedInteractTime += interactionInterval;
-                            if (interactPrisoner < 0)
-                                prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
-                            prisoner.mindState.lastAssignedInteractTime += interactionInterval;
-                            string letterText = null;
-                            string letterLabel = null;
-                            LetterDef letterDef = null;
-                            LookTargets lookTargets = null;
-                            List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
-                            if (prisoner.guest.will > 0f)
+                            if (interactPrisoner <= Find.TickManager.TicksGame)
                             {
-                                float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
-                                float num1 = 1f;
-                                num1 *= statValue;
-                                float will = prisoner.guest.will;
-                                num1 = Mathf.Min(num1, will);
-                                prisoner.guest.will = Mathf.Max(0f, will - num1);
-                            }
-                            else
-                            {
+                                if (interactWarden < 0)
+                                    warden.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                                warden.mindState.lastAssignedInteractTime += interactionInterval;
+                                if (interactPrisoner < 0)
+                                    prisoner.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
+                                prisoner.mindState.lastAssignedInteractTime += interactionInterval;
+                                string letterText = null;
+                                string letterLabel = null;
+                                LetterDef letterDef = null;
+                                LookTargets lookTargets = null;
+                                List<RulePackDef> extraSentencePacks = new List<RulePackDef>();
+                                if (prisoner.guest.will > 0f)
+                                {
+                                    float statValue = warden.GetStatValue(StatDefOf.NegotiationAbility);
+                                    float num1 = 1f;
+                                    num1 *= statValue;
+                                    float will = prisoner.guest.will;
+                                    num1 = Mathf.Min(num1, will);
+                                    prisoner.guest.will = Mathf.Max(0f, will - num1);
+                                }
+                                else
+                                {
 #if v1_3
                             prisoner.guest.ClearLastRecruiterData();
 #endif
-                                QuestUtility.SendQuestTargetSignals(prisoner.questTags, "Enslaved", prisoner.Named("SUBJECT"));
-                                GenGuest.EnslavePrisoner(warden, prisoner);
-                                letterLabel = "LetterLabelEnslavementSuccess".Translate() + ": " + prisoner.LabelCap;
-                                letterText = "LetterEnslavementSuccess".Translate(warden, prisoner);
-                                letterDef = LetterDefOf.PositiveEvent;
-                                lookTargets = new LookTargets(this);
-                                extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
-                                PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
-                                Find.PlayLog.Add(playLogEntry_Interaction);
-                                if (letterDef != null)
-                                {
-                                    string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
-                                    if (!letterText.NullOrEmpty())
+                                    QuestUtility.SendQuestTargetSignals(prisoner.questTags, "Enslaved", prisoner.Named("SUBJECT"));
+                                    GenGuest.EnslavePrisoner(warden, prisoner);
+                                    letterLabel = "LetterLabelEnslavementSuccess".Translate() + ": " + prisoner.LabelCap;
+                                    letterText = "LetterEnslavementSuccess".Translate(warden, prisoner);
+                                    letterDef = LetterDefOf.PositiveEvent;
+                                    lookTargets = new LookTargets(this);
+                                    extraSentencePacks.Add(RulePackDefOf.Sentence_RecruitAttemptAccepted);
+                                    PlayLogEntry_Interaction playLogEntry_Interaction = new PlayLogEntry_Interaction(InteractionDefOf.RecruitAttempt, warden, prisoner, extraSentencePacks);
+                                    Find.PlayLog.Add(playLogEntry_Interaction);
+                                    if (letterDef != null)
                                     {
-                                        text = text + "\n\n" + letterText;
+                                        string text = playLogEntry_Interaction.ToGameStringFromPOV(warden);
+                                        if (!letterText.NullOrEmpty())
+                                        {
+                                            text = text + "\n\n" + letterText;
+                                        }
+                                        Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
                                     }
-                                    Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets);
+                                    if (EnslaveMP != null)
+                                    {
+                                        if (EnslaveMP is Outpost outpost)
+                                        {
+                                            outpost.AddPawn(RemovePawn(prisoner));
+                                        }
+                                        else
+                                        {
+                                            Map temp = deliveryMap;
+                                            deliveryMap = EnslaveMP.Map;
+                                            Deliver(new List<Thing>() { RemovePawn(prisoner) });
+                                            deliveryMap = temp;
+                                        }
+                                    }
                                 }
-                                if (EnslaveMP != null)
-                                {
-                                    if (EnslaveMP is Outpost outpost)
-                                    {
-                                        outpost.AddPawn(RemovePawn(prisoner));
-                                    }
-                                    else
-                                    {
-                                        Map temp = deliveryMap;
-                                        deliveryMap = EnslaveMP.Map;
-                                        Deliver(new List<Thing>() { RemovePawn(prisoner) });
-                                        deliveryMap = temp;
-                                    }
-                                }
+                                wi++;
                             }
+                            pi++;
+                        }
+                        else
+                        {
                             wi++;
                         }
-                        pi++;
-                    }
-                    else
-                    {
-                        wi++;
                     }
                 }
             }
