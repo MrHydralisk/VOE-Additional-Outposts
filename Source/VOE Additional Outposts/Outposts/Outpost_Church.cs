@@ -40,7 +40,8 @@ namespace VOEAdditionalOutposts
         public override void Produce()
         {
             List<Thing> items = new List<Thing>();
-            ChooseIdeology.development.TryAddDevelopmentPoints(IdeoDevelopmentPoints());
+            if (ChooseIdeology.Fluid)
+                ChooseIdeology.development.TryAddDevelopmentPoints(IdeoDevelopmentPoints());
             int FineSum = PaymentSilver();
             items.AddRange(ThingDefOf.Silver.Make(FineSum));
             if (items.Count() > 0)
