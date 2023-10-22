@@ -93,11 +93,14 @@ namespace VOEAdditionalOutposts
                     Find.WindowStack.Add(new FloatMenu(list));
                 }
                 curY += 25f;
-                if (Widgets.ButtonText(new Rect(rect.x, curY, rect.width, rect.height), "VOEAdditionalOutposts.DepositStop".Translate()))
+                if (SelBank.isEarlyDepositStopAvailable)
                 {
-                    SelBank.StopSilverDeposit();
+                    if (Widgets.ButtonText(new Rect(rect.x, curY, rect.width, rect.height), "VOEAdditionalOutposts.DepositStop".Translate()))
+                    {
+                        SelBank.StopSilverDeposit();
+                    }
+                    curY += 25f;
                 }
-                curY += 25f;
             }
             else
             {
@@ -215,11 +218,14 @@ namespace VOEAdditionalOutposts
                     Find.WindowStack.Add(new FloatMenu(list));
                 }
                 curY += 25f;
-                if (Widgets.ButtonText(new Rect(rect.x, curY, rect.width, rect.height), "VOEAdditionalOutposts.DepositStop".Translate()))
+                if (SelBank.isEarlyDepositStopAvailable)
                 {
-                    SelBank.StopGoldDeposit();
+                    if (Widgets.ButtonText(new Rect(rect.x, curY, rect.width, rect.height), "VOEAdditionalOutposts.DepositStop".Translate()))
+                    {
+                        SelBank.StopGoldDeposit();
+                    }
+                    curY += 25f;
                 }
-                curY += 25f;
             }
             else
             {

@@ -17,4 +17,5 @@
 	<VOEAdditionalOutposts.Settings.DepositWealthPerSocial>Max Deposit Wealth per Social Skill</VOEAdditionalOutposts.Settings.DepositWealthPerSocial>
 	<VOEAdditionalOutposts.Settings.SilverInterestMultiplier>Silver Interest Multiplier</VOEAdditionalOutposts.Settings.SilverInterestMultiplier>
 	<VOEAdditionalOutposts.Settings.GoldInterestMultiplier>Gold Interest Multiplier</VOEAdditionalOutposts.Settings.GoldInterestMultiplier>
+	<VOEAdditionalOutposts.Settings.EarlyDepositStop>Early Withdrawal Available</VOEAdditionalOutposts.Settings.EarlyDepositStop>
 </LanguageData>

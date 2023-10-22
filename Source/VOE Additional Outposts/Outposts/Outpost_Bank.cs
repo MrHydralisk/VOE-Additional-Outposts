@@ -19,6 +19,9 @@ namespace VOEAdditionalOutposts
         [PostToSetings("VOEAdditionalOutposts.Settings.GoldInterestMultiplier", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.25f, 4f, null, null)]
         public float GoldInterestMultiplier = 1f;
 
+        [PostToSetings("VOEAdditionalOutposts.Settings.EarlyDepositStop", PostToSetingsAttribute.DrawMode.Checkbox, false, 0f, 0f, null, null)]
+        public bool isEarlyDepositStopAvailable = false;
+
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
         public OutpistExtension_Choose_Deposit DepositExt => DepositExtCached ?? (DepositExtCached = def.GetModExtension<OutpistExtension_Choose_Deposit>());
 

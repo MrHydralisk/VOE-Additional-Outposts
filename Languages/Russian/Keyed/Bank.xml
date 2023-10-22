@@ -17,4 +17,5 @@
 	<VOEAdditionalOutposts.Settings.DepositWealthPerSocial>Максимальный размер вклада за каждый навык общения</VOEAdditionalOutposts.Settings.DepositWealthPerSocial>
 	<VOEAdditionalOutposts.Settings.SilverInterestMultiplier>Множитель процента вклада серебра</VOEAdditionalOutposts.Settings.SilverInterestMultiplier>
 	<VOEAdditionalOutposts.Settings.GoldInterestMultiplier>Множитель процента вклада золота</VOEAdditionalOutposts.Settings.GoldInterestMultiplier>
+	<VOEAdditionalOutposts.Settings.EarlyDepositStop>Доступен досрочный возврат вклада</VOEAdditionalOutposts.Settings.EarlyDepositStop>
 </LanguageData>
