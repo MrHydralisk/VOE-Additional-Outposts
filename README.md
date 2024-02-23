@@ -10,17 +10,17 @@ Mod add few new outpost types to complement Vanilla Outposts Expanded. New outpo
 
 ### New Outpost Types
 
-![Text](/Mod%20Page/Images/Outposts/Construction_Workers_Outpost.png)
-![Text](/Mod%20Page/Images/Outposts/Field_Hospital.png)
+![Text](/Mod%20Page/Images/Outposts/Construction%20Workers%20Outpost.png)
+![Text](/Mod%20Page/Images/Outposts/Field%20Hospital.png)
 ![Text](/Mod%20Page/Images/Outposts/Restaurant.png)
-![Text](/Mod%20Page/Images/Outposts/Wandering_Circus.png)
+![Text](/Mod%20Page/Images/Outposts/Wandering%20Circus.png)
 ![Text](/Mod%20Page/Images/Outposts/Embassy.png)
-![Text](/Mod%20Page/Images/Outposts/Border_post.png)
-![Text](/Mod%20Page/Images/Outposts/Mercenary_Camp.png)
+![Text](/Mod%20Page/Images/Outposts/Border%20post.png)
+![Text](/Mod%20Page/Images/Outposts/Mercenary%20Camp.png)
 ![Text](/Mod%20Page/Images/Outposts/Prison.png)
 ![Text](/Mod%20Page/Images/Outposts/Church.png)
 ![Text](/Mod%20Page/Images/Outposts/Ranch.png)
-![Text](/Mod%20Page/Images/Outposts/Educational_Center.png)
+![Text](/Mod%20Page/Images/Outposts/Educational%20Center.png)
 ![Text](/Mod%20Page/Images/Outposts/Bank.png)
 
 ### Outpost QoL
