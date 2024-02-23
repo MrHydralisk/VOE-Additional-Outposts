@@ -10,18 +10,18 @@ Mod add few new outpost types to complement Vanilla Outposts Expanded. New outpo
 
 ### New Outpost Types
 
-![Text](/Mod Page/Images/Outposts/Construction_Workers_Outpost.png)
-![Text](/Mod Page/Images/Outposts/Field_Hospital.png)
-![Text](/Mod Page/Images/Outposts/Restaurant.png)
-![Text](/Mod Page/Images/Outposts/Wandering_Circus.png)
-![Text](/Mod Page/Images/Outposts/Embassy.png)
-![Text](/Mod Page/Images/Outposts/Border_post.png)
-![Text](/Mod Page/Images/Outposts/Mercenary_Camp.png)
-![Text](/Mod Page/Images/Outposts/Prison.png)
-![Text](/Mod Page/Images/Outposts/Church.png)
-![Text](/Mod Page/Images/Outposts/Ranch.png)
-![Text](/Mod Page/Images/Outposts/Educational_Center.png)
-![Text](/Mod Page/Images/Outposts/Bank.png)
+![Text](/Mod%20Page/Images/Outposts/Construction_Workers_Outpost.png)
+![Text](/Mod%20Page/Images/Outposts/Field_Hospital.png)
+![Text](/Mod%20Page/Images/Outposts/Restaurant.png)
+![Text](/Mod%20Page/Images/Outposts/Wandering_Circus.png)
+![Text](/Mod%20Page/Images/Outposts/Embassy.png)
+![Text](/Mod%20Page/Images/Outposts/Border_post.png)
+![Text](/Mod%20Page/Images/Outposts/Mercenary_Camp.png)
+![Text](/Mod%20Page/Images/Outposts/Prison.png)
+![Text](/Mod%20Page/Images/Outposts/Church.png)
+![Text](/Mod%20Page/Images/Outposts/Ranch.png)
+![Text](/Mod%20Page/Images/Outposts/Educational_Center.png)
+![Text](/Mod%20Page/Images/Outposts/Bank.png)
 
 ### Outpost QoL
 
