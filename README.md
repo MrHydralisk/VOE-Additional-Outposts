@@ -1,5 +1,7 @@
 # Vanilla Outposts Expanded: Additional Outposts
 
+![Text](/Mod%20Page/Images/VOE%20Additional%20Outposts.png)
+
 If you ever felt that you need more outpost types, then this mod may be what you need.
 
 ## Mod Contents
