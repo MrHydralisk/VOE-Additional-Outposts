@@ -283,7 +283,7 @@ namespace VOEAdditionalOutposts
                     defaultLabel = ChooseExt.ChooseLabel,
                     defaultDesc = ChooseExt.ChooseDesc,
                     icon = animalThingDef.uiIcon,
-                    disabled = AllPawns.Count((Pawn p) => p.def == animalThingDef) <= 0,
+                    Disabled = AllPawns.Count((Pawn p) => p.def == animalThingDef) <= 0,
                     disabledReason = "VOEAdditionalOutposts.ChooseDisabledReason".Translate(animalThingDef.label)
                 };
             if (Prefs.DevMode)

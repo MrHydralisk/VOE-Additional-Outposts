@@ -35,17 +35,19 @@ Addition of "Take Pawn" button for caravans to make it easier to transfer prison
 
 [Vanilla Outposts Expanded: Power Grid](https://steamcommunity.com/sharedfiles/filedetails/?id=2915686437)
 
+## Links
+
+[Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=2873841790)
+
+[Discord](https://discord.gg/tKsBgzzTsG)
+
 ## Mod Compatibility
 
 Should have no compatibility issues with other mods, unless Vanilla Outposts Expanded have. Not compatible with VOE Expanded Ranch anymore.
 
 Info about additional things that added with other dlc/mods in Discussions.
 
-[Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=2873841790)
-
 **This mod is an unofficial addition for VE.** This mod doesn't require Vanilla Outposts Expanded to work, but it highly recommended to use it, since VOE: Additional Outposts was intended as addition to it.
-
-Versions before Rimworld 1.3 wasn't tested, but might work.
 
 Supported languages: English, Russian.
 

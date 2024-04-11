@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Construction_Site"]/comps</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/WorldObjectDef[defName ="Outpost_Construction_Site"]</xpath>
+					<order>Append</order>
+					<value>
+						<comps>
+							<li Class="VOEAdditionalOutposts_RoadsOfTheRim.CompProperties_Outpost_ConstructionSite" />
+						</comps>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>Defs/WorldObjectDef[defName ="Outpost_Construction_Site"]/comps</xpath>
+					<order>Append</order>
+					<value>
+						<li Class="VOEAdditionalOutposts_RoadsOfTheRim.CompProperties_Outpost_ConstructionSite" />
+					</value>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

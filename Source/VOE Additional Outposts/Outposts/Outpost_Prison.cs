@@ -24,9 +24,7 @@ namespace VOEAdditionalOutposts
 
         [PostToSetings("VOEAdditionalOutposts.Settings.MinInteractionInterval", PostToSetingsAttribute.DrawMode.IntSlider, 10000, 5000, 60000, null, null)]
         public int MinInteractionInterval = 10000;
-#if v1_4
         private int TicksPerHemogen = 80000;
-#endif
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
 
         private List<Pawn> prisoners => base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && p.IsPrisoner).OrderBy((Pawn p) => p.guest.resistance).ToList();
@@ -37,11 +35,7 @@ namespace VOEAdditionalOutposts
 
         private string choiceType = "Recruit";
 
-        private string choiceTypeLabel => choiceType == "Work" ? "VOEAdditionalOutposts.PrisonersWork".Translate().RawText : choiceType == "Recruit" ? "VOEAdditionalOutposts.RecruitPrisoners".Translate().RawText :
-#if v1_4
-            choiceType == "Hemogen" ? "VOEAdditionalOutposts.HemogenPrisoners".Translate().RawText : 
-#endif
-            "VOEAdditionalOutposts.EnslavePrisoners".Translate().RawText;
+        private string choiceTypeLabel => choiceType == "Work" ? "VOEAdditionalOutposts.PrisonersWork".Translate().RawText : choiceType == "Recruit" ? "VOEAdditionalOutposts.RecruitPrisoners".Translate().RawText : choiceType == "Hemogen" ? "VOEAdditionalOutposts.HemogenPrisoners".Translate().RawText : "VOEAdditionalOutposts.EnslavePrisoners".Translate().RawText;
 
         MapParent RecruitMP;
         MapParent EnslaveMP;
@@ -51,10 +45,8 @@ namespace VOEAdditionalOutposts
             List<Thing> items = new List<Thing>();
             int FineSum = PaymentSilver(choiceType == "Work");
             items.AddRange(ThingDefOf.Silver.Make(FineSum));
-#if v1_4
             if (choiceType == "Hemogen")
                 items.AddRange(ThingDefOf.HemogenPack.Make(HemogenAmount()));
-#endif
             if (items.Count() > 0)
                 Deliver(items);
             else
@@ -70,12 +62,10 @@ namespace VOEAdditionalOutposts
             }
             return (int)((PerSocial * wardens.Skip(prisoners.Count()).Sum((Pawn p) => p.skills.GetSkill(SkillDefOf.Social).Level) + PrisonersWork) * OutpostsMod.Settings.ProductionMultiplier);
         }
-#if v1_4
         public int HemogenAmount()
         {
             return (TicksPerProduction / TicksPerHemogen) * prisoners.Count();
         }
-#endif
         public override void Tick()
         {
             base.Tick();
@@ -94,11 +84,7 @@ namespace VOEAdditionalOutposts
                         int interactWarden = warden.mindState.lastAssignedInteractTime;
                         if (interactWarden <= Find.TickManager.TicksGame)
                         {
-                            if (
-#if v1_4
-                        prisoner.guest.Recruitable &&
-#endif
-                        interactPrisoner <= Find.TickManager.TicksGame)
+                            if (prisoner.guest.Recruitable && interactPrisoner <= Find.TickManager.TicksGame)
                             {
                                 if (interactWarden < 0)
                                     warden.mindState.lastAssignedInteractTime = Find.TickManager.TicksGame;
@@ -122,9 +108,6 @@ namespace VOEAdditionalOutposts
                                 }
                                 else
                                 {
-#if v1_3
-                            prisoner.guest.ClearLastRecruiterData();
-#endif
                                     InteractionWorker_RecruitAttempt.DoRecruit(warden, prisoner, out letterLabel, out letterText, useAudiovisualEffects: true, sendLetter: false);
                                     if (!letterLabel.NullOrEmpty())
                                     {
@@ -205,9 +188,6 @@ namespace VOEAdditionalOutposts
                                 }
                                 else
                                 {
-#if v1_3
-                            prisoner.guest.ClearLastRecruiterData();
-#endif
                                     QuestUtility.SendQuestTargetSignals(prisoner.questTags, "Enslaved", prisoner.Named("SUBJECT"));
                                     GenGuest.EnslavePrisoner(warden, prisoner);
                                     letterLabel = "LetterLabelEnslavementSuccess".Translate() + ": " + prisoner.LabelCap;
@@ -285,7 +265,6 @@ namespace VOEAdditionalOutposts
                             choiceType = "Enslave";
                         }, ContentFinder<Texture2D>.Get("Icons/BorderPostImprison"), ColorLibrary.Orange));
                     }
-#if v1_4
                     if (ModsConfig.BiotechActive)
                     {
                         FMO.Add(new FloatMenuOption("VOEAdditionalOutposts.HemogenPrisoners".Translate().RawText + ": " + "VOEAdditionalOutposts.Hemogen".Translate(HemogenAmount().ToString()).RawText + " + " + "VOEAdditionalOutposts.Silver".Translate(PaymentSilver().ToString()).RawText, delegate
@@ -293,16 +272,11 @@ namespace VOEAdditionalOutposts
                             choiceType = "Hemogen";
                         }, ThingDefOf.HemogenPack));
                     }
-#endif
                     Find.WindowStack.Add(new FloatMenu(FMO));
                 },
                 defaultLabel = choiceTypeLabel,
                 defaultDesc = ChooseExt.ChooseDesc,
-                icon = choiceType == "Work" ? ThingDefOf.Silver.uiIcon :
-#if v1_4
-                choiceType == "Hemogen" ? ThingDefOf.HemogenPack.uiIcon :
-#endif
-                TexOutposts.ImprisonTex,
+                icon = choiceType == "Work" ? ThingDefOf.Silver.uiIcon : choiceType == "Hemogen" ? ThingDefOf.HemogenPack.uiIcon : TexOutposts.ImprisonTex,
                 defaultIconColor = choiceType == "Enslave" ? ColorLibrary.Orange : Color.white
             };
             yield return new Command_Action
@@ -408,11 +382,7 @@ namespace VOEAdditionalOutposts
             {
                 return "";
             }
-            return "VOEAdditionalOutposts.WillWarden".Translate(wardens.Count(), prisoners.Count(), choiceTypeLabel, TimeTillProduction, "VOEAdditionalOutposts.Silver".Translate(PaymentSilver(choiceType == "Work").ToString()).RawText
-#if v1_4
-                + ((choiceType == "Hemogen") ? "\n" + "VOEAdditionalOutposts.Hemogen".Translate(HemogenAmount().ToString()).RawText : "")
-#endif
-                ).RawText;
+            return "VOEAdditionalOutposts.WillWarden".Translate(wardens.Count(), prisoners.Count(), choiceTypeLabel, TimeTillProduction, "VOEAdditionalOutposts.Silver".Translate(PaymentSilver(choiceType == "Work").ToString()).RawText + ((choiceType == "Hemogen") ? "\n" + "VOEAdditionalOutposts.Hemogen".Translate(HemogenAmount().ToString()).RawText : "")).RawText;
         }
     }
 }

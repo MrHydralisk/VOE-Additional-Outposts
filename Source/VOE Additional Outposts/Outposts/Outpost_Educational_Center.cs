@@ -1,5 +1,4 @@
-﻿#if v1_4
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Outposts;
@@ -112,4 +111,3 @@ namespace VOEAdditionalOutposts
         }
     }
 }
-#endif
