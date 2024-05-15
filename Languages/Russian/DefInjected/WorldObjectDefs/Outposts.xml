@@ -37,10 +37,10 @@
   <Outpost_Prison.description>Размещает временный автономный лагерь, который специализируется на содержании заключенных и их реабилитации. Получает выплаты серебром за содержание заключенных из других фракций. Может заставить работать, вербовать или обратить в рабство заключенных колонии. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Prison.description>
   <Outpost_Prison.modExtensions.0.ChooseDesc>Выберите что делать с заключёнными</Outpost_Prison.modExtensions.0.ChooseDesc>
 
-  <Outpost_Embassy.label>ранчо</Outpost_Embassy.label>
-  <Outpost_Embassy.description>Размещает временный автономный лагерь, специализирующийся на разведении скота и сборе их продукции. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Embassy.description>
-  <Outpost_Embassy.modExtensions.0.ChooseLabel>Добавить животное</Outpost_Embassy.modExtensions.0.ChooseLabel>
-  <Outpost_Embassy.modExtensions.0.ChooseDesc>Переместить животное на постоянное содержание</Outpost_Embassy.modExtensions.0.ChooseDesc>
+  <Outpost_Ranch.label>ранчо</Outpost_Ranch.label>
+  <Outpost_Ranch.description>Размещает временный автономный лагерь, специализирующийся на разведении скота и сборе их продукции. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Ranch.description>
+  <Outpost_Ranch.modExtensions.0.ChooseLabel>Добавить животное</Outpost_Ranch.modExtensions.0.ChooseLabel>
+  <Outpost_Ranch.modExtensions.0.ChooseDesc>Переместить животное на постоянное содержание</Outpost_Ranch.modExtensions.0.ChooseDesc>
 
   <Outpost_Bank.label>банк</Outpost_Bank.label>
   <Outpost_Bank.description>Размещает временный автономный лагерь, который специализируется на предоставлении клиентам удобной и безопасной среды для их финансовых транзакций. Требует вклад серебра или золота для работы. Получает процент со вкладов благодаря предоставлению кредитов другим фракция, налогам на денежные переводы и хранению ценностей. Как только будет собрано достаточное количество, доставка будет произведена на окраину основной колонии фракции.</Outpost_Bank.description>
