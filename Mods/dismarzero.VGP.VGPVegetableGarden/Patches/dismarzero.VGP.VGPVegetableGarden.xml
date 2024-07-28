@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/WorldObjectDef[defName ="Outpost_Restaurant"]/modExtensions/li[@Class="VOEAdditionalOutposts.OutpostExtension_ChooseFloat"]/ResultOptions</xpath>
+				<value>
+					<li>
+						<Thing>Cuptea</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>14</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VG_BarleyTea</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>14</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>Coffee</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>14</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>Fruitdrink</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>16</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>Chocomilk</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>7.5</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>bowlstew</Thing>
+						<MinSkills>
+							<Cooking>32</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>5</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>stirfry</Thing>
+						<MinSkills>
+							<Cooking>16</Cooking>
+						</MinSkills>
+						<AmountsPerSkills>
+							<Cooking>5.6</Cooking>
+						</AmountsPerSkills>
+					</li>
+					<li>
+						<Thing>VG_Hardtack</Thing>
+						<AmountsPerSkills>
+							<Cooking>120</Cooking>
+						</AmountsPerSkills>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	
+</Patch>
