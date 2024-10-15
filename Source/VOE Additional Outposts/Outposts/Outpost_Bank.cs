@@ -60,7 +60,7 @@ namespace VOEAdditionalOutposts
             if (Silver > 0)
             {
                 Messages.Message("VOEAdditionalOutposts.BankInterestMsg".Translate(Name, ThingDefOf.Silver.label, Silver.ToString("F0")), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
-                if (last || SilverMP == null)
+                if (SilverMP == null)
                 {
                     SilverDeposit += CanAddToSilverDeposit(Silver);
                 }
@@ -88,7 +88,7 @@ namespace VOEAdditionalOutposts
             if (Gold > 0)
             {
                 Messages.Message("VOEAdditionalOutposts.BankInterestMsg".Translate(Name, ThingDefOf.Gold.label, Gold.ToString("F0")), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
-                if (last || GoldMP == null)
+                if (GoldMP == null)
                 {
                     GoldDeposit += CanAddToGoldDeposit(Gold);
                 }
@@ -323,6 +323,32 @@ namespace VOEAdditionalOutposts
                 {
                     yield return gizmo;
                 }
+            }
+            if (DebugSettings.ShowDevGizmos)
+            {
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        List<FloatMenuOption> options = new List<FloatMenuOption>();
+
+                        FloatMenuOption fmo1 = new FloatMenuOption("Silver", delegate
+                        {
+                            ticksTillSilverDepositEnd = 1;
+                        }, ThingDefOf.Silver);
+                        options.Add(fmo1);
+
+                        FloatMenuOption fmo2 = new FloatMenuOption("Gold", delegate
+                        {
+                            ticksTillGoldDepositEnd = 1;
+                        }, ThingDefOf.Gold);
+                        options.Add(fmo2);
+
+                        Find.WindowStack.Add(new FloatMenu(options));
+                    },
+                    defaultLabel = "Dev: 0 the timers",
+                    defaultDesc = "Skip the timer"
+                };
             }
         }
 
