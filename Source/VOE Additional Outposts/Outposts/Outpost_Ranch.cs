@@ -45,7 +45,7 @@ namespace VOEAdditionalOutposts
 
         private ThingDef animalThingDef;
 
-        private bool iSEggLayer => animalThingDef.HasComp(typeof(CompEggLayer));
+        private bool iSEggLayer => animalThingDef.HasComp<CompEggLayer>();
 
         private int animalCount = 1;
 
@@ -155,7 +155,7 @@ namespace VOEAdditionalOutposts
                     }
 
                 }
-                if (animalThingDef.HasComp(typeof(CompEggLayer)))
+                if (iSEggLayer)
                 {
                     CompProperties_EggLayer CP_EggLayer = animalThingDef.GetCompProperties<CompProperties_EggLayer>();
                     ResultOption ro = new ResultOption();
