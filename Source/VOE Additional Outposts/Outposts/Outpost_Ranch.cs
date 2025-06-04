@@ -286,7 +286,7 @@ namespace VOEAdditionalOutposts
                     Disabled = AllPawns.Count((Pawn p) => p.def == animalThingDef) <= 0,
                     disabledReason = "VOEAdditionalOutposts.ChooseDisabledReason".Translate(animalThingDef.label)
                 };
-            if (Prefs.DevMode)
+            if (DebugSettings.ShowDevGizmos)
                 yield return new Command_Action
                 {
                     action = delegate
