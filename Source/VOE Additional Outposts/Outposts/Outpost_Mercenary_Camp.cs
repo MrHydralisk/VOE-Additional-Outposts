@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Outposts;
 using RimWorld;
-using Outposts;
-using Verse;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Verse;
 
 namespace VOEAdditionalOutposts
 {
@@ -83,7 +83,7 @@ namespace VOEAdditionalOutposts
                                 MinorInjury++;
                     }
                 }
-                foreach(Pawn pawn in DeadPawns)
+                foreach (Pawn pawn in DeadPawns)
                 {
                     RemovePawn(pawn);
                 }

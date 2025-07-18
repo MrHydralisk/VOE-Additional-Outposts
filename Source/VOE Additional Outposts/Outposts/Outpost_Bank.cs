@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Outposts;
 using RimWorld;
-using Outposts;
-using Verse;
-using UnityEngine;
 using RimWorld.Planet;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
 
 namespace VOEAdditionalOutposts
 {
@@ -25,7 +25,7 @@ namespace VOEAdditionalOutposts
         protected OutpostExtension_Choose ChooseExt => base.Ext as OutpostExtension_Choose;
         public OutpistExtension_Choose_Deposit DepositExt => DepositExtCached ?? (DepositExtCached = def.GetModExtension<OutpistExtension_Choose_Deposit>());
 
-	    private OutpistExtension_Choose_Deposit DepositExtCached;
+        private OutpistExtension_Choose_Deposit DepositExtCached;
 
         public int ticksPerSeason => 900000;
         public int MaxDepositWealth => TotalSkill(SkillDefOf.Social) * PerSocial;

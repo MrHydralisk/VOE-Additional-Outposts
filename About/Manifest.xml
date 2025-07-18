@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
-  <identifier>MrHydralisk.VOEAdditionalOutposts</identifier>
-  <version>1.12.2.1</version>
-  <dependencies>
-	  <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
-  </dependencies>
-  <suggests>
-    <li>vanillaexpanded.outposts</li>
-    <li>MrHydralisk.SkilledRefueling</li>
-    <li>MrHydralisk.SkilledSlaughtering</li>
-    <li>MrHydralisk.PawnSuppressionImplants</li>
-    <li>MrHydralisk.VOEPowerGrid</li>
-    <li>MrHydralisk.VOEDeliveryLogistics</li>
-    <li>MrHydralisk.UndergroundVault</li>
-  </suggests>
-  <showCrossPromotions>true</showCrossPromotions>
+	<identifier>MrHydralisk.VOEAdditionalOutposts</identifier>
+	<version>1.13.0.0</version>
+	<dependencies>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+	</dependencies>
+	<suggests>
+		<li>vanillaexpanded.outposts</li>
+		<li>MrHydralisk.SkilledRefueling</li>
+		<li>MrHydralisk.SkilledSlaughtering</li>
+		<li>MrHydralisk.PawnSuppressionImplants</li>
+		<li>MrHydralisk.VOEPowerGrid</li>
+		<li>MrHydralisk.VOEDeliveryLogistics</li>
+		<li>MrHydralisk.UndergroundVault</li>
+		<li>MrHydralisk.AnomaliesExpected</li>
+	</suggests>
+	<showCrossPromotions>true</showCrossPromotions>
 </Manifest>

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace VOEAdditionalOutposts
+﻿namespace VOEAdditionalOutposts
 {
     public class ResultDepositOption
     {

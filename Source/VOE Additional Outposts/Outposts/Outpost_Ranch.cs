@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Outposts;
 using RimWorld;
-using Outposts;
-using Verse;
-using UnityEngine;
 using RimWorld.Planet;
-using AnimalBehaviours;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using VEF.AnimalBehaviours;
+using Verse;
 
 namespace VOEAdditionalOutposts
 {
@@ -144,7 +144,7 @@ namespace VOEAdditionalOutposts
                         else
                         {
                             var result = animalThingDef.race.body.AllParts.Where((BodyPartRecord bpr) => bpr.groups.Any((BodyPartGroupDef bpgd) => bpgd == lifeStage.butcherBodyPart.bodyPartGroup)).GroupBy((BodyPartRecord bpr) => bpr.def).Select(c => new { Def = c.Key, Total = c.Count() });
-                            foreach(var t in result)
+                            foreach (var t in result)
                             {
                                 ro.Thing = t.Def.spawnThingOnRemoved;
                                 ro.BaseAmount = (int)(t.Total * ((lifeStage.butcherBodyPart.allowFemale ? FemaleAnimalPercent : 0) + (lifeStage.butcherBodyPart.allowMale ? (1 - FemaleAnimalPercent) : 0)) * animalSlaughtered * ButcherScale * DropOnDeathMultiplier * OutpostsMod.Settings.ProductionMultiplier);
@@ -314,7 +314,7 @@ namespace VOEAdditionalOutposts
             if (animalThingDef != null)
                 productionString += "VOEAdditionalOutposts.WillHandleAnimals".Translate(animalThingDef.label, animalCount.ToStringSafe(), animalMax.ToStringSafe(), ticksTillBirth.ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor)).RawText;
             productionString += base.ProductionString();
-            return  productionString;
+            return productionString;
         }
 
         private static ThingDef FindPairAnimal(List<Pawn> pawns)

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -45,7 +45,7 @@ namespace VOEAdditionalOutposts
                 Rect rect = new Rect(0f, curY, scrollViewRect.width, 28f);
                 GUI.color = Color.white;
                 Text.Anchor = TextAnchor.LowerCenter;
-                Widgets.Label(new Rect(rect.x + rect.width - 72f, rect.y + (rect.height - 24f) / 2f, 72f, 24f), "VOEAdditionalOutposts.Efficiency".Translate());    
+                Widgets.Label(new Rect(rect.x + rect.width - 72f, rect.y + (rect.height - 24f) / 2f, 72f, 24f), "VOEAdditionalOutposts.Efficiency".Translate());
                 GUI.color = Widgets.SeparatorLineColor;
                 Widgets.DrawLineVertical(rect.x + rect.width - 74f, rect.y + (rect.height - 24f) / 2f, 24f);
                 GUI.color = Color.white;
@@ -153,7 +153,7 @@ namespace VOEAdditionalOutposts
             }
             else
             {
-                taggedString += ("ProgressToNextGrowthTier".Translate() + ": ").AsTipTitle() + Mathf.FloorToInt(child.ageTracker.growthPoints).ToString() + " / " + GrowthUtility.GrowthTierPointsRequirements[tier + 1];
+                taggedString += ("ProgressToNextGrowthTier".Translate() + ": ").AsTipTitle() + Mathf.FloorToInt(child.ageTracker.growthPoints).ToString() + " / " + GrowthUtility.GrowthTiers[tier + 1].pointsRequirement;
                 if (child.ageTracker.canGainGrowthPoints)
                 {
                     taggedString += string.Format(" (+{0})", "PerDay".Translate(child.ageTracker.GrowthPointsPerDay.ToStringByStyle(ToStringStyle.FloatMaxTwo)));
@@ -172,20 +172,22 @@ namespace VOEAdditionalOutposts
                 }
                 taggedString += "\n\n" + ("NextGrowthMomentAt".Translate() + ": ").AsTipTitle() + num;
             }
+            GrowthUtility.GrowthTier growthTier = GrowthUtility.GrowthTiers[tier];
             taggedString += "\n\n" + ("ThisGrowthTier".Translate(tier) + ":").AsTipTitle();
-            if (GrowthUtility.PassionGainsPerTier[tier] > 0)
+            if (growthTier.passionGainsRange.TrueMax > 0)
             {
-                taggedString += "\n  - " + "NumPassionsFromOptions".Translate(GrowthUtility.PassionGainsPerTier[tier], GrowthUtility.PassionChoicesPerTier[tier]);
+                taggedString += "\n  - " + "NumPassionsFromOptions".Translate(growthTier.passionGainsRange.ToString(), growthTier.passionChoices);
             }
-            taggedString += "\n  - " + "NumTraitsFromOptions".Translate(GrowthUtility.TraitGainsPerTier[tier], GrowthUtility.TraitChoicesPerTier[tier]);
+            taggedString += "\n  - " + "NumTraitsFromOptions".Translate(growthTier.traitGains, growthTier.traitChoices);
             if (!child.ageTracker.AtMaxGrowthTier)
             {
+                GrowthUtility.GrowthTier growthTier2 = GrowthUtility.GrowthTiers[tier + 1];
                 taggedString += "\n\n" + ("NextGrowthTier".Translate(tier + 1) + ":").AsTipTitle();
-                if (GrowthUtility.PassionGainsPerTier[tier + 1] > 0)
+                if (growthTier2.passionGainsRange.TrueMax > 0)
                 {
-                    taggedString += "\n  - " + "NumPassionsFromOptions".Translate(GrowthUtility.PassionGainsPerTier[tier + 1], GrowthUtility.PassionChoicesPerTier[tier + 1]);
+                    taggedString += "\n  - " + "NumPassionsFromOptions".Translate(growthTier2.passionGainsRange.ToString(), growthTier2.passionChoices);
                 }
-                taggedString += "\n  - " + "NumTraitsFromOptions".Translate(GrowthUtility.TraitGainsPerTier[tier + 1], GrowthUtility.TraitChoicesPerTier[tier + 1]);
+                taggedString += "\n  - " + "NumTraitsFromOptions".Translate(growthTier2.traitGains, growthTier2.traitChoices);
             }
             return taggedString.Resolve();
         }

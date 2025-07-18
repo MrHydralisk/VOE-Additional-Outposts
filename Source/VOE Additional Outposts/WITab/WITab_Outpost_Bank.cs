@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Outposts;
+﻿using Outposts;
 using RimWorld;
 using RimWorld.Planet;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -64,7 +64,7 @@ namespace VOEAdditionalOutposts
                     {
                         SelBank.SilverMP = null;
                     },
-                    itemIcon: SelBank.ExpandingIcon,
+                    iconTex: SelBank.ExpandingIcon,
                     iconColor: SelBank.ExpandingIconColor));
                     foreach (Map map in from m in Find.Maps
                                         where m.IsPlayerHome
@@ -75,7 +75,7 @@ namespace VOEAdditionalOutposts
                         {
                             SelBank.SilverMP = map.Parent;
                         },
-                        itemIcon: map.Parent.ExpandingIcon,
+                        iconTex: map.Parent.ExpandingIcon,
                         iconColor: map.Parent.ExpandingIconColor));
                     }
                     foreach (MapParent mapParent in from m in Find.WorldObjects.AllWorldObjects.OfType<Outpost>()
@@ -87,7 +87,7 @@ namespace VOEAdditionalOutposts
                         {
                             SelBank.SilverMP = mapParent;
                         },
-                        itemIcon: mapParent.ExpandingIcon,
+                        iconTex: mapParent.ExpandingIcon,
                         iconColor: mapParent.ExpandingIconColor));
                     }
                     Find.WindowStack.Add(new FloatMenu(list));
@@ -189,7 +189,7 @@ namespace VOEAdditionalOutposts
                     {
                         SelBank.GoldMP = null;
                     },
-                    itemIcon: SelBank.ExpandingIcon,
+                    iconTex: SelBank.ExpandingIcon,
                     iconColor: SelBank.ExpandingIconColor));
                     foreach (Map map in from m in Find.Maps
                                         where m.IsPlayerHome
@@ -200,7 +200,7 @@ namespace VOEAdditionalOutposts
                         {
                             SelBank.GoldMP = map.Parent;
                         },
-                        itemIcon: map.Parent.ExpandingIcon,
+                        iconTex: map.Parent.ExpandingIcon,
                         iconColor: map.Parent.ExpandingIconColor));
                     }
                     foreach (MapParent mapParent in from m in Find.WorldObjects.AllWorldObjects.OfType<Outpost>()
@@ -212,7 +212,7 @@ namespace VOEAdditionalOutposts
                         {
                             SelBank.GoldMP = mapParent;
                         },
-                        itemIcon: mapParent.ExpandingIcon,
+                        iconTex: mapParent.ExpandingIcon,
                         iconColor: mapParent.ExpandingIconColor));
                     }
                     Find.WindowStack.Add(new FloatMenu(list));

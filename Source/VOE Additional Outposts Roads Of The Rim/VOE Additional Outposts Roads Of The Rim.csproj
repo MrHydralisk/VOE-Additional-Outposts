@@ -49,17 +49,26 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.6|AnyCPU'">
+    <OutputPath>bin\1.6\</OutputPath>
+    <DefineConstants>TRACE;v1_6</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Outposts">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2023507013\1.5\Assemblies\Outposts.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\Outposts.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RoadsOfTheRim">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2280318231\1.5\Assemblies\RoadsOfTheRim.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2280318231\1.6\Assemblies\RoadsOfTheRim.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -69,7 +78,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="VFECore">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2023507013\1.5\Assemblies\VFECore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2023507013\1.6\Assemblies\VFECore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VOE Additional Outposts">

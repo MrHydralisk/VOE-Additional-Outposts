@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Outposts;
 using RimWorld;
-using Outposts;
-using Verse;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Verse;
 
 namespace VOEAdditionalOutposts
 {
@@ -59,7 +59,7 @@ namespace VOEAdditionalOutposts
                         return new FloatMenuOption("VOEAdditionalOutposts.NegotiateWith".Translate(NegotiationGoodwill(f).ToString(), f.Name).RawText, delegate
                         {
                             choiceFaction = f;
-                        }, itemIcon: f.def.FactionIcon, iconColor: f.def.DefaultColor);
+                        }, iconTex: f.def.FactionIcon, iconColor: f.def.DefaultColor);
                     })
                         .ToList()));
                 },

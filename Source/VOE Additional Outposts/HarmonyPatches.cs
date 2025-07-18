@@ -1,10 +1,10 @@
 ﻿using HarmonyLib;
+using Outposts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Verse;
-using Outposts;
 using System.Reflection;
+using Verse;
 
 namespace VOEAdditionalOutposts
 {

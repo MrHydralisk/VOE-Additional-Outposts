@@ -1,8 +1,7 @@
 ﻿using HarmonyLib;
 using System;
-using Verse;
 using System.Reflection;
-using RoadsOfTheRim;
+using Verse;
 
 namespace VOEAdditionalOutposts_RoadsOfTheRim
 {
@@ -20,7 +19,7 @@ namespace VOEAdditionalOutposts_RoadsOfTheRim
         }
         public static bool RotR_FinaliseConstructionSite_Prefix(RoadConstructionSite site, RoadsOfTheRim.RoadsOfTheRim __instance)
         {
-            if (RoadsOfTheRim.RoadsOfTheRim.RoadBuildingState.Caravan  == null)
+            if (RoadsOfTheRim.RoadsOfTheRim.RoadBuildingState.Caravan == null)
             {
                 if (site.GetNextLeg() != null)
                 {

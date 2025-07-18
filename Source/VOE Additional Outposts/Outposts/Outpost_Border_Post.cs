@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Outposts;
+using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using RimWorld;
-using Outposts;
-using Verse;
 using UnityEngine;
+using Verse;
 
 namespace VOEAdditionalOutposts
 {
@@ -31,7 +31,7 @@ namespace VOEAdditionalOutposts
         {
             switch (choiceType)
             {
-                case("Fine"):
+                case ("Fine"):
                     {
                         int FineSum = 0;
                         foreach (Pawn p in CapablePawns.ToList())
@@ -47,7 +47,7 @@ namespace VOEAdditionalOutposts
                             Find.LetterStack.ReceiveLetter("VOEAdditionalOutposts.Letters.PatrolFail.Label".Translate(Name), "VOEAdditionalOutposts.Letters.PatrolFail.Text".Translate(Name), LetterDefOf.NeutralEvent);
                         break;
                     }
-                case("Imprison"):
+                case ("Imprison"):
                     {
                         List<Pawn> Prisoners = new List<Pawn>();
                         foreach (Pawn p in CapablePawns.ToList())
@@ -78,7 +78,7 @@ namespace VOEAdditionalOutposts
                                 Prisoners.Add(prisoner);
                             }
                         }
-                        
+
                         if (Prisoners.Count() > 0)
                             Deliver(Prisoners);
                         else
@@ -131,7 +131,7 @@ namespace VOEAdditionalOutposts
             base.ExposeData();
             Scribe_Values.Look(ref choiceType, "choiceType");
         }
-        
+
         public override string ProductionString()
         {
             if (Ext == null || choiceType == null)
@@ -143,7 +143,7 @@ namespace VOEAdditionalOutposts
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
         {
-            return (Find.WorldGrid[tile].Roads.NullOrEmpty()) ? "VOEAdditionalOutposts.MustBeMade.Road".Translate() : (Find.WorldObjects.AllWorldObjects.OfType<Outpost_Border_Post>().Count((Outpost_Border_Post s) => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 6f) > 0)? "VOEAdditionalOutposts.MustBeMade.FarFromSame".Translate(6) : ((TaggedString)null);
+            return (Find.WorldGrid[tile].Roads.NullOrEmpty()) ? "VOEAdditionalOutposts.MustBeMade.Road".Translate() : (Find.WorldObjects.AllWorldObjects.OfType<Outpost_Border_Post>().Count((Outpost_Border_Post s) => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 6f) > 0) ? "VOEAdditionalOutposts.MustBeMade.FarFromSame".Translate(6) : ((TaggedString)null);
         }
 
         public static string RequirementsString(int tile, List<Pawn> pawns)

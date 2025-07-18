@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Outposts;
 using RimWorld;
 using RimWorld.Planet;
-using RoadsOfTheRim;
-using Verse;
-using UnityEngine;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using Outposts;
+using UnityEngine;
+using Verse;
 
 namespace VOEAdditionalOutposts_RoadsOfTheRim
 {

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Outposts;
 using RimWorld;
-using Outposts;
-using Verse;
-using UnityEngine;
 using RimWorld.Planet;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
 
 namespace VOEAdditionalOutposts
 {
@@ -173,7 +173,7 @@ namespace VOEAdditionalOutposts
                         return new FloatMenuOption("VOEAdditionalOutposts.SpreadIdeology".Translate(base.AllPawns.Where((Pawn p) => !p.Dead && p.RaceProps.Humanlike && !p.IsPrisoner && p.Ideo == ideo).Count(), ideo.name).RawText + " + " + "VOEAdditionalOutposts.Silver".Translate(PaymentSilver(ideo)).RawText, delegate
                         {
                             ChooseIdeologyCached = ideo;
-                        }, itemIcon: ideo.iconDef.Icon, iconColor: ideo.colorDef.color);
+                        }, iconTex: ideo.iconDef.Icon, iconColor: ideo.colorDef.color);
                     })
                         .ToList()));
                 },
@@ -191,7 +191,7 @@ namespace VOEAdditionalOutposts
                     {
                         ConversionMP = null;
                     },
-                    itemIcon: this.ExpandingIcon,
+                    iconTex: this.ExpandingIcon,
                     iconColor: this.ExpandingIconColor));
                     foreach (Map map in from m in Find.Maps
                                         where m.IsPlayerHome
@@ -202,7 +202,7 @@ namespace VOEAdditionalOutposts
                         {
                             ConversionMP = map.Parent;
                         },
-                        itemIcon: map.Parent.ExpandingIcon,
+                        iconTex: map.Parent.ExpandingIcon,
                         iconColor: map.Parent.ExpandingIconColor));
                     }
                     foreach (MapParent mapParent in from m in Find.WorldObjects.AllWorldObjects.OfType<Outpost>()
@@ -214,7 +214,7 @@ namespace VOEAdditionalOutposts
                         {
                             ConversionMP = mapParent;
                         },
-                        itemIcon: mapParent.ExpandingIcon,
+                        iconTex: mapParent.ExpandingIcon,
                         iconColor: mapParent.ExpandingIconColor));
                     }
                     Find.WindowStack.Add(new FloatMenu(list));
@@ -232,7 +232,7 @@ namespace VOEAdditionalOutposts
             Scribe_References.Look(ref ChooseIdeologyCached, "ChooseIdeologyCached");
             Scribe_References.Look(ref ConversionMP, "ConversionMP");
         }
-        
+
         public override string ProductionString()
         {
             if (Ext == null || ChooseIdeology == null)
