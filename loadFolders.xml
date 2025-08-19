@@ -27,7 +27,7 @@
 		<li IfModActive="Ludeon.RimWorld.Biotech">Mods/Biotech</li>
 		<li IfModActive="MrHydralisk.GlitterworldMedicineProduction">Mods/MrHydralisk.GlitterworldMedicineProduction</li>
 		<li IfModActive="MrHydralisk.NeutroamineProduction">Mods/MrHydralisk.NeutroamineProduction</li>
-		<li IfModActive="Mlie.RoadsOfTheRim">Mods/Mlie.RoadsOfTheRim</li>
+		<li IfModActive="Mlie.RoadsOfTheRim">1.5/Mods/Mlie.RoadsOfTheRim</li>
 		<li IfModActive="VanillaExpanded.VCookE">Mods/VanillaExpanded.VCookE</li>
 		<li IfModActive="VanillaExpanded.VCookESushi">Mods/VanillaExpanded.VCookESushi</li>
 		<li IfModActive="VanillaExpanded.VBrewE">Mods/VanillaExpanded.VBrewE</li>
@@ -46,7 +46,7 @@
 		<li IfModActive="Ludeon.RimWorld.Biotech">Mods/Biotech</li>
 		<li IfModActive="MrHydralisk.GlitterworldMedicineProduction">Mods/MrHydralisk.GlitterworldMedicineProduction</li>
 		<li IfModActive="MrHydralisk.NeutroamineProduction">Mods/MrHydralisk.NeutroamineProduction</li>
-		<!-- <li IfModActive="Mlie.RoadsOfTheRim">Mods/Mlie.RoadsOfTheRim</li> -->
+		<li IfModActive="Mlie.RoadsOfTheRim">Mods/Mlie.RoadsOfTheRim</li>
 		<li IfModActive="VanillaExpanded.VCookE">Mods/VanillaExpanded.VCookE</li>
 		<li IfModActive="VanillaExpanded.VCookESushi">Mods/VanillaExpanded.VCookESushi</li>
 		<li IfModActive="VanillaExpanded.VBrewE">Mods/VanillaExpanded.VBrewE</li>

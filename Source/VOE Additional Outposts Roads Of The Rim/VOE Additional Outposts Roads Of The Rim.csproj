@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.4|AnyCPU'">
-    <OutputPath>..\..\Mods\Mlie.RoadsOfTheRim\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.4\Mods\Mlie.RoadsOfTheRim\Assemblies\</OutputPath>
     <DefineConstants>TRACE;v1_4</DefineConstants>
     <Optimize>true</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,7 +41,7 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.5|AnyCPU'">
-    <OutputPath>bin\1.5\</OutputPath>
+    <OutputPath>..\..\1.5\Mods\Mlie.RoadsOfTheRim\Assemblies\</OutputPath>
     <DefineConstants>TRACE;v1_4</DefineConstants>
     <Optimize>true</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,7 +50,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.6|AnyCPU'">
-    <OutputPath>bin\1.6\</OutputPath>
+    <OutputPath>..\..\Mods\Mlie.RoadsOfTheRim\Assemblies\</OutputPath>
     <DefineConstants>TRACE;v1_6</DefineConstants>
     <Optimize>true</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -82,7 +82,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="VOE Additional Outposts">
-      <HintPath>..\..\1.4\Assemblies\VOE Additional Outposts.dll</HintPath>
+      <HintPath>..\..\1.6\Assemblies\VOE Additional Outposts.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -94,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.5.4061</Version>
+      <Version>1.6.4543</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

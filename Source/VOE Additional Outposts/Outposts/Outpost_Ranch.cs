@@ -362,12 +362,12 @@ namespace VOEAdditionalOutposts
             (AllPawns as List<Pawn>).RemoveAll((Pawn p) => p.def == animalThingDef);
         }
 
-        public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
+        public static string CanSpawnOnWith(PlanetTile tile, List<Pawn> pawns)
         {
             return (FindPairAnimal(Find.WorldObjects.Caravans.Where((Caravan c) => c.Tile == tile && c.IsPlayerControlled && c.ContainsPawn(pawns.FirstOrDefault())).FirstOrDefault().PawnsListForReading) == null ? "VOEAdditionalOutposts.MustBeMade.PairAnimal".Translate() : ((TaggedString)null));
         }
 
-        public static string RequirementsString(int tile, List<Pawn> pawns)
+        public static string RequirementsString(PlanetTile tile, List<Pawn> pawns)
         {
             return "VOEAdditionalOutposts.MustBeMade.PairAnimal".Translate().Requirement(FindPairAnimal(Find.WorldObjects.Caravans.Where((Caravan c) => c.Tile == tile && c.IsPlayerControlled && c.ContainsPawn(pawns.FirstOrDefault())).FirstOrDefault().PawnsListForReading) == null);
         }
