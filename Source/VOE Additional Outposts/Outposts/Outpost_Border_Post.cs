@@ -144,7 +144,7 @@ namespace VOEAdditionalOutposts
 
         public static string CanSpawnOnWith(PlanetTile tile, List<Pawn> pawns)
         {
-            if (Find.WorldGrid[tile].Isnt<SurfaceTile>(out var casted) || casted.Roads.NullOrEmpty())
+            if (Find.WorldGrid[tile].Isnt<SurfaceTile>(out var surfaceTile) || surfaceTile.Roads.NullOrEmpty())
             {
                 return "VOEAdditionalOutposts.MustBeMade.Road".Translate();
             }
@@ -158,7 +158,7 @@ namespace VOEAdditionalOutposts
         public static string RequirementsString(PlanetTile tile, List<Pawn> pawns)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("VOEAdditionalOutposts.MustBeMade.Road".Translate().Requirement(Find.WorldGrid[tile].Isnt<SurfaceTile>(out var casted) || casted.Roads.NullOrEmpty()));
+            stringBuilder.AppendLine("VOEAdditionalOutposts.MustBeMade.Road".Translate().Requirement(Find.WorldGrid[tile] is SurfaceTile surfaceTile && !surfaceTile.Roads.NullOrEmpty()));
             stringBuilder.AppendLine("VOEAdditionalOutposts.MustBeMade.FarFromSame".Translate(6).Requirement(Find.WorldObjects.AllWorldObjects.OfType<Outpost_Border_Post>().Count((Outpost_Border_Post s) => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 6f) > 0));
             return stringBuilder.ToString();
         }

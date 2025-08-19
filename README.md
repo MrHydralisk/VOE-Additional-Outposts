@@ -24,6 +24,7 @@ Mod add few new outpost types to complement Vanilla Outposts Expanded. New outpo
 ![Text](/Mod%20Page/Images/Outposts/Ranch.png)
 ![Text](/Mod%20Page/Images/Outposts/Educational%20Center.png)
 ![Text](/Mod%20Page/Images/Outposts/Bank.png)
+![Text](/Mod%20Page/Images/Outposts/Fishing.png)
 
 ### Outpost QoL
 

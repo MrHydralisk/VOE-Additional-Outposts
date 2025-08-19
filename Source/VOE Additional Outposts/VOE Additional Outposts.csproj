@@ -95,6 +95,7 @@
     <Compile Include="AmountByCombinedSkills.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HistoryEventDefOfLocal.cs" />
+    <Compile Include="Outposts\Outpost_Fishing.cs" />
     <Compile Include="Outpost_Extension\OutpistExtension_Choose_Deposit.cs" />
     <Compile Include="Outpost_Extension\OutpostExtension_ChooseFloat.cs" />
     <Compile Include="Outpost_Extension\OutpistExtension_Choose_Mission.cs" />

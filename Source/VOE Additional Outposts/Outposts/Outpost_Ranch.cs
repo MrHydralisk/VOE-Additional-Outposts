@@ -369,7 +369,7 @@ namespace VOEAdditionalOutposts
 
         public static string RequirementsString(PlanetTile tile, List<Pawn> pawns)
         {
-            return "VOEAdditionalOutposts.MustBeMade.PairAnimal".Translate().Requirement(FindPairAnimal(Find.WorldObjects.Caravans.Where((Caravan c) => c.Tile == tile && c.IsPlayerControlled && c.ContainsPawn(pawns.FirstOrDefault())).FirstOrDefault().PawnsListForReading) == null);
+            return "VOEAdditionalOutposts.MustBeMade.PairAnimal".Translate().Requirement(FindPairAnimal(Find.WorldObjects.Caravans.Where((Caravan c) => c.Tile == tile && c.IsPlayerControlled && c.ContainsPawn(pawns.FirstOrDefault())).FirstOrDefault().PawnsListForReading) != null);
         }
     }
 }

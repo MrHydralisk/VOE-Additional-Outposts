@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<WorldObjectDef ParentName="OutpostBase">
+		<defName>OutpostAO_Fishing</defName>
+		<label>fishing outpost</label>
+		<description>Places a temporary, autonomously-led camp that specializes in the catching of fish from nearby coasts and rivers. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+		<worldObjectClass>VOEAdditionalOutposts.Outpost_Fishing</worldObjectClass>
+		<expandingIconTexture>WorldObjects/OutpostFishing</expandingIconTexture>
+		<modExtensions>
+			<li Class="Outposts.OutpostExtension">
+				<DisplaySkills>
+					<li>Animals</li>
+				</DisplaySkills>
+			</li>
+		</modExtensions>
+	</WorldObjectDef>
+
+</Defs>

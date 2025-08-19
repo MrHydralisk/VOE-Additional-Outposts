@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<VOEAdditionalOutposts.Settings.RestPercent>Процент отдыха за день</VOEAdditionalOutposts.Settings.RestPercent>
+	<VOEAdditionalOutposts.AproxFish>Будут рыбачить примерно {1} раз: {0} рыбы</VOEAdditionalOutposts.AproxFish>
+	<VOEAdditionalOutposts.AvailableFish>Доступные типы рыб:</VOEAdditionalOutposts.AvailableFish>
+</LanguageData>

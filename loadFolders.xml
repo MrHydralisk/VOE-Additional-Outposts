@@ -44,6 +44,7 @@
 	<v1.6>
 		<li IfModActive="Ludeon.RimWorld.Ideology">Mods/Ideology</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech">Mods/Biotech</li>
+		<li IfModActive="Ludeon.RimWorld.Odyssey">Mods/Odyssey</li>
 		<li IfModActive="MrHydralisk.GlitterworldMedicineProduction">Mods/MrHydralisk.GlitterworldMedicineProduction</li>
 		<li IfModActive="MrHydralisk.NeutroamineProduction">Mods/MrHydralisk.NeutroamineProduction</li>
 		<li IfModActive="Mlie.RoadsOfTheRim">Mods/Mlie.RoadsOfTheRim</li>
